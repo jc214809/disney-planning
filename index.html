@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disney Trip Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Disney Trip Planner</h1>
+  <div class="controls">
+    <div class="date-inputs">
+      <label>Start <input type="date" id="start-date"></label>
+      <label>End <input type="date" id="end-date"></label>
+      <button id="load-btn">Load</button>
+    </div>
+    <div class="park-toggles" id="park-toggles">
+      <button class="park-toggle active" data-park="Magic Kingdom">Magic Kingdom</button>
+      <button class="park-toggle active" data-park="EPCOT">EPCOT</button>
+      <button class="park-toggle active" data-park="Hollywood Studios">Hollywood Studios</button>
+      <button class="park-toggle active" data-park="Animal Kingdom">Animal Kingdom</button>
+    </div>
+  </div>
+</header>
+
+<div id="status"></div>
+
+<div id="planner"></div>
+
+<script src="api.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
