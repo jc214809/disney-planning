@@ -926,6 +926,27 @@ input[type="number"]::-webkit-inner-spin-button {
   border: 1px solid rgba(251,191,36,0.35);
 }
 
+.event-badge.festival-event {
+  color: #34d399;
+  background: rgba(52,211,153,0.08);
+  border: 1px solid rgba(52,211,153,0.25);
+}
+
+.cal-notes-row {
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid rgba(99,155,255,0.1);
+  border-bottom: 2px solid rgba(99,155,255,0.15);
+}
+
+.cal-notes-label {
+  border-bottom: none;
+}
+
+.cal-cell-notes {
+  min-height: 32px;
+}
+
 .event-badge.special-event {
   color: #fbbf24;
   background: rgba(251,191,36,0.1);

@@ -351,7 +351,22 @@ function renderPlanner(data) {
     return `<div class="cal-header-cell"><span class="cal-weekday">${weekday}</span><span class="cal-date">${mmdd}</span></div>`;
   }).join('');
 
-  const numRows = 3 + (showPremierPass ? 1 : 0);
+  const PARK_NAMES = new Set(['Magic Kingdom', 'EPCOT', 'Hollywood Studios', 'Animal Kingdom']);
+
+  // Top-level notes row: events not tied to a specific main park
+  const notesCells = dates.map(date => {
+    const evs = getEventsForDate(date).filter(ev => !PARK_NAMES.has(ev.park));
+    if (!evs.length) return `<div class="cal-cell cal-cell-notes cal-cell-empty"></div>`;
+    const badges = evs.map(ev => {
+      const price = ev.priceNote ? ` · ${ev.priceNote}` : '';
+      const cls   = ev.requiresTicket ? 'ticketed-event' : 'festival-event';
+      const icon  = ev.requiresTicket ? '🎟 ' : '🎪 ';
+      return `<span class="event-badge ${cls}">${icon}${ev.name}${price}</span>`;
+    }).join('');
+    return `<div class="cal-cell cal-cell-notes"><div class="cell-events">${badges}</div></div>`;
+  }).join('');
+
+  const numRows = 4 + (showPremierPass ? 1 : 0);
 
   const parkGroups = activeParkOrder.map(parkName => {
     const icon = PARK_ICONS[parkName] ? `<img src="${PARK_ICONS[parkName]}" alt="">` : '';
@@ -365,11 +380,11 @@ function renderPlanner(data) {
 
     const hoursCells = rowCells((d, date) => {
       if (!d) return `<div class="cal-cell cal-cell-empty"></div>`;
-      const tierOnDate    = hotelTierOnDate(date);
+      const tierOnDate     = hotelTierOnDate(date);
       const isResortOnDate = tierOnDate !== '';
       const isDeluxeOnDate = tierOnDate === 'deluxe';
-      const earlyEntry    = d.specialEvents.find(e => e.description === 'Early Entry');
-      const effectiveOpen = isResortOnDate && earlyEntry ? earlyEntry.openTime : d.openTime;
+      const earlyEntry     = d.specialEvents.find(e => e.description === 'Early Entry');
+      const effectiveOpen  = isResortOnDate && earlyEntry ? earlyEntry.openTime : d.openTime;
       const apiBadges = d.specialEvents.flatMap(e => {
         if (e.description === 'Early Entry') return [];
         if (e.description === 'Extended Evening') {
@@ -377,20 +392,26 @@ function renderPlanner(data) {
           return [`<span class="event-badge extended-evening${eligible ? ' eligible' : ''}">${eligible ? '⭐ ' : ''}Deluxe &amp; DVC Extended Hours ${formatTime(e.openTime)}–${formatTime(e.closeTime)}</span>`];
         }
         return [`<span class="event-badge special-event">After-Hours Event ${formatTime(e.openTime)}–${formatTime(e.closeTime)}</span>`];
-      });
-      const scrapedBadges = getEventsForDate(date)
-        .filter(ev => ev.park === parkName)
-        .map(ev => {
-          const adult    = ev.priceAdult != null ? `$${ev.priceAdult.toFixed(2)}` : null;
-          const child    = ev.priceChild != null && ev.priceChild !== ev.priceAdult ? ` / $${ev.priceChild.toFixed(2)} child` : '';
-          const priceStr = adult ? ` · ${adult}${child}` : '';
-          return `<span class="event-badge ticketed-event">🎟 ${ev.name}${priceStr}</span>`;
-        });
-      const events = [...apiBadges, ...scrapedBadges].join('');
+      }).join('');
       return `<div class="cal-cell">
         <div class="cell-hours">${formatTime(effectiveOpen)}–${formatTime(d.closeTime)}</div>
-        ${events ? `<div class="cell-events">${events}</div>` : ''}
+        ${apiBadges ? `<div class="cell-events">${apiBadges}</div>` : ''}
       </div>`;
+    });
+
+    // Park-specific events row
+    const eventsCells = rowCells((d, date) => {
+      const evs = getEventsForDate(date).filter(ev => ev.park === parkName);
+      if (!evs.length) return `<div class="cal-cell cal-cell-empty"></div>`;
+      const badges = evs.map(ev => {
+        const adult = ev.priceAdult != null ? `$${ev.priceAdult.toFixed(2)}` : null;
+        const child = ev.priceChild != null && ev.priceChild !== ev.priceAdult ? ` / $${ev.priceChild.toFixed(2)} child` : '';
+        const price = adult ? ` · ${adult}${child}` : (ev.priceNote ? ` · ${ev.priceNote}` : '');
+        const cls   = ev.requiresTicket ? 'ticketed-event' : 'festival-event';
+        const icon  = ev.requiresTicket ? '🎟 ' : '🎪 ';
+        return `<span class="event-badge ${cls}">${icon}${ev.name}${price}</span>`;
+      }).join('');
+      return `<div class="cal-cell"><div class="cell-events">${badges}</div></div>`;
     });
 
     const llspCells = rowCells((d, date) => {
@@ -459,6 +480,10 @@ function renderPlanner(data) {
             <div class="cal-row-cells">${hoursCells}</div>
           </div>
           <div class="cal-row">
+            <div class="cal-row-label"><span class="row-type-only">Events</span></div>
+            <div class="cal-row-cells">${eventsCells}</div>
+          </div>
+          <div class="cal-row">
             <div class="cal-row-label"><span class="row-type-only">Single Pass</span></div>
             <div class="cal-row-cells">${llspCells}</div>
           </div>
@@ -481,6 +506,11 @@ function renderPlanner(data) {
         <div class="cal-park-col-spacer"></div>
         <div class="cal-row-label-spacer"></div>
         <div class="cal-header-cells">${headerCells}</div>
+      </div>
+      <div class="cal-notes-row">
+        <div class="cal-park-col-spacer"></div>
+        <div class="cal-row-label cal-notes-label"><span class="row-type-only">Notes</span></div>
+        <div class="cal-row-cells">${notesCells}</div>
       </div>
       ${parkGroups}
     </div>`;

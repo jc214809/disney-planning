@@ -37,7 +37,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout --orphan data-tmp
           git reset
-          git add events-data.json
+          git add -f events-data.json
           git commit -m "Update events-data.json"
           git push origin data-tmp:data --force
           git checkout main
