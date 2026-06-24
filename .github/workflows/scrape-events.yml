@@ -40,5 +40,5 @@ jobs:
           git add -f events-data.json
           git commit -m "Update events-data.json"
           git push origin data-tmp:data --force
-          git checkout main
+          git checkout -f main
           git branch -D data-tmp
