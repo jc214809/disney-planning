@@ -75,6 +75,36 @@
         </select>
       </label>
       <label class="resort-toggle"><input type="checkbox" id="toggle-premier"> Lightning Lane Premier Pass</label>
+      <button class="budget-toggle-btn" id="budget-toggle-btn">Budget</button>
+    </div>
+  </div>
+
+  <!-- Budget Panel -->
+  <div class="budget-panel" id="budget-panel" hidden>
+    <div class="budget-panel-inner">
+      <div class="budget-field">
+        <label for="b-travelers">Travelers</label>
+        <input type="number" id="b-travelers" min="1" max="20" value="1">
+      </div>
+      <div class="budget-field">
+        <label for="b-hotel">Hotel / night</label>
+        <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-hotel" min="0" step="1" placeholder="0"></div>
+        <span class="budget-note" id="b-hotel-nights"></span>
+      </div>
+      <div class="budget-field">
+        <label for="b-flights">Flights / person</label>
+        <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-flights" min="0" step="1" placeholder="0"></div>
+      </div>
+      <div class="budget-field">
+        <label for="b-transport">Transport (total)</label>
+        <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-transport" min="0" step="1" placeholder="0"></div>
+      </div>
+      <div class="budget-field">
+        <label for="b-tickets">Tickets / person / day</label>
+        <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-tickets" min="0" step="1" placeholder="0"></div>
+        <label class="budget-ap-label"><input type="checkbox" id="b-annual-pass"> Annual Pass</label>
+        <span class="budget-note" id="b-ticket-days"></span>
+      </div>
     </div>
   </div>
 </header>
@@ -82,6 +112,46 @@
 <div id="status"></div>
 
 <div id="planner"></div>
+
+<!-- Cost Summary Bar -->
+<div class="cost-summary-bar" id="cost-summary-bar">
+  <div class="cost-summary-inner">
+    <button class="cost-item" id="cs-hotel" data-target="b-hotel">
+      <span class="cost-label">Hotel</span>
+      <span class="cost-value" id="cs-hotel-val">$0</span>
+    </button>
+    <div class="cost-sep"></div>
+    <button class="cost-item" id="cs-flights" data-target="b-flights">
+      <span class="cost-label">Flights</span>
+      <span class="cost-value" id="cs-flights-val">$0</span>
+    </button>
+    <div class="cost-sep"></div>
+    <button class="cost-item" id="cs-transport" data-target="b-transport">
+      <span class="cost-label">Transport</span>
+      <span class="cost-value" id="cs-transport-val">$0</span>
+    </button>
+    <div class="cost-sep"></div>
+    <button class="cost-item" id="cs-tickets" data-target="b-tickets">
+      <span class="cost-label">Tickets</span>
+      <span class="cost-value" id="cs-tickets-val">$0</span>
+    </button>
+    <div class="cost-sep"></div>
+    <button class="cost-item" id="cs-llsp">
+      <span class="cost-label">LL Single</span>
+      <span class="cost-value" id="cs-llsp-val">$0</span>
+    </button>
+    <div class="cost-sep"></div>
+    <button class="cost-item" id="cs-llmp">
+      <span class="cost-label">LL Multi</span>
+      <span class="cost-value" id="cs-llmp-val">$0</span>
+    </button>
+    <div class="cost-sep cost-sep-total"></div>
+    <div class="cost-item cost-total">
+      <span class="cost-label">TOTAL</span>
+      <span class="cost-value" id="cs-total-val">$0</span>
+    </div>
+  </div>
+</div>
 
 <script src="api.js"></script>
 <script src="app.js"></script>

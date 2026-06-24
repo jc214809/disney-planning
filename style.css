@@ -11,7 +11,8 @@ body {
   color: #e2e8f0;
   margin: 0;
   min-height: 100vh;
-  padding: 0 0 60px;
+  /* extra bottom padding for pinned summary bar */
+  padding: 0 0 56px;
 }
 
 /* ── Header ── */
@@ -167,9 +168,148 @@ h1 {
   color: #e2e8f0;
 }
 
+/* ── Budget Toggle Button ── */
+.budget-toggle-btn {
+  background: rgba(30,41,59,0.6);
+  border: 1px solid rgba(51,65,85,0.6);
+  border-radius: 999px;
+  color: #64748b;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 5px 14px;
+  transition: all 0.2s;
+}
+
+.budget-toggle-btn:hover,
+.budget-toggle-btn.active {
+  background: rgba(124,58,237,0.2);
+  border-color: rgba(196,181,253,0.4);
+  color: #c4b5fd;
+}
+
+/* ── Budget Panel ── */
+.budget-panel {
+  margin-top: 20px;
+  padding: 16px 0 4px;
+  border-top: 1px solid rgba(99,155,255,0.1);
+}
+
+.budget-panel-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.budget-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 120px;
+}
+
+.budget-field label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.budget-dollar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(30,41,59,0.8);
+  border: 1px solid rgba(51,65,85,0.8);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.budget-dollar-wrap span {
+  padding: 6px 8px;
+  color: #475569;
+  font-size: 0.82rem;
+  user-select: none;
+  background: rgba(15,23,42,0.4);
+  border-right: 1px solid rgba(51,65,85,0.5);
+}
+
+.budget-dollar-wrap input,
+.budget-field input[type="number"] {
+  background: rgba(30,41,59,0.8);
+  border: 1px solid rgba(51,65,85,0.8);
+  border-radius: 8px;
+  color: #e2e8f0;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  -moz-appearance: textfield;
+}
+
+.budget-dollar-wrap input {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 6px 10px;
+  min-width: 0;
+  width: 90px;
+}
+
+.budget-dollar-wrap input:focus,
+.budget-field input[type="number"]:focus {
+  border-color: rgba(99,155,255,0.5);
+  outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.budget-note {
+  font-size: 0.68rem;
+  color: #475569;
+  font-variant-numeric: tabular-nums;
+}
+
+.budget-ap-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94a3b8;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.budget-ap-label input[type="checkbox"] {
+  accent-color: #7c3aed;
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+}
+
+.budget-highlight {
+  animation: budget-flash 1.2s ease;
+}
+
+@keyframes budget-flash {
+  0%   { box-shadow: 0 0 0 2px rgba(124,58,237,0); }
+  20%  { box-shadow: 0 0 0 3px rgba(124,58,237,0.7); }
+  100% { box-shadow: 0 0 0 2px rgba(124,58,237,0); }
+}
+
 /* ── Status ── */
 #status {
-  max-width: 960px;
+  max-width: 1400px;
   margin: 0 auto 20px;
   padding: 0 24px;
   font-size: 0.85rem;
@@ -361,13 +501,9 @@ h1 {
 }
 
 .cell-ll-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 4px;
-  padding: 3px 5px;
+  padding: 3px 5px 4px;
   border-radius: 4px;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .cell-ll-item.available {
@@ -377,6 +513,14 @@ h1 {
 .cell-ll-item.unavailable {
   background: rgba(239,68,68,0.05);
   opacity: 0.6;
+}
+
+/* Top line: name + price side by side */
+.cell-ll-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px;
 }
 
 .cell-ll-name {
@@ -399,7 +543,47 @@ h1 {
   font-size: 0.8rem;
 }
 
-/* ── Park Card ── */
+/* ── LL Single Pass rider dropdown ── */
+.llsp-riders-select {
+  display: block;
+  margin-top: 4px;
+  width: 100%;
+  background: rgba(15,23,42,0.7);
+  border: 1px solid rgba(51,65,85,0.6);
+  border-radius: 5px;
+  color: #94a3b8;
+  font-family: inherit;
+  font-size: 0.65rem;
+  padding: 2px 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+.llsp-riders-select:focus {
+  border-color: rgba(99,155,255,0.4);
+}
+
+/* ── LL Multi Pass include toggle ── */
+.llmp-include-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 4px;
+  font-size: 0.65rem;
+  color: #64748b;
+  cursor: pointer;
+  user-select: none;
+}
+
+.llmp-include-label input[type="checkbox"] {
+  accent-color: #7c3aed;
+  width: 11px;
+  height: 11px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Park Card (kept for potential use) ── */
 .park-card {
   background: rgba(15,23,42,0.7);
   border: 1px solid rgba(51,65,85,0.6);
@@ -573,4 +757,101 @@ td:last-child { text-align: center; }
   color: #475569;
   padding: 60px 0;
   font-size: 0.9rem;
+}
+
+/* ── Cost Summary Bar ── */
+.cost-summary-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(6,12,26,0.92);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(99,155,255,0.15);
+  padding: 0 24px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.cost-summary-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.cost-summary-inner::-webkit-scrollbar { display: none; }
+
+.cost-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 4px 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+button.cost-item:hover {
+  background: rgba(99,155,255,0.08);
+}
+
+button.cost-item:focus-visible {
+  outline: 1px solid rgba(99,155,255,0.4);
+  outline-offset: 2px;
+}
+
+.cost-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #475569;
+  white-space: nowrap;
+}
+
+.cost-value {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #94a3b8;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.cost-sep {
+  width: 1px;
+  height: 24px;
+  background: rgba(51,65,85,0.6);
+  flex-shrink: 0;
+}
+
+.cost-sep-total {
+  background: rgba(99,155,255,0.25);
+  margin: 0 4px;
+}
+
+/* Total column */
+.cost-item.cost-total {
+  cursor: default;
+}
+
+.cost-item.cost-total .cost-label {
+  color: #6366f1;
+}
+
+.cost-item.cost-total .cost-value {
+  color: #a5b4fc;
+  font-size: 0.92rem;
+  font-weight: 700;
 }
