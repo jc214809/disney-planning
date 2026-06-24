@@ -219,6 +219,54 @@ h1 {
   letter-spacing: 0.07em;
 }
 
+.budget-field-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.budget-field-header label {
+  margin: 0;
+}
+
+.mode-toggle {
+  display: flex;
+  border: 1px solid rgba(51,65,85,0.7);
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.mode-toggle-btn {
+  background: rgba(15,23,42,0.5);
+  border: none;
+  border-right: 1px solid rgba(51,65,85,0.7);
+  color: #475569;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.mode-toggle-btn:last-child {
+  border-right: none;
+}
+
+.mode-toggle-btn.active {
+  background: rgba(29,78,216,0.25);
+  color: #93c5fd;
+}
+
+.mode-toggle-btn:not(.active):hover {
+  background: rgba(30,41,59,0.8);
+  color: #64748b;
+}
+
 .budget-dollar-wrap {
   display: flex;
   align-items: center;
@@ -337,7 +385,7 @@ input[type="number"]::-webkit-inner-spin-button {
   min-width: 600px;
   border: 1px solid rgba(51,65,85,0.7);
   border-radius: 12px;
-  overflow: hidden;
+  overflow: clip;
   background: rgba(15,23,42,0.6);
   backdrop-filter: blur(8px);
 }
@@ -368,10 +416,12 @@ input[type="number"]::-webkit-inner-spin-button {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  padding: 10px 8px;
+  padding: 14px 8px;
+  min-height: 72px;
   border-right: 1px solid rgba(51,65,85,0.6);
   border-bottom: 1px solid rgba(51,65,85,0.3);
   background: rgba(15,23,42,0.4);
+  overflow: visible;
 }
 
 .cal-row-last .cal-row-label,
@@ -380,9 +430,11 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .cal-row-label img {
-  width: 24px;
-  height: 24px;
-  opacity: 0.65;
+  width: 28px;
+  height: 28px;
+  min-height: 28px;
+  flex-shrink: 0;
+  opacity: 0.75;
   filter: invert(1);
 }
 
@@ -528,6 +580,10 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #cbd5e1;
   line-height: 1.3;
   min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .cell-ll-price {
@@ -545,18 +601,20 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* ── LL Single Pass rider dropdown ── */
 .llsp-riders-select {
-  display: block;
-  margin-top: 4px;
-  width: 100%;
+  flex-shrink: 0;
+  width: 36px;
   background: rgba(15,23,42,0.7);
   border: 1px solid rgba(51,65,85,0.6);
   border-radius: 5px;
   color: #94a3b8;
   font-family: inherit;
   font-size: 0.65rem;
-  padding: 2px 4px;
+  padding: 2px 2px;
   cursor: pointer;
   outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: center;
 }
 
 .llsp-riders-select:focus {
