@@ -14,14 +14,7 @@ async function fetchSchedule(parkId, year, month) {
   return res.json();
 }
 
-async function fetchLivePrices(parkId) {
-  const url = `${BASE}/entity/${parkId}/schedule/${new Date().getFullYear()}/${String(new Date().getMonth() + 1).padStart(2, '0')}`;
-  const res = await fetch(url, { headers: { 'User-Agent': 'disney-planning/1.0' } });
-  if (!res.ok) throw new Error(`Live fetch failed: ${res.status}`);
-  return res.json();
-}
-
-// Returns map of date string -> { park, hours, specialEvents, llsp, llmp }
+// Returns map of date string -> park name -> { park, date, openTime, closeTime, specialEvents, llsp, llmp, llpp }
 async function loadPlannerData(startDate, endDate) {
   const start = new Date(startDate + 'T12:00:00');
   const end   = new Date(endDate   + 'T12:00:00');
@@ -61,6 +54,7 @@ async function loadPlannerData(startDate, endDate) {
             specialEvents: [],
             llsp: [],
             llmp: [],
+            llpp: [],
           };
         }
 
@@ -69,7 +63,7 @@ async function loadPlannerData(startDate, endDate) {
           if (other.date?.slice(0, 10) === date && other.type !== 'OPERATING') {
             results[date][park.name].specialEvents.push({
               type: other.type,
-              name: other.name || other.type,
+              description: other.description || other.name || other.type,
               openTime: other.openingTime,
               closeTime: other.closingTime,
             });
@@ -89,9 +83,18 @@ async function loadPlannerData(startDate, endDate) {
           });
         }
 
-        // Lightning Lane Multi Pass
+        // Lightning Lane Multi Pass & Premier Pass
         for (const purchase of entry.purchases || []) {
-          if (purchase.type !== 'MULTIPASS') continue;
+          if (purchase.name !== 'Lightning Lane Multi Pass' && purchase.name !== 'Lightning Lane Premier Pass') continue;
+          if (purchase.name === 'Lightning Lane Premier Pass') {
+            const price = purchase.price || {};
+            results[date][park.name].llpp.push({
+              available: Boolean(purchase.available),
+              price: price.formatted || null,
+              priceAmount: price.amount || null,
+            });
+            continue;
+          }
           const price = purchase.price || {};
           results[date][park.name].llmp.push({
             name: purchase.name || 'Lightning Lane Multi Pass',
