@@ -1,0 +1,44 @@
+name: Scrape Disney Events
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # Every Monday at 8am UTC
+  workflow_dispatch:       # Allow manual trigger
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scrape-events
+  cancel-in-progress: true
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run scraper
+        env:
+          EVENT_URL: ${{ vars.EVENT_URL }}
+        run: python3 scrape-events.py
+
+      - name: Push data to orphan branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan data-tmp
+          git reset
+          git add events-data.json
+          git commit -m "Update events-data.json"
+          git push origin data-tmp:data --force
+          git checkout main
+          git branch -D data-tmp
