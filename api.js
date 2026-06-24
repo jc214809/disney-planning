@@ -61,6 +61,7 @@ async function loadPlannerData(startDate, endDate) {
             specialEvents: [],
             llsp: [],
             llmp: [],
+            llpp: [],
           };
         }
 
@@ -69,7 +70,7 @@ async function loadPlannerData(startDate, endDate) {
           if (other.date?.slice(0, 10) === date && other.type !== 'OPERATING') {
             results[date][park.name].specialEvents.push({
               type: other.type,
-              name: other.name || other.type,
+              description: other.description || other.name || other.type,
               openTime: other.openingTime,
               closeTime: other.closingTime,
             });
@@ -91,7 +92,16 @@ async function loadPlannerData(startDate, endDate) {
 
         // Lightning Lane Multi Pass
         for (const purchase of entry.purchases || []) {
-          if (purchase.type !== 'MULTIPASS') continue;
+          if (purchase.name !== 'Lightning Lane Multi Pass' && purchase.name !== 'Lightning Lane Premier Pass') continue;
+          if (purchase.name === 'Lightning Lane Premier Pass') {
+            const price = purchase.price || {};
+            results[date][park.name].llpp.push({
+              available: Boolean(purchase.available),
+              price: price.formatted || null,
+              priceAmount: price.amount || null,
+            });
+            continue;
+          }
           const price = purchase.price || {};
           results[date][park.name].llmp.push({
             name: purchase.name || 'Lightning Lane Multi Pass',
