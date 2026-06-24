@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Scrapes Walt Disney World special event pricing from mousesavers.com
+Scrapes Walt Disney World special event pricing 
 and writes events-data.json with per-date ticket prices.
 
 Run manually: python3 scrape-events.py

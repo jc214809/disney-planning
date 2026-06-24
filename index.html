@@ -23,57 +23,6 @@
       <button class="park-toggle active" data-park="Animal Kingdom">Animal Kingdom</button>
     </div>
     <div class="resort-toggles">
-      <label class="resort-toggle">
-        <span class="resort-toggle-label">Staying at</span>
-        <select id="resort-select">
-          <option value="">Off-site / Day Guest</option>
-          <optgroup label="Value Resorts">
-            <option value="value">All-Star Movies Resort</option>
-            <option value="value">All-Star Music Resort</option>
-            <option value="value">All-Star Sports Resort</option>
-            <option value="value">Art of Animation Resort</option>
-            <option value="value">Pop Century Resort</option>
-          </optgroup>
-          <optgroup label="Moderate Resorts">
-            <option value="moderate">Caribbean Beach Resort</option>
-            <option value="moderate">Coronado Springs Resort</option>
-            <option value="moderate">Port Orleans – French Quarter</option>
-            <option value="moderate">Port Orleans – Riverside</option>
-          </optgroup>
-          <optgroup label="Deluxe Resorts">
-            <option value="deluxe">Animal Kingdom Lodge</option>
-            <option value="deluxe">Beach Club Resort</option>
-            <option value="deluxe">BoardWalk Inn</option>
-            <option value="deluxe">Contemporary Resort</option>
-            <option value="deluxe">Grand Floridian Resort &amp; Spa</option>
-            <option value="deluxe">Polynesian Village Resort</option>
-            <option value="deluxe">Wilderness Lodge</option>
-            <option value="deluxe">Yacht Club Resort</option>
-            <option value="deluxe">Swan Hotel</option>
-            <option value="deluxe">Dolphin Hotel</option>
-            <option value="deluxe">Swan Reserve</option>
-          </optgroup>
-          <optgroup label="Deluxe Villa / DVC">
-            <option value="deluxe">Animal Kingdom Villas – Kidani Village</option>
-            <option value="deluxe">Bay Lake Tower at Contemporary Resort</option>
-            <option value="deluxe">Beach Club Villas</option>
-            <option value="deluxe">BoardWalk Villas</option>
-            <option value="deluxe">Boulder Ridge Villas at Wilderness Lodge</option>
-            <option value="deluxe">Copper Creek Villas &amp; Cabins at Wilderness Lodge</option>
-            <option value="deluxe">Fort Wilderness – Cabins</option>
-            <option value="deluxe">Lakeshore Lodge</option>
-            <option value="deluxe">Old Key West Resort</option>
-            <option value="deluxe">Polynesian Villas &amp; Bungalows</option>
-            <option value="deluxe">Riviera Resort</option>
-            <option value="deluxe">Saratoga Springs Resort &amp; Spa</option>
-            <option value="deluxe">Treehouse Villas at Saratoga Springs</option>
-            <option value="deluxe">Villas at Grand Floridian Resort</option>
-          </optgroup>
-          <optgroup label="Campground">
-            <option value="value">Fort Wilderness – Campsites</option>
-          </optgroup>
-        </select>
-      </label>
       <label class="resort-toggle"><input type="checkbox" id="toggle-premier"> Lightning Lane Premier Pass</label>
       <button class="budget-toggle-btn" id="budget-toggle-btn">Budget</button>
     </div>
@@ -82,29 +31,52 @@
   <!-- Budget Panel -->
   <div class="budget-panel" id="budget-panel" hidden>
     <div class="budget-panel-inner">
-      <div class="budget-field">
-        <label for="b-travelers">Travelers</label>
-        <input type="number" id="b-travelers" min="1" max="20" value="1">
+
+      <!-- Section: Travel -->
+      <div class="budget-section">
+        <div class="budget-section-title">Travel</div>
+        <div class="budget-section-fields">
+          <div class="budget-field">
+            <label for="b-travelers">Travelers</label>
+            <input type="number" id="b-travelers" min="1" max="20" value="1">
+          </div>
+          <div class="budget-field">
+            <div class="budget-field-header">
+              <label for="b-flights">Flights</label>
+              <div class="mode-toggle" id="b-flights-mode">
+                <button class="mode-toggle-btn active" data-mode="person">/ Person</button>
+                <button class="mode-toggle-btn" data-mode="total">Total</button>
+              </div>
+            </div>
+            <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-flights" min="0" step="1" placeholder="0"></div>
+          </div>
+          <div class="budget-field">
+            <label for="b-transport">Transportation</label>
+            <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-transport" min="0" step="1" placeholder="0"></div>
+          </div>
+        </div>
       </div>
-      <div class="budget-field">
-        <label for="b-hotel">Hotel / night</label>
-        <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-hotel" min="0" step="1" placeholder="0"></div>
-        <span class="budget-note" id="b-hotel-nights"></span>
+
+      <!-- Section: Hotels -->
+      <div class="budget-section">
+        <div class="budget-section-title">Hotels</div>
+        <div id="budget-hotels-list"></div>
+        <button class="add-hotel-btn" id="add-hotel-btn">+ Add Hotel</button>
       </div>
-      <div class="budget-field">
-        <label for="b-flights">Flights / person</label>
-        <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-flights" min="0" step="1" placeholder="0"></div>
+
+      <!-- Section: Tickets -->
+      <div class="budget-section">
+        <div class="budget-section-title">Tickets</div>
+        <div class="budget-section-fields">
+          <div class="budget-field">
+            <label for="b-tickets">Tickets / person / day</label>
+            <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-tickets" min="0" step="1" placeholder="0"></div>
+            <label class="budget-ap-label"><input type="checkbox" id="b-annual-pass"> Annual Pass</label>
+            <span class="budget-note" id="b-ticket-days"></span>
+          </div>
+        </div>
       </div>
-      <div class="budget-field">
-        <label for="b-transport">Transport (total)</label>
-        <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-transport" min="0" step="1" placeholder="0"></div>
-      </div>
-      <div class="budget-field">
-        <label for="b-tickets">Tickets / person / day</label>
-        <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-tickets" min="0" step="1" placeholder="0"></div>
-        <label class="budget-ap-label"><input type="checkbox" id="b-annual-pass"> Annual Pass</label>
-        <span class="budget-note" id="b-ticket-days"></span>
-      </div>
+
     </div>
   </div>
 </header>
@@ -142,13 +114,18 @@
     </button>
     <div class="cost-sep"></div>
     <button class="cost-item" id="cs-llmp">
-      <span class="cost-label">LL Multi</span>
+      <span class="cost-label">LLMP</span>
       <span class="cost-value" id="cs-llmp-val">$0</span>
     </button>
     <div class="cost-sep cost-sep-total"></div>
     <div class="cost-item cost-total">
       <span class="cost-label">TOTAL</span>
       <span class="cost-value" id="cs-total-val">$0</span>
+    </div>
+    <div class="cost-sep cost-sep-total"></div>
+    <div class="cost-item cost-total cost-per-person">
+      <span class="cost-label">/ PERSON</span>
+      <span class="cost-value" id="cs-perperson-val">$0</span>
     </div>
   </div>
 </div>

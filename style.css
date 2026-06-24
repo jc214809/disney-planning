@@ -11,8 +11,7 @@ body {
   color: #e2e8f0;
   margin: 0;
   min-height: 100vh;
-  /* extra bottom padding for pinned summary bar */
-  padding: 0 0 56px;
+  padding: 0 0 68px;
 }
 
 /* ── Header ── */
@@ -199,9 +198,182 @@ h1 {
 
 .budget-panel-inner {
   display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.budget-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(51,65,85,0.4);
+}
+
+.budget-section:last-child {
+  border-bottom: none;
+}
+
+.budget-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+.budget-section-fields {
+  display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
   align-items: flex-start;
+}
+
+/* ── Hotel rows ── */
+.hotel-row {
+  border: 1px solid rgba(51,65,85,0.5);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: rgba(15,23,42,0.3);
+}
+
+.hotel-row.overlap-error {
+  border-color: rgba(239,68,68,0.5);
+  background: rgba(239,68,68,0.05);
+}
+
+.hotel-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.hotel-row-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.hotel-remove-btn {
+  background: transparent;
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 5px;
+  color: #f87171;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  transition: all 0.15s;
+}
+
+.hotel-remove-btn:hover {
+  background: rgba(239,68,68,0.1);
+  border-color: rgba(239,68,68,0.5);
+}
+
+.hotel-row-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.hotel-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hotel-field-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.hotel-resort-select,
+.hotel-field input[type="date"],
+.hotel-field .budget-dollar-wrap {
+  height: 30px;
+  box-sizing: border-box;
+}
+
+.hotel-resort-select {
+  background: rgba(30,41,59,0.8);
+  border: 1px solid rgba(51,65,85,0.8);
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-family: inherit;
+  font-size: 0.78rem;
+  padding: 0 8px;
+  outline: none;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.hotel-resort-select option,
+.hotel-resort-select optgroup {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+.hotel-field input[type="date"] {
+  background: rgba(30,41,59,0.8);
+  border: 1px solid rgba(51,65,85,0.8);
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-family: inherit;
+  font-size: 0.78rem;
+  padding: 0 8px;
+  outline: none;
+  cursor: pointer;
+}
+
+.hotel-field input[type="date"]:focus {
+  border-color: rgba(99,155,255,0.5);
+}
+
+.hotel-nights-note {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+  color: #475569;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.hotel-nights-note.overlap-note {
+  color: #f87171;
+}
+
+.add-hotel-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px dashed rgba(99,155,255,0.3);
+  border-radius: 8px;
+  color: #475569;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  transition: all 0.15s;
+}
+
+.add-hotel-btn:hover {
+  border-color: rgba(99,155,255,0.5);
+  color: #93c5fd;
+  background: rgba(99,155,255,0.05);
 }
 
 .budget-field {
@@ -396,13 +568,69 @@ input[type="number"]::-webkit-inner-spin-button {
   align-items: stretch;
 }
 
-.cal-row-label-spacer,
+.cal-park-col-spacer {
+  flex: 0 0 112px;
+  width: 112px;
+}
+
+.cal-park-col {
+  flex: 0 0 112px;
+  width: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 6px;
+  border-right: 1px solid rgba(51,65,85,0.6);
+  background: rgba(15,23,42,0.5);
+}
+
+.cal-park-col img {
+  width: 32px;
+  height: 32px;
+  opacity: 0.8;
+  filter: invert(1);
+  flex-shrink: 0;
+}
+
+.cal-park-name {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #64748b;
+  text-align: center;
+  letter-spacing: 0.03em;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+.cal-subrows {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cal-row-label-spacer {
+  flex: 0 0 96px;
+  width: 96px;
+}
+
 .cal-row-label {
-  flex: 0 0 148px;
-  width: 148px;
+  flex: 0 0 96px;
+  width: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 6px;
+  min-height: 60px;
+  border-right: 1px solid rgba(51,65,85,0.5);
+  border-bottom: 1px solid rgba(51,65,85,0.3);
+  background: rgba(15,23,42,0.35);
 }
 
 .cal-park-group {
+  display: flex;
   border-top: 1px solid rgba(99,155,255,0.15);
 }
 
@@ -410,40 +638,9 @@ input[type="number"]::-webkit-inner-spin-button {
   border-top: none;
 }
 
-.cal-row-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  padding: 14px 8px;
-  min-height: 72px;
-  border-right: 1px solid rgba(51,65,85,0.6);
-  border-bottom: 1px solid rgba(51,65,85,0.3);
-  background: rgba(15,23,42,0.4);
-  overflow: visible;
-}
-
 .cal-row-last .cal-row-label,
 .cal-row-last .cal-cell {
   border-bottom-color: transparent;
-}
-
-.cal-row-label img {
-  width: 28px;
-  height: 28px;
-  min-height: 28px;
-  flex-shrink: 0;
-  opacity: 0.75;
-  filter: invert(1);
-}
-
-.cal-row-label span {
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: #64748b;
-  text-align: center;
-  letter-spacing: 0.03em;
 }
 
 .row-type {
@@ -710,9 +907,23 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .event-badge.extended-evening {
+  color: #64748b;
+  background: rgba(51,65,85,0.2);
+  border: 1px solid rgba(51,65,85,0.35);
+  opacity: 0.6;
+}
+
+.event-badge.extended-evening.eligible {
   color: #c4b5fd;
   background: rgba(124,58,237,0.15);
   border: 1px solid rgba(124,58,237,0.35);
+  opacity: 1;
+}
+
+.event-badge.ticketed-event {
+  color: #fbbf24;
+  background: rgba(251,191,36,0.1);
+  border: 1px solid rgba(251,191,36,0.35);
 }
 
 .event-badge.special-event {
@@ -828,7 +1039,7 @@ td:last-child { text-align: center; }
   backdrop-filter: blur(12px);
   border-top: 1px solid rgba(99,155,255,0.15);
   padding: 0 24px;
-  height: 48px;
+  height: 60px;
   display: flex;
   align-items: center;
 }
@@ -850,8 +1061,8 @@ td:last-child { text-align: center; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1px;
-  padding: 4px 14px;
+  gap: 2px;
+  padding: 5px 18px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -871,7 +1082,7 @@ button.cost-item:focus-visible {
 }
 
 .cost-label {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -880,7 +1091,7 @@ button.cost-item:focus-visible {
 }
 
 .cost-value {
-  font-size: 0.82rem;
+  font-size: 1.025rem;
   font-weight: 600;
   color: #94a3b8;
   font-variant-numeric: tabular-nums;
@@ -889,7 +1100,7 @@ button.cost-item:focus-visible {
 
 .cost-sep {
   width: 1px;
-  height: 24px;
+  height: 30px;
   background: rgba(51,65,85,0.6);
   flex-shrink: 0;
 }
@@ -910,6 +1121,25 @@ button.cost-item:focus-visible {
 
 .cost-item.cost-total .cost-value {
   color: #a5b4fc;
-  font-size: 0.92rem;
+  font-size: 1.15rem;
   font-weight: 700;
+}
+
+/* Per-person column */
+.cost-item.cost-per-person .cost-label {
+  color: #7c3aed;
+}
+
+.cost-item.cost-per-person .cost-value {
+  color: #c4b5fd;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* Annual Pass logo in cost bar */
+.cs-ap-logo {
+  height: 22px;
+  width: auto;
+  display: block;
+  border-radius: 3px;
 }

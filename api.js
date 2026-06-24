@@ -1,3 +1,25 @@
+// ── Special Events (scraped from mousesavers.com weekly) ─────────────────────
+let specialEventsData = null;
+
+const EVENTS_DATA_URL = 'https://raw.githubusercontent.com/jc214809/disney-planning/data/events-data.json';
+
+async function loadSpecialEvents() {
+  try {
+    const res = await fetch(EVENTS_DATA_URL);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    specialEventsData = await res.json();
+  } catch (e) {
+    console.warn('Could not load events data:', e.message);
+    specialEventsData = { byDate: {} };
+  }
+}
+
+function getEventsForDate(date) {
+  return specialEventsData?.byDate?.[date] ?? [];
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 const PARKS = [
   { name: 'Magic Kingdom',      id: '75ea578a-adc8-4116-a54d-dccb60765ef9' },
   { name: 'EPCOT',              id: '47f90d2c-e191-4239-a466-5892ef59a88b' },
