@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 body {
   font-family: 'Inter', sans-serif;
@@ -1604,7 +1605,7 @@ button.cost-item:focus-visible {
   z-index: 1000;
 }
 
-.modal-backdrop[hidden] { display: none; }
+.modal-backdrop[hidden] { display: none; } /* covered by global [hidden] rule */
 
 .modal {
   background: #0f172a;

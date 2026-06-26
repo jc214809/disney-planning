@@ -178,6 +178,29 @@ function signOut() {
   hideSheetsControls();
   setSheetsStatus('');
   closeUserMenu();
+  clearDirty();
+
+  // Reset all app state since it can no longer be saved
+  if (typeof applyAppState === 'function') {
+    applyAppState({
+      startDate: '',
+      endDate: '',
+      travelers: 1,
+      flights: 0,
+      flightsMode: 'person',
+      transport: 0,
+      annualPass: false,
+      ticketPerPersonPerDay: 0,
+      hotels: [],
+      activeParkFilters: ['Magic Kingdom', 'EPCOT', 'Hollywood Studios', 'Animal Kingdom'],
+      showPremierPass: false,
+      llspRiders: [],
+      llmpIncluded: [],
+    });
+  }
+  document.getElementById('start-date').value = '';
+  document.getElementById('end-date').value   = '';
+  document.getElementById('planner').innerHTML = '';
 }
 
 // ── User profile ──────────────────────────────────────────────────────────────
@@ -328,6 +351,7 @@ async function autoReconnect(id) {
     await loadSheetTabs();
   } catch (_) {
     signedIn = false;
+    hideSheetsControls();
     setSheetsStatus('');
     showReconnectPrompt();
   }
@@ -349,11 +373,22 @@ function setSaveLoadEnabled(enabled) {
 }
 
 function hideSheetsControls() {
-  const headerTrips = document.getElementById('header-trips');
-  if (headerTrips) headerTrips.hidden = true;
-  const tripBar = document.getElementById('trip-name-bar');
-  if (tripBar) tripBar.hidden = true;
+  for (const id of ['header-trips', 'trip-name-bar', 'cost-summary-bar']) {
+    const el = document.getElementById(id);
+    if (el) el.hidden = true;
+  }
+  const controls = document.querySelector('.controls');
+  if (controls) controls.hidden = true;
+  const budgetPanel = document.getElementById('budget-panel');
+  if (budgetPanel) budgetPanel.hidden = true;
+  document.getElementById('budget-toggle-btn')?.classList.remove('active');
   setSaveLoadEnabled(false);
+
+  for (const selId of ['sheets-tab-select', 'header-trip-select']) {
+    const sel = document.getElementById(selId);
+    if (sel) sel.innerHTML = '';
+  }
+  setTripNameDisplay('');
 }
 
 function setTripNameDisplay(name) {
@@ -435,9 +470,13 @@ function populateSheetDropdown(sheets) {
   currentSheetName = sheets[0];
   setSaveLoadEnabled(true);
 
-  // Show trip name bar above planner
-  const tripBar = document.getElementById('trip-name-bar');
-  if (tripBar) tripBar.hidden = false;
+  // Show controls, trip name bar, and cost bar
+  const controls = document.querySelector('.controls');
+  if (controls) controls.hidden = false;
+  for (const id of ['trip-name-bar', 'cost-summary-bar']) {
+    const el = document.getElementById(id);
+    if (el) el.hidden = false;
+  }
 
   const nameInput = document.getElementById('sheets-tab-name');
   const displayName = (nameInput && nameInput.dataset.userEdited !== 'true') ? defaultTabName() : (currentSheetName || 'New Trip');
