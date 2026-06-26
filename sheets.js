@@ -90,10 +90,12 @@ function gisLoaded() {
     callback:  () => {},
   });
 
-  // One Tap: fires silently if user has active Google session
+  // One Tap: fires silently if user has active Google session.
+  // Only attempt on localhost — GitHub Pages blocks the silent token exchange.
   const savedId    = localStorage.getItem('sheets_spreadsheet_id');
   const savedEmail = localStorage.getItem('sheets_user_email');
-  if (savedId) {
+  const isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (savedId && isLocalhost) {
     google.accounts.id.initialize({
       client_id:              GOOGLE_CLIENT_ID,
       callback:               onOneTapCredential,
@@ -106,6 +108,9 @@ function gisLoaded() {
         showReconnectPrompt();
       }
     });
+  } else if (savedId) {
+    // On non-localhost (e.g. GitHub Pages), skip One Tap and show reconnect button
+    showReconnectPrompt();
   }
 
   gisReady = true;
@@ -117,11 +122,19 @@ function onOneTapCredential(credentialResponse) {
   const savedId    = localStorage.getItem('sheets_spreadsheet_id');
   const savedEmail = localStorage.getItem('sheets_user_email');
   tokenClient.callback = async (resp) => {
-    if (resp.error) { showReconnectPrompt(); return; }
-    gapi.client.setToken({ access_token: resp.access_token });
-    await autoReconnect(savedId);
+    if (resp.error || resp.error_description) { showReconnectPrompt(); return; }
+    try {
+      gapi.client.setToken({ access_token: resp.access_token });
+      await autoReconnect(savedId);
+    } catch (_) {
+      showReconnectPrompt();
+    }
   };
-  tokenClient.requestAccessToken({ prompt: '', login_hint: savedEmail || '' });
+  try {
+    tokenClient.requestAccessToken({ prompt: '', login_hint: savedEmail || '' });
+  } catch (_) {
+    showReconnectPrompt();
+  }
 }
 
 function checkReady() {
