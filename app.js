@@ -234,6 +234,7 @@ function addHotel() {
   budget.hotels.push({ id: nextHotelId++, resort: '', checkIn: '', checkOut: '', ratePerNight: 0 });
   renderHotels();
   recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
 }
 
 function removeHotel(id) {
@@ -242,6 +243,7 @@ function removeHotel(id) {
   renderHotels();
   if (lastPlannerData) renderPlanner(lastPlannerData);
   recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
 }
 
 // ── Budget date calculations ──────────────────────────────────────────────────
@@ -399,8 +401,9 @@ function renderPlanner(data) {
       </div>`;
     });
 
-    // Park-specific events row
-    const eventsCells = rowCells((d, date) => {
+    // Park-specific events row — only shown if at least one date has events for this park
+    const hasEvents = dates.some(date => getEventsForDate(date).some(ev => ev.park === parkName));
+    const eventsCells = !hasEvents ? '' : rowCells((d, date) => {
       const evs = getEventsForDate(date).filter(ev => ev.park === parkName);
       if (!evs.length) return `<div class="cal-cell cal-cell-empty"></div>`;
       const badges = evs.map(ev => {
@@ -465,11 +468,12 @@ function renderPlanner(data) {
         </div>`).join('')}</div>`;
     });
 
+    const parkNumRows   = numRows - (hasEvents ? 0 : 1);
     const lastLlmpClass    = showPremierPass ? '' : ' cal-row-last';
     const lastPremierClass = ' cal-row-last';
 
     return `
-      <div class="cal-park-group" style="--num-rows: ${numRows}">
+      <div class="cal-park-group" style="--num-rows: ${parkNumRows}">
         <div class="cal-park-col">
           ${icon}
           <span class="cal-park-name">${parkName}</span>
@@ -479,10 +483,10 @@ function renderPlanner(data) {
             <div class="cal-row-label"><span class="row-type-only">Hours</span></div>
             <div class="cal-row-cells">${hoursCells}</div>
           </div>
-          <div class="cal-row">
+          ${!hasEvents ? '' : `<div class="cal-row">
             <div class="cal-row-label"><span class="row-type-only">Events</span></div>
             <div class="cal-row-cells">${eventsCells}</div>
-          </div>
+          </div>`}
           <div class="cal-row">
             <div class="cal-row-label"><span class="row-type-only">Single Pass</span></div>
             <div class="cal-row-cells">${llspCells}</div>
@@ -576,6 +580,7 @@ document.getElementById('b-travelers').addEventListener('input', e => {
   budget.travelers = Math.max(1, parseInt(e.target.value) || 1);
   if (lastPlannerData) renderPlanner(lastPlannerData);
   else recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
 });
 
 document.getElementById('budget-hotels-list').addEventListener('click', e => {
@@ -596,12 +601,15 @@ document.getElementById('budget-hotels-list').addEventListener('input', e => {
     if (lastPlannerData) renderPlanner(lastPlannerData);
     renderHotels();
     recalcTotals();
+    if (typeof refreshSheetsTabName === 'function') refreshSheetsTabName();
+    if (typeof markDirty === 'function') markDirty();
     return;
   }
   if (e.target.classList.contains('hotel-rate-input')) {
     hotel.ratePerNight = parseFloat(e.target.value) || 0;
     updateHotelNoteInPlace(hotel, row);
     recalcTotals();
+    if (typeof markDirty === 'function') markDirty();
     return;
   }
   if (e.target.classList.contains('hotel-checkin')) {
@@ -625,6 +633,7 @@ document.getElementById('budget-hotels-list').addEventListener('input', e => {
   renderHotels();
   if (lastPlannerData) renderPlanner(lastPlannerData);
   recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
 });
 
 document.getElementById('add-hotel-btn').addEventListener('click', addHotel);
@@ -632,6 +641,7 @@ document.getElementById('add-hotel-btn').addEventListener('click', addHotel);
 document.getElementById('b-flights').addEventListener('input', e => {
   budget.flights = parseFloat(e.target.value) || 0;
   recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
 });
 
 document.getElementById('b-flights-mode').addEventListener('click', e => {
@@ -641,16 +651,19 @@ document.getElementById('b-flights-mode').addEventListener('click', e => {
   document.querySelectorAll('#b-flights-mode .mode-toggle-btn').forEach(b =>
     b.classList.toggle('active', b.dataset.mode === budget.flightsMode));
   recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
 });
 
 document.getElementById('b-transport').addEventListener('input', e => {
   budget.transport = parseFloat(e.target.value) || 0;
   recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
 });
 
 document.getElementById('b-tickets').addEventListener('input', e => {
   budget.ticketPerPersonPerDay = parseFloat(e.target.value) || 0;
   recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
 });
 
 document.getElementById('b-annual-pass').addEventListener('change', e => {
@@ -659,6 +672,7 @@ document.getElementById('b-annual-pass').addEventListener('change', e => {
   ticketsInput.disabled    = budget.annualPass;
   ticketsInput.style.opacity = budget.annualPass ? '0.4' : '';
   recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
 });
 
 function onTripDatesChange() {
@@ -674,6 +688,8 @@ function onTripDatesChange() {
     renderHotels();
   }
   recalcTotals();
+  if (typeof refreshSheetsTabName === 'function') refreshSheetsTabName();
+  if (typeof markDirty === 'function') markDirty();
 }
 document.getElementById('start-date').addEventListener('change', onTripDatesChange);
 document.getElementById('end-date').addEventListener('change', onTripDatesChange);
@@ -682,6 +698,7 @@ document.getElementById('planner').addEventListener('change', e => {
   if (e.target.classList.contains('llsp-riders-select')) {
     llspRiders.set(e.target.dataset.key, parseInt(e.target.value));
     recalcTotals();
+    if (typeof markDirty === 'function') markDirty();
   }
   if (e.target.classList.contains('llmp-include-check')) {
     const key  = e.target.dataset.key;
@@ -699,6 +716,7 @@ document.getElementById('planner').addEventListener('change', e => {
       llmpIncluded.set(key, false);
     }
     recalcTotals();
+    if (typeof markDirty === 'function') markDirty();
   }
 });
 
@@ -720,6 +738,95 @@ document.getElementById('cost-summary-bar').addEventListener('click', e => {
     setTimeout(() => input.classList.remove('budget-highlight'), 1200);
   }
 });
+
+// ── Google Sheets state serialization ────────────────────────────────────────
+function getAppState() {
+  return {
+    startDate:             document.getElementById('start-date').value,
+    endDate:               document.getElementById('end-date').value,
+    travelers:             budget.travelers,
+    flights:               budget.flights,
+    flightsMode:           budget.flightsMode,
+    transport:             budget.transport,
+    annualPass:            budget.annualPass,
+    ticketPerPersonPerDay: budget.ticketPerPersonPerDay,
+    activeParkFilters:     [...activeParkFilters],
+    hotels:                budget.hotels,
+    showPremierPass:       showPremierPass,
+    llspRiders:            [...llspRiders.entries()],
+    llmpIncluded:          [...llmpIncluded.entries()],
+  };
+}
+
+function applyAppState(state) {
+  if (state.startDate) document.getElementById('start-date').value = state.startDate;
+  if (state.endDate)   document.getElementById('end-date').value   = state.endDate;
+
+  if (state.travelers != null) {
+    budget.travelers = Number(state.travelers) || 1;
+    const el = document.getElementById('b-travelers');
+    if (el) el.value = budget.travelers;
+  }
+  if (state.flights != null) {
+    budget.flights = Number(state.flights) || 0;
+    const el = document.getElementById('b-flights');
+    if (el) el.value = budget.flights;
+  }
+  if (state.flightsMode) {
+    budget.flightsMode = state.flightsMode;
+    document.querySelectorAll('#b-flights-mode .mode-toggle-btn').forEach(b =>
+      b.classList.toggle('active', b.dataset.mode === budget.flightsMode));
+  }
+  if (state.transport != null) {
+    budget.transport = Number(state.transport) || 0;
+    const el = document.getElementById('b-transport');
+    if (el) el.value = budget.transport;
+  }
+  if (state.annualPass != null) {
+    budget.annualPass = Boolean(state.annualPass);
+    const cb = document.getElementById('b-annual-pass');
+    if (cb) cb.checked = budget.annualPass;
+    const ticketsInput = document.getElementById('b-tickets');
+    if (ticketsInput) {
+      ticketsInput.disabled    = budget.annualPass;
+      ticketsInput.style.opacity = budget.annualPass ? '0.4' : '';
+    }
+  }
+  if (state.ticketPerPersonPerDay != null) {
+    budget.ticketPerPersonPerDay = Number(state.ticketPerPersonPerDay) || 0;
+    const el = document.getElementById('b-tickets');
+    if (el) el.value = budget.ticketPerPersonPerDay;
+  }
+  if (Array.isArray(state.activeParkFilters)) {
+    activeParkFilters = new Set(state.activeParkFilters);
+    document.querySelectorAll('.park-toggle').forEach(btn => {
+      btn.classList.toggle('active', activeParkFilters.has(btn.dataset.park));
+    });
+  }
+  if (Array.isArray(state.hotels)) {
+    budget.hotels = state.hotels;
+    nextHotelId   = (budget.hotels.reduce((m, h) => Math.max(m, h.id ?? 0), 0)) + 1;
+    updateResortTier();
+    renderHotels();
+  }
+  if (state.showPremierPass != null) {
+    showPremierPass = Boolean(state.showPremierPass);
+    const cb = document.getElementById('toggle-premier');
+    if (cb) cb.checked = showPremierPass;
+  }
+  if (Array.isArray(state.llspRiders)) {
+    llspRiders.clear();
+    state.llspRiders.forEach(([k, v]) => llspRiders.set(k, v));
+  }
+  if (Array.isArray(state.llmpIncluded)) {
+    llmpIncluded.clear();
+    state.llmpIncluded.forEach(([k, v]) => llmpIncluded.set(k, v));
+  }
+
+  // Reload planner data for the (potentially new) date range
+  if (state.startDate && state.endDate) load();
+  else recalcTotals();
+}
 
 // ── Initial setup ─────────────────────────────────────────────────────────────
 loadSpecialEvents();
