@@ -90,39 +90,20 @@ function gisLoaded() {
     callback:  () => {},
   });
 
-  // One Tap: fires silently if user has active Google session.
-  // Only attempt on localhost — GitHub Pages blocks the silent token exchange.
-  const savedId    = localStorage.getItem('sheets_spreadsheet_id');
-  const savedEmail = localStorage.getItem('sheets_user_email');
-  const isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-  if (savedId && isLocalhost) {
-    google.accounts.id.initialize({
-      client_id:              GOOGLE_CLIENT_ID,
-      callback:               onOneTapCredential,
-      auto_select:            true,
-      cancel_on_tap_outside:  false,
-      login_hint:             savedEmail || '',
-    });
-    google.accounts.id.prompt(notification => {
-      if (notification.isSkippedMoment() || notification.isDismissedMoment()) {
-        showReconnectPrompt();
-      }
-    });
-  } else if (savedId) {
-    // On non-localhost (e.g. GitHub Pages), skip One Tap and show reconnect button
-    showReconnectPrompt();
-  }
 
   gisReady = true;
   checkReady();
 }
 
-function onOneTapCredential(credentialResponse) {
-  // One Tap gave us an ID token — now get an access token silently using that hint
-  const savedId    = localStorage.getItem('sheets_spreadsheet_id');
-  const savedEmail = localStorage.getItem('sheets_user_email');
+function silentReconnect(savedId, savedEmail) {
+  // Try to get a fresh access token silently (no popup).
+  // Works as long as the user has an active Google session cookie in the browser.
+  // Falls back to the reconnect button if the session has expired.
   tokenClient.callback = async (resp) => {
-    if (resp.error || resp.error_description) { showReconnectPrompt(); return; }
+    if (resp.error || resp.error_description) {
+      showReconnectPrompt();
+      return;
+    }
     try {
       gapi.client.setToken({ access_token: resp.access_token });
       await autoReconnect(savedId);
@@ -131,7 +112,7 @@ function onOneTapCredential(credentialResponse) {
     }
   };
   try {
-    tokenClient.requestAccessToken({ prompt: '', login_hint: savedEmail || '' });
+    tokenClient.requestAccessToken({ prompt: 'none', login_hint: savedEmail || '' });
   } catch (_) {
     showReconnectPrompt();
   }
@@ -141,7 +122,11 @@ function checkReady() {
   if (!gapiReady || !gisReady) return;
   renderAuthButton();
 
-  // If no saved session, the header sign-in button is already visible via renderAuthButton()
+  const savedId    = localStorage.getItem('sheets_spreadsheet_id');
+  const savedEmail = localStorage.getItem('sheets_user_email');
+  if (savedId) {
+    silentReconnect(savedId, savedEmail);
+  }
 }
 
 function showReconnectPrompt() {
