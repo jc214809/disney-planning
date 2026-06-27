@@ -1,3 +1,14 @@
+const DCL_SHIPS = [
+  { class: 'Magic Class',    name: 'Disney Magic' },
+  { class: 'Magic Class',    name: 'Disney Wonder' },
+  { class: 'Dream Class',    name: 'Disney Dream' },
+  { class: 'Dream Class',    name: 'Disney Fantasy' },
+  { class: 'Wish Class',     name: 'Disney Wish' },
+  { class: 'Wish Class',     name: 'Disney Treasure' },
+  { class: 'Wish Class',     name: 'Disney Destiny' },
+  { class: 'Adventure Class', name: 'Disney Adventure' },
+];
+
 const RESORT_GROUPS = [
   { label: null, options: [{ tier: '', name: 'Off-site / Day Guest' }] },
   { label: 'Value Resorts', options: [
@@ -69,6 +80,22 @@ let budget = {
   transport:  0,
   ticketPerPersonPerDay: 0,
   annualPass: false,
+  mears: {
+    enabled: false,
+    under3: 0,
+    ages3to9: 0,
+    ages10plus: 0,
+    ways: 2,               // 1 = one-way, 2 = round trip
+  },
+  cruise: {
+    enabled: false,
+    ship: '',
+    sailDate: '',
+    nights: 0,
+    cabinCost: 0,          // total cabin cost (not per person)
+    portFees: 0,           // total port fees & taxes
+    onboard: 0,            // onboard spending budget
+  },
 };
 let nextHotelId = 1;
 
@@ -177,10 +204,12 @@ function renderHotels() {
   const overlaps  = overlappingHotelIds(budget.hotels);
   if (!budget.hotels.length) { list.innerHTML = ''; return; }
   list.innerHTML = budget.hotels.map((h, idx) => {
-    const nights   = nightsBetween(h.checkIn, h.checkOut);
-    const subtotal = nights * h.ratePerNight;
-    const isOverlap = overlaps.has(h.id);
-    const noteText = h.checkIn && h.checkOut && nights > 0
+    const nights      = nightsBetween(h.checkIn, h.checkOut);
+    const rateMode    = h.rateMode || 'night';
+    const ratePerNight = hotelEffectiveRate(h);
+    const subtotal    = nights * ratePerNight;
+    const isOverlap   = overlaps.has(h.id);
+    const noteText    = h.checkIn && h.checkOut && nights > 0
       ? (isOverlap ? '⚠ Overlaps another hotel' : `${nights} night${nights !== 1 ? 's' : ''} = ${fmtMoney(subtotal)}`)
       : '';
     return `
@@ -205,8 +234,14 @@ function renderHotels() {
             <input class="hotel-checkout" type="date" value="${h.checkOut}" min="${tripStart}" max="${tripEnd}">
           </div>
           <div class="hotel-field">
-            <label class="hotel-field-label">Rate / night</label>
-            <div class="budget-dollar-wrap"><span>$</span><input class="hotel-rate-input" type="number" min="0" step="1" placeholder="0" value="${h.ratePerNight || ''}"></div>
+            <div class="budget-field-header">
+              <label class="hotel-field-label">Rate</label>
+              <div class="mode-toggle hotel-rate-mode" data-hotel-id="${h.id}">
+                <button class="mode-toggle-btn${rateMode === 'night' ? ' active' : ''}" data-mode="night">/ Night</button>
+                <button class="mode-toggle-btn${rateMode === 'total' ? ' active' : ''}" data-mode="total">Total</button>
+              </div>
+            </div>
+            <div class="budget-dollar-wrap"><span>$</span><input class="hotel-rate-input" type="number" min="0" step="1" placeholder="0" value="${h.rateValue || ''}"></div>
           </div>
           <div class="hotel-field hotel-field-note">
             <label class="hotel-field-label">&nbsp;</label>
@@ -220,9 +255,9 @@ function renderHotels() {
 function updateHotelNoteInPlace(hotel, rowEl) {
   const noteEl = rowEl.querySelector('.hotel-nights-note');
   if (!noteEl) return;
-  const nights   = nightsBetween(hotel.checkIn, hotel.checkOut);
-  const subtotal = nights * hotel.ratePerNight;
-  const overlaps = overlappingHotelIds(budget.hotels);
+  const nights    = nightsBetween(hotel.checkIn, hotel.checkOut);
+  const subtotal  = nights * hotelEffectiveRate(hotel);
+  const overlaps  = overlappingHotelIds(budget.hotels);
   const isOverlap = overlaps.has(hotel.id);
   noteEl.textContent = hotel.checkIn && hotel.checkOut && nights > 0
     ? (isOverlap ? '⚠ Overlaps another hotel' : `${nights} night${nights !== 1 ? 's' : ''} = ${fmtMoney(subtotal)}`)
@@ -230,8 +265,17 @@ function updateHotelNoteInPlace(hotel, rowEl) {
   noteEl.classList.toggle('overlap-note', isOverlap);
 }
 
+function hotelEffectiveRate(h) {
+  // Always returns rate per night regardless of rateMode
+  if (h.rateMode === 'total') {
+    const nights = nightsBetween(h.checkIn, h.checkOut);
+    return nights > 0 ? (h.rateValue || 0) / nights : 0;
+  }
+  return h.rateValue || 0;
+}
+
 function addHotel() {
-  budget.hotels.push({ id: nextHotelId++, resort: '', checkIn: '', checkOut: '', ratePerNight: 0 });
+  budget.hotels.push({ id: nextHotelId++, resort: '', checkIn: '', checkOut: '', ratePerNight: 0, rateMode: 'night', rateValue: 0 });
   renderHotels();
   recalcTotals();
   if (typeof markDirty === 'function') markDirty();
@@ -259,13 +303,13 @@ function getTripDays() {
 
 // ── recalcTotals ──────────────────────────────────────────────────────────────
 function recalcTotals() {
-  const { travelers, hotels, flights, transport, ticketPerPersonPerDay, annualPass } = budget;
+  const { travelers, hotels, flights, transport, ticketPerPersonPerDay, annualPass, cruise } = budget;
   const days = getTripDays();
 
   const overlaps   = overlappingHotelIds(hotels);
   const hotelTotal = hotels.reduce((sum, h) => {
     if (overlaps.has(h.id)) return sum;
-    return sum + nightsBetween(h.checkIn, h.checkOut) * h.ratePerNight;
+    return sum + nightsBetween(h.checkIn, h.checkOut) * hotelEffectiveRate(h);
   }, 0);
 
   const flightsTotal   = budget.flightsMode === 'total' ? flights : flights * travelers;
@@ -304,8 +348,13 @@ function recalcTotals() {
     }
   }
 
-  const total     = hotelTotal + flightsTotal + transportTotal + ticketsTotal + llspTotal + llmpTotal;
+  const cruiseTotal = cruise.enabled ? (cruise.cabinCost || 0) + (cruise.portFees || 0) + (cruise.onboard || 0) : 0;
+
+  const total     = hotelTotal + flightsTotal + transportTotal + ticketsTotal + llspTotal + llmpTotal + cruiseTotal;
   const perPerson = travelers > 0 ? total / travelers : 0;
+
+  const cruiseValEl = document.getElementById('cs-cruise-val');
+  if (cruiseValEl) cruiseValEl.textContent = fmtMoney(cruiseTotal);
 
   document.getElementById('cs-hotel-val').textContent     = fmtMoney(hotelTotal);
   document.getElementById('cs-flights-val').textContent   = fmtMoney(flightsTotal);
@@ -570,6 +619,19 @@ document.getElementById('toggle-premier').addEventListener('change', e => {
   if (document.getElementById('planner').innerHTML) load();
 });
 
+document.getElementById('toggle-cruise').addEventListener('change', e => {
+  budget.cruise.enabled = e.target.checked;
+  const cruiseWrap = document.getElementById('cs-cruise-wrap');
+  if (cruiseWrap) cruiseWrap.hidden = !e.target.checked;
+  // Sync the in-panel checkbox too
+  const panelToggle = document.getElementById('b-cruise-toggle');
+  if (panelToggle) panelToggle.checked = e.target.checked;
+  const fieldsEl = document.getElementById('b-cruise-fields');
+  if (fieldsEl) fieldsEl.hidden = !e.target.checked;
+  recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
+});
+
 document.getElementById('budget-toggle-btn').addEventListener('click', () => {
   const panel = document.getElementById('budget-panel');
   panel.hidden = !panel.hidden;
@@ -585,7 +647,19 @@ document.getElementById('b-travelers').addEventListener('input', e => {
 
 document.getElementById('budget-hotels-list').addEventListener('click', e => {
   const removeBtn = e.target.closest('.hotel-remove-btn');
-  if (removeBtn) removeHotel(Number(removeBtn.dataset.hotelId));
+  if (removeBtn) { removeHotel(Number(removeBtn.dataset.hotelId)); return; }
+
+  const modeBtn = e.target.closest('.hotel-rate-mode .mode-toggle-btn');
+  if (modeBtn) {
+    const hotelId = Number(modeBtn.closest('.hotel-rate-mode').dataset.hotelId);
+    const hotel   = budget.hotels.find(h => h.id === hotelId);
+    if (!hotel) return;
+    hotel.rateMode = modeBtn.dataset.mode;
+    hotel.ratePerNight = hotelEffectiveRate(hotel);
+    renderHotels();
+    recalcTotals();
+    if (typeof markDirty === 'function') markDirty();
+  }
 });
 
 document.getElementById('budget-hotels-list').addEventListener('input', e => {
@@ -606,7 +680,8 @@ document.getElementById('budget-hotels-list').addEventListener('input', e => {
     return;
   }
   if (e.target.classList.contains('hotel-rate-input')) {
-    hotel.ratePerNight = parseFloat(e.target.value) || 0;
+    hotel.rateValue = parseFloat(e.target.value) || 0;
+    hotel.ratePerNight = hotelEffectiveRate(hotel);
     updateHotelNoteInPlace(hotel, row);
     recalcTotals();
     if (typeof markDirty === 'function') markDirty();
@@ -638,6 +713,66 @@ document.getElementById('budget-hotels-list').addEventListener('input', e => {
 
 document.getElementById('add-hotel-btn').addEventListener('click', addHotel);
 
+// ── Cruise ────────────────────────────────────────────────────────────────────
+function updateCruiseNote() {
+  const nights = budget.cruise.nights || 0;
+  const cabin  = budget.cruise.cabinCost || 0;
+  const fees   = budget.cruise.portFees || 0;
+  const onboard = budget.cruise.onboard || 0;
+  const noteEl = document.getElementById('b-cruise-note');
+  if (!noteEl) return;
+  if (nights > 0 || cabin > 0) {
+    noteEl.textContent = `${nights} night${nights !== 1 ? 's' : ''} · Cabin ${fmtMoney(cabin)} · Fees ${fmtMoney(fees)} · Onboard ${fmtMoney(onboard)}`;
+  } else {
+    noteEl.textContent = '';
+  }
+}
+
+document.getElementById('b-cruise-toggle').addEventListener('change', e => {
+  budget.cruise.enabled = e.target.checked;
+  document.getElementById('b-cruise-fields').hidden = !e.target.checked;
+  // Sync header checkbox
+  const headerToggle = document.getElementById('toggle-cruise');
+  if (headerToggle) headerToggle.checked = e.target.checked;
+  const cruiseWrap = document.getElementById('cs-cruise-wrap');
+  if (cruiseWrap) cruiseWrap.hidden = !e.target.checked;
+  recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
+});
+
+document.getElementById('b-cruise-ship').addEventListener('change', e => {
+  budget.cruise.ship = e.target.value;
+  if (typeof markDirty === 'function') markDirty();
+});
+document.getElementById('b-cruise-sail').addEventListener('change', e => {
+  budget.cruise.sailDate = e.target.value;
+  if (typeof markDirty === 'function') markDirty();
+});
+document.getElementById('b-cruise-nights').addEventListener('input', e => {
+  budget.cruise.nights = parseInt(e.target.value) || 0;
+  updateCruiseNote();
+  recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
+});
+document.getElementById('b-cruise-cabin').addEventListener('input', e => {
+  budget.cruise.cabinCost = parseFloat(e.target.value) || 0;
+  updateCruiseNote();
+  recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
+});
+document.getElementById('b-cruise-fees').addEventListener('input', e => {
+  budget.cruise.portFees = parseFloat(e.target.value) || 0;
+  updateCruiseNote();
+  recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
+});
+document.getElementById('b-cruise-onboard').addEventListener('input', e => {
+  budget.cruise.onboard = parseFloat(e.target.value) || 0;
+  updateCruiseNote();
+  recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
+});
+
 document.getElementById('b-flights').addEventListener('input', e => {
   budget.flights = parseFloat(e.target.value) || 0;
   recalcTotals();
@@ -656,8 +791,62 @@ document.getElementById('b-flights-mode').addEventListener('click', e => {
 
 document.getElementById('b-transport').addEventListener('input', e => {
   budget.transport = parseFloat(e.target.value) || 0;
+  // If Mears is on and user manually edits, turn Mears off
+  if (budget.mears.enabled) {
+    budget.mears.enabled = false;
+    document.getElementById('b-mears-toggle').checked = false;
+    document.getElementById('b-mears-fields').hidden = true;
+  }
   recalcTotals();
   if (typeof markDirty === 'function') markDirty();
+});
+
+// ── Mears Connect ─────────────────────────────────────────────────────────────
+function calcMearsTotal() {
+  const { under3, ages3to9, ages10plus, ways } = budget.mears;
+  return (ages3to9 * 13 + ages10plus * 16) * ways;
+}
+
+function applyMearsToTransport() {
+  const total = calcMearsTotal();
+  budget.transport = total;
+  const el = document.getElementById('b-transport');
+  if (el) el.value = total || '';
+  const note = document.getElementById('b-mears-note');
+  if (note) {
+    const { ages3to9, ages10plus, ways } = budget.mears;
+    const wayLabel = ways === 1 ? '1-way' : 'round trip';
+    const parts = [];
+    if (ages3to9 > 0)   parts.push(`${ages3to9} × $13`);
+    if (ages10plus > 0) parts.push(`${ages10plus} × $16`);
+    note.textContent = parts.length
+      ? `${parts.join(' + ')} × ${ways} (${wayLabel}) = ${fmtMoney(total)}`
+      : '';
+  }
+  recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
+}
+
+document.getElementById('b-mears-toggle').addEventListener('change', e => {
+  budget.mears.enabled = e.target.checked;
+  document.getElementById('b-mears-fields').hidden = !e.target.checked;
+  if (e.target.checked) {
+    applyMearsToTransport();
+  } else {
+    document.getElementById('b-mears-note').textContent = '';
+  }
+  if (typeof markDirty === 'function') markDirty();
+});
+
+['b-mears-u3', 'b-mears-3to9', 'b-mears-10plus', 'b-mears-ways'].forEach(id => {
+  document.getElementById(id).addEventListener('change', e => {
+    const m = budget.mears;
+    m.under3    = parseInt(document.getElementById('b-mears-u3').value)     || 0;
+    m.ages3to9  = parseInt(document.getElementById('b-mears-3to9').value)   || 0;
+    m.ages10plus= parseInt(document.getElementById('b-mears-10plus').value) || 0;
+    m.ways      = parseInt(document.getElementById('b-mears-ways').value)   || 2;
+    applyMearsToTransport();
+  });
 });
 
 document.getElementById('b-tickets').addEventListener('input', e => {
@@ -752,6 +941,8 @@ function getAppState() {
     ticketPerPersonPerDay: budget.ticketPerPersonPerDay,
     activeParkFilters:     [...activeParkFilters],
     hotels:                budget.hotels,
+    mears:                 budget.mears,
+    cruise:                budget.cruise,
     showPremierPass:       showPremierPass,
     llspRiders:            [...llspRiders.entries()],
     llmpIncluded:          [...llmpIncluded.entries()],
@@ -804,10 +995,56 @@ function applyAppState(state) {
     });
   }
   if (Array.isArray(state.hotels)) {
-    budget.hotels = state.hotels;
-    nextHotelId   = (budget.hotels.reduce((m, h) => Math.max(m, h.id ?? 0), 0)) + 1;
+    budget.hotels = state.hotels.map(h => ({
+      rateMode: 'night',
+      rateValue: h.rateValue ?? h.ratePerNight ?? 0,
+      ...h,
+    }));
+    nextHotelId = (budget.hotels.reduce((m, h) => Math.max(m, h.id ?? 0), 0)) + 1;
     updateResortTier();
     renderHotels();
+  }
+  if (state.mears != null) {
+    budget.mears = { ...budget.mears, ...state.mears };
+    const m = budget.mears;
+    const toggle = document.getElementById('b-mears-toggle');
+    if (toggle) toggle.checked = m.enabled;
+    const fields = document.getElementById('b-mears-fields');
+    if (fields) fields.hidden = !m.enabled;
+    const u3El = document.getElementById('b-mears-u3');
+    if (u3El) u3El.value = m.under3 || 0;
+    const s39El = document.getElementById('b-mears-3to9');
+    if (s39El) s39El.value = m.ages3to9 || 0;
+    const s10El = document.getElementById('b-mears-10plus');
+    if (s10El) s10El.value = m.ages10plus || 0;
+    const waysEl = document.getElementById('b-mears-ways');
+    if (waysEl) waysEl.value = m.ways || 2;
+    if (m.enabled) applyMearsToTransport();
+  }
+  if (state.cruise != null) {
+    budget.cruise = { ...budget.cruise, ...state.cruise };
+    const c = budget.cruise;
+    const toggleEl = document.getElementById('b-cruise-toggle');
+    if (toggleEl) toggleEl.checked = !!c.enabled;
+    const headerToggle = document.getElementById('toggle-cruise');
+    if (headerToggle) headerToggle.checked = !!c.enabled;
+    const fieldsEl = document.getElementById('b-cruise-fields');
+    if (fieldsEl) fieldsEl.hidden = !c.enabled;
+    const cruiseWrap = document.getElementById('cs-cruise-wrap');
+    if (cruiseWrap) cruiseWrap.hidden = !c.enabled;
+    const shipEl = document.getElementById('b-cruise-ship');
+    if (shipEl) shipEl.value = c.ship || '';
+    const sailEl = document.getElementById('b-cruise-sail');
+    if (sailEl) sailEl.value = c.sailDate || '';
+    const nightsEl = document.getElementById('b-cruise-nights');
+    if (nightsEl) nightsEl.value = c.nights || '';
+    const cabinEl = document.getElementById('b-cruise-cabin');
+    if (cabinEl) cabinEl.value = c.cabinCost || '';
+    const feesEl = document.getElementById('b-cruise-fees');
+    if (feesEl) feesEl.value = c.portFees || '';
+    const onboardEl = document.getElementById('b-cruise-onboard');
+    if (onboardEl) onboardEl.value = c.onboard || '';
+    updateCruiseNote();
   }
   if (state.showPremierPass != null) {
     showPremierPass = Boolean(state.showPremierPass);

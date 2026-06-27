@@ -40,6 +40,7 @@
       </div>
       <div class="controls-right">
         <label class="resort-toggle"><input type="checkbox" id="toggle-premier"> Lightning Lane Premier Pass</label>
+        <label class="resort-toggle"><input type="checkbox" id="toggle-cruise"> Cruise</label>
         <button class="budget-toggle-btn" id="budget-toggle-btn">Budget</button>
         <button class="budget-toggle-btn" id="sheets-toggle-btn" hidden>Sheets</button>
       </div>
@@ -76,8 +77,47 @@
             <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-flights" min="0" step="1" placeholder="0"></div>
           </div>
           <div class="budget-field">
-            <label for="b-transport">Transportation</label>
+            <div class="budget-field-header">
+              <label for="b-transport">Transportation</label>
+              <label class="mears-toggle-label"><input type="checkbox" id="b-mears-toggle"> Mears Connect</label>
+            </div>
             <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-transport" min="0" step="1" placeholder="0"></div>
+            <div id="b-mears-fields" hidden>
+              <div class="mears-fields-inner">
+                <div class="mears-field">
+                  <label>Under 3 <span class="mears-price">FREE</span></label>
+                  <select id="b-mears-u3">
+                    <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+                    <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                  </select>
+                </div>
+                <div class="mears-field">
+                  <label>Ages 3–9 <span class="mears-price">$13 / way</span></label>
+                  <select id="b-mears-3to9">
+                    <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+                    <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                    <option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                  </select>
+                </div>
+                <div class="mears-field">
+                  <label>Ages 10+ <span class="mears-price">$16 / way</span></label>
+                  <select id="b-mears-10plus">
+                    <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+                    <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                    <option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                    <option value="9">9</option><option value="10">10</option>
+                  </select>
+                </div>
+                <div class="mears-field">
+                  <label>Trips <span class="mears-price">(ways)</span></label>
+                  <select id="b-mears-ways">
+                    <option value="1">1 way</option>
+                    <option value="2" selected>Round trip</option>
+                  </select>
+                </div>
+              </div>
+              <span class="budget-note" id="b-mears-note"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -99,6 +139,60 @@
             <label class="budget-ap-label"><input type="checkbox" id="b-annual-pass"> Annual Pass</label>
             <span class="budget-note" id="b-ticket-days"></span>
           </div>
+        </div>
+      </div>
+
+      <!-- Section: Cruise -->
+      <div class="budget-section">
+        <div class="budget-section-title">
+          <label class="cruise-toggle-label"><input type="checkbox" id="b-cruise-toggle"> Cruise</label>
+        </div>
+        <div id="b-cruise-fields" hidden>
+        <div class="budget-section-fields">
+          <div class="budget-field">
+            <label for="b-cruise-ship">Ship</label>
+            <select id="b-cruise-ship">
+              <option value="">— Select ship —</option>
+              <optgroup label="Magic Class">
+                <option value="Disney Magic">Disney Magic</option>
+                <option value="Disney Wonder">Disney Wonder</option>
+              </optgroup>
+              <optgroup label="Dream Class">
+                <option value="Disney Dream">Disney Dream</option>
+                <option value="Disney Fantasy">Disney Fantasy</option>
+              </optgroup>
+              <optgroup label="Wish Class">
+                <option value="Disney Wish">Disney Wish</option>
+                <option value="Disney Treasure">Disney Treasure</option>
+                <option value="Disney Destiny">Disney Destiny</option>
+              </optgroup>
+              <optgroup label="Adventure Class">
+                <option value="Disney Adventure">Disney Adventure</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="budget-field">
+            <label for="b-cruise-sail">Sail Date</label>
+            <input type="date" id="b-cruise-sail">
+          </div>
+          <div class="budget-field">
+            <label for="b-cruise-nights">Nights</label>
+            <input type="number" id="b-cruise-nights" min="1" max="30" step="1" placeholder="0">
+          </div>
+          <div class="budget-field">
+            <label for="b-cruise-cabin">Cabin Cost</label>
+            <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-cruise-cabin" min="0" step="1" placeholder="0"></div>
+          </div>
+          <div class="budget-field">
+            <label for="b-cruise-fees">Port Fees &amp; Taxes</label>
+            <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-cruise-fees" min="0" step="1" placeholder="0"></div>
+          </div>
+          <div class="budget-field">
+            <label for="b-cruise-onboard">Onboard Budget</label>
+            <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-cruise-onboard" min="0" step="1" placeholder="0"></div>
+          </div>
+        </div>
+        <span class="budget-note" id="b-cruise-note"></span>
         </div>
       </div>
 
@@ -154,16 +248,25 @@
       <span class="cost-label">Tickets</span>
       <span class="cost-value" id="cs-tickets-val">$0</span>
     </button>
-    <div class="cost-sep"></div>
-    <button class="cost-item" id="cs-llsp">
-      <span class="cost-label">LL Single</span>
-      <span class="cost-value" id="cs-llsp-val">$0</span>
-    </button>
-    <div class="cost-sep"></div>
-    <button class="cost-item" id="cs-llmp">
-      <span class="cost-label">LLMP</span>
-      <span class="cost-value" id="cs-llmp-val">$0</span>
-    </button>
+    <div class="cost-group" id="cs-llsp-wrap">
+      <div class="cost-sep"></div>
+      <button class="cost-item" id="cs-llsp">
+        <span class="cost-label">LL Single</span>
+        <span class="cost-value" id="cs-llsp-val">$0</span>
+      </button>
+      <div class="cost-sep"></div>
+      <button class="cost-item" id="cs-llmp">
+        <span class="cost-label">LLMP</span>
+        <span class="cost-value" id="cs-llmp-val">$0</span>
+      </button>
+    </div>
+    <div class="cost-group" id="cs-cruise-wrap" hidden>
+      <div class="cost-sep"></div>
+      <button class="cost-item" id="cs-cruise" data-target="b-cruise-cabin">
+        <span class="cost-label">Cruise</span>
+        <span class="cost-value" id="cs-cruise-val">$0</span>
+      </button>
+    </div>
     <div class="cost-sep cost-sep-total"></div>
     <div class="cost-item cost-total">
       <span class="cost-label">TOTAL</span>
