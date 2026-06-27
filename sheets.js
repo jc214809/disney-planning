@@ -190,6 +190,8 @@ function signOut() {
       annualPass: false,
       ticketPerPersonPerDay: 0,
       hotels: [],
+      mears: { enabled: false, under3: 0, ages3to9: 0, ages10plus: 0, ways: 2 },
+      cruise: { ship: '', sailDate: '', nights: 0, cabinCost: 0, portFees: 0, onboard: 0 },
       activeParkFilters: ['Magic Kingdom', 'EPCOT', 'Hollywood Studios', 'Animal Kingdom'],
       showPremierPass: false,
       llspRiders: [],

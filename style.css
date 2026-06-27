@@ -231,6 +231,25 @@ h1 {
   color: #475569;
 }
 
+.cruise-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+.cruise-toggle-label input[type="checkbox"] {
+  accent-color: #38bdf8;
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+}
+
 .budget-section-fields {
   display: flex;
   flex-wrap: wrap;
@@ -506,6 +525,51 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 0.68rem;
   color: #475569;
   font-variant-numeric: tabular-nums;
+}
+
+.mears-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #94a3b8;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mears-fields-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.mears-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mears-field label {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+.mears-field select {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  padding: 4px 6px;
+  width: 90px;
+}
+
+.mears-price {
+  color: #38bdf8;
+  font-weight: 600;
 }
 
 .budget-ap-label {
@@ -1086,6 +1150,15 @@ td:last-child { text-align: center; }
 }
 
 .cost-summary-inner::-webkit-scrollbar { display: none; }
+
+.cost-group {
+  display: contents; /* participates in parent flex as if unwrapped */
+}
+
+/* display:contents swallows the [hidden] rule — override explicitly */
+.cost-group[hidden] {
+  display: none !important;
+}
 
 .cost-item {
   display: flex;
