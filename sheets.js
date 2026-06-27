@@ -404,7 +404,14 @@ function openTripNameEdit() {
   const cancelBtn = document.getElementById('trip-name-cancel-btn');
   if (nameText)  nameText.hidden  = true;
   if (editBtn)   editBtn.hidden   = true;
-  if (input)     { input.hidden = false; delete input.dataset.userEdited; input.focus(); input.select(); }
+  if (input) {
+    input.hidden = false;
+    delete input.dataset.userEdited;
+    const suggested = defaultTabName();
+    input.value = suggested !== currentSheetName ? suggested : (currentSheetName || '');
+    input.focus();
+    input.select();
+  }
   if (renameBtn) { renameBtn.hidden = false; renameBtn.disabled = (input?.value.trim() === currentSheetName); }
   if (cancelBtn) cancelBtn.hidden = false;
 }
