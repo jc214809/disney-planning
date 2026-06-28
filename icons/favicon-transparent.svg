@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Disney Trip Planner — favicon transparent background -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="64" height="64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 63 476 354" width="64" height="64">
   <!-- No background — fully transparent -->
   <circle cx="90"  cy="135" r="72" fill="#f59e0b"/>
   <circle cx="422" cy="135" r="72" fill="#f59e0b"/>
