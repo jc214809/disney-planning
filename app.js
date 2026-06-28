@@ -795,6 +795,8 @@ document.getElementById('b-transport').addEventListener('input', e => {
     budget.mears.enabled = false;
     document.getElementById('b-mears-toggle').checked = false;
     document.getElementById('b-mears-fields').hidden = true;
+    const transportWrap = document.querySelector('#bs-transport .budget-dollar-wrap');
+    if (transportWrap) transportWrap.hidden = false;
   }
   recalcTotals();
   if (typeof markDirty === 'function') markDirty();
@@ -832,6 +834,8 @@ function syncMearsWayBtns() {
 document.getElementById('b-mears-toggle').addEventListener('change', e => {
   budget.mears.enabled = e.target.checked;
   document.getElementById('b-mears-fields').hidden = !e.target.checked;
+  const transportWrap = document.querySelector('#bs-transport .budget-dollar-wrap');
+  if (transportWrap) transportWrap.hidden = e.target.checked;
   if (e.target.checked) {
     applyMearsToTransport();
   }
@@ -1042,6 +1046,8 @@ function applyAppState(state) {
     if (toggle) toggle.checked = m.enabled;
     const fields = document.getElementById('b-mears-fields');
     if (fields) fields.hidden = !m.enabled;
+    const transportWrap = document.querySelector('#bs-transport .budget-dollar-wrap');
+    if (transportWrap) transportWrap.hidden = !!m.enabled;
     syncMearsWayBtns();
     if (m.enabled) applyMearsToTransport();
     else {

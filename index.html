@@ -4,13 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Disney Trip Planner</title>
+<link rel="icon" type="image/svg+xml" href="icons/favicon-transparent.svg">
+<link rel="apple-touch-icon" href="icons/icon-192.svg">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <div class="header-top">
-    <h1>Disney Trip Planner</h1>
+    <img src="icons/logo-wide.svg" alt="Disney Trip Planner" class="app-logo">
     <div class="header-top-right">
       <button class="budget-toggle-btn" id="sheets-new-tab-btn" disabled>+ New Trip</button>
       <div id="google-auth-area">
@@ -104,6 +106,14 @@
           </div>
           <div id="b-mears-fields" hidden>
             <div class="mears-grid">
+              <div class="mears-age-row mears-ways-row">
+                <span class="mears-age-label">Direction</span>
+                <span class="mears-age-price"></span>
+                <div class="mears-ways-toggle">
+                  <button class="mears-way-btn active" data-ways="1">1-way</button>
+                  <button class="mears-way-btn" data-ways="2">Round trip</button>
+                </div>
+              </div>
               <div class="mears-age-row">
                 <span class="mears-age-label">Under 3</span>
                 <span class="mears-age-price">FREE</span>
@@ -129,14 +139,6 @@
                   <button class="mears-step-btn" data-field="ages10plus" data-dir="-1">−</button>
                   <span class="mears-step-val" id="mv-10plus">0</span>
                   <button class="mears-step-btn" data-field="ages10plus" data-dir="1">+</button>
-                </div>
-              </div>
-              <div class="mears-age-row mears-ways-row">
-                <span class="mears-age-label">Direction</span>
-                <span class="mears-age-price"></span>
-                <div class="mears-ways-toggle">
-                  <button class="mears-way-btn active" data-ways="1">1-way</button>
-                  <button class="mears-way-btn" data-ways="2">Round trip</button>
                 </div>
               </div>
             </div>
