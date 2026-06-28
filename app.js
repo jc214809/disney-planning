@@ -811,8 +811,6 @@ function applyMearsToTransport() {
   budget.transport = total;
   const el = document.getElementById('b-transport');
   if (el) el.value = total || '';
-  const note = document.getElementById('b-mears-note');
-  if (note) note.textContent = fmtMoney(total);
   // Update stepper display values
   const { under3, ages3to9, ages10plus } = budget.mears;
   const u3El    = document.getElementById('mv-u3');
@@ -836,9 +834,6 @@ document.getElementById('b-mears-toggle').addEventListener('change', e => {
   document.getElementById('b-mears-fields').hidden = !e.target.checked;
   if (e.target.checked) {
     applyMearsToTransport();
-  } else {
-    const note = document.getElementById('b-mears-note');
-    if (note) note.textContent = '$0';
   }
   if (typeof markDirty === 'function') markDirty();
 });
