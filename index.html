@@ -31,19 +31,10 @@
       <label>End <input type="date" id="end-date"></label>
       <button id="load-btn">Load</button>
     </div>
-    <div class="park-toggles-row">
-      <div class="park-toggles" id="park-toggles">
-        <button class="park-toggle active" data-park="Magic Kingdom">Magic Kingdom</button>
-        <button class="park-toggle active" data-park="EPCOT">EPCOT</button>
-        <button class="park-toggle active" data-park="Hollywood Studios">Hollywood Studios</button>
-        <button class="park-toggle active" data-park="Animal Kingdom">Animal Kingdom</button>
-      </div>
-      <div class="controls-right">
-        <label class="resort-toggle"><input type="checkbox" id="toggle-premier"> Lightning Lane Premier Pass</label>
-        <label class="resort-toggle"><input type="checkbox" id="toggle-cruise"> Cruise</label>
-        <button class="budget-toggle-btn" id="budget-toggle-btn">Budget</button>
-        <button class="budget-toggle-btn" id="sheets-toggle-btn" hidden>Sheets</button>
-      </div>
+    <div class="controls-right">
+      <label class="resort-toggle"><input type="checkbox" id="toggle-premier"> Lightning Lane Premier Pass</label>
+      <label class="resort-toggle"><input type="checkbox" id="toggle-cruise"> Cruise</label>
+      <button class="budget-toggle-btn" id="sheets-toggle-btn" hidden>Sheets</button>
     </div>
   </div>
 
@@ -56,98 +47,141 @@
 
   <!-- Budget Panel -->
   <div class="budget-panel" id="budget-panel" hidden>
+    <button class="budget-panel-header" id="budget-toggle-btn" aria-expanded="true">
+      <span class="section-chevron">▾</span> Budget
+    </button>
     <div class="budget-panel-inner">
 
-      <!-- Section: Travel -->
-      <div class="budget-section">
-        <div class="budget-section-title">Travel</div>
-        <div class="budget-section-fields">
-          <div class="budget-field">
-            <label for="b-travelers">Travelers</label>
-            <input type="number" id="b-travelers" min="1" max="20" value="1">
-          </div>
-          <div class="budget-field">
-            <div class="budget-field-header">
-              <label for="b-flights">Flights</label>
-              <div class="mode-toggle" id="b-flights-mode">
-                <button class="mode-toggle-btn active" data-mode="person">/ Person</button>
-                <button class="mode-toggle-btn" data-mode="total">Total</button>
-              </div>
+      <!-- Section: Air -->
+      <div class="budget-section" id="bs-air">
+        <button class="budget-section-title section-collapse-btn" data-section="bs-air" aria-expanded="true">
+          <span class="section-chevron">▾</span> Air
+        </button>
+        <div class="budget-section-body">
+          <div class="air-row">
+            <div class="budget-field">
+              <label for="b-travelers">Travelers</label>
+              <input type="number" id="b-travelers" min="1" max="20" value="1">
             </div>
-            <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-flights" min="0" step="1" placeholder="0"></div>
-          </div>
-          <div class="budget-field">
-            <div class="budget-field-header">
-              <label for="b-transport">Transportation</label>
-              <label class="mears-toggle-label"><input type="checkbox" id="b-mears-toggle"> Mears Connect</label>
-            </div>
-            <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-transport" min="0" step="1" placeholder="0"></div>
-            <div id="b-mears-fields" hidden>
-              <div class="mears-fields-inner">
-                <div class="mears-field">
-                  <label>Under 3 <span class="mears-price">FREE</span></label>
-                  <select id="b-mears-u3">
-                    <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                    <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-                  </select>
-                </div>
-                <div class="mears-field">
-                  <label>Ages 3–9 <span class="mears-price">$13 / way</span></label>
-                  <select id="b-mears-3to9">
-                    <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                    <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-                    <option value="6">6</option><option value="7">7</option><option value="8">8</option>
-                  </select>
-                </div>
-                <div class="mears-field">
-                  <label>Ages 10+ <span class="mears-price">$16 / way</span></label>
-                  <select id="b-mears-10plus">
-                    <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                    <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-                    <option value="6">6</option><option value="7">7</option><option value="8">8</option>
-                    <option value="9">9</option><option value="10">10</option>
-                  </select>
-                </div>
-                <div class="mears-field">
-                  <label>Trips <span class="mears-price">(ways)</span></label>
-                  <select id="b-mears-ways">
-                    <option value="1">1 way</option>
-                    <option value="2" selected>Round trip</option>
-                  </select>
+            <div class="budget-field">
+              <div class="budget-field-header">
+                <label for="b-flights">Cost</label>
+                <div class="mode-toggle" id="b-flights-mode">
+                  <button class="mode-toggle-btn active" data-mode="person">/ Person</button>
+                  <button class="mode-toggle-btn" data-mode="total">Total</button>
                 </div>
               </div>
-              <span class="budget-note" id="b-mears-note"></span>
+              <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-flights" min="0" step="1" placeholder="0"></div>
+            </div>
+          </div>
+          <div class="air-row">
+            <div class="budget-field">
+              <label for="b-arrive">Arrival</label>
+              <input type="datetime-local" id="b-arrive">
+            </div>
+            <div class="budget-field">
+              <label for="b-depart">Departure</label>
+              <input type="datetime-local" id="b-depart">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Transportation -->
+      <div class="budget-section" id="bs-transport">
+        <button class="budget-section-title section-collapse-btn" data-section="bs-transport" aria-expanded="true">
+          <span class="section-chevron">▾</span> Transportation
+        </button>
+        <div class="budget-section-body">
+          <div class="budget-section-fields">
+            <div class="budget-field">
+              <div class="budget-field-header">
+                <label for="b-transport">Total Cost</label>
+                <label class="mears-toggle-label"><input type="checkbox" id="b-mears-toggle"> Mears Connect</label>
+              </div>
+              <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-transport" min="0" step="1" placeholder="0"></div>
+            </div>
+          </div>
+          <div id="b-mears-fields" hidden>
+            <div class="mears-grid">
+              <div class="mears-age-row">
+                <span class="mears-age-label">Under 3</span>
+                <span class="mears-age-price">FREE</span>
+                <div class="mears-stepper">
+                  <button class="mears-step-btn" data-field="under3" data-dir="-1">−</button>
+                  <span class="mears-step-val" id="mv-u3">0</span>
+                  <button class="mears-step-btn" data-field="under3" data-dir="1">+</button>
+                </div>
+              </div>
+              <div class="mears-age-row">
+                <span class="mears-age-label">Ages 3–9</span>
+                <span class="mears-age-price">$13/way</span>
+                <div class="mears-stepper">
+                  <button class="mears-step-btn" data-field="ages3to9" data-dir="-1">−</button>
+                  <span class="mears-step-val" id="mv-3to9">0</span>
+                  <button class="mears-step-btn" data-field="ages3to9" data-dir="1">+</button>
+                </div>
+              </div>
+              <div class="mears-age-row">
+                <span class="mears-age-label">Ages 10+</span>
+                <span class="mears-age-price">$16/way</span>
+                <div class="mears-stepper">
+                  <button class="mears-step-btn" data-field="ages10plus" data-dir="-1">−</button>
+                  <span class="mears-step-val" id="mv-10plus">0</span>
+                  <button class="mears-step-btn" data-field="ages10plus" data-dir="1">+</button>
+                </div>
+              </div>
+              <div class="mears-age-row mears-ways-row">
+                <span class="mears-age-label">Direction</span>
+                <span class="mears-age-price"></span>
+                <div class="mears-ways-toggle">
+                  <button class="mears-way-btn active" data-ways="1">1-way</button>
+                  <button class="mears-way-btn" data-ways="2">Round trip</button>
+                </div>
+              </div>
+            </div>
+            <div class="mears-total-row">
+              <span class="mears-total-label">Total</span>
+              <span class="mears-total-val" id="b-mears-note">$0</span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Section: Hotels -->
-      <div class="budget-section">
-        <div class="budget-section-title">Hotels</div>
-        <div id="budget-hotels-list"></div>
-        <button class="add-hotel-btn" id="add-hotel-btn">+ Add Hotel</button>
+      <div class="budget-section" id="bs-hotels">
+        <button class="budget-section-title section-collapse-btn" data-section="bs-hotels" aria-expanded="true">
+          <span class="section-chevron">▾</span> Hotels
+        </button>
+        <div class="budget-section-body">
+          <div id="budget-hotels-list"></div>
+          <button class="add-hotel-btn" id="add-hotel-btn">+ Add Hotel</button>
+        </div>
       </div>
 
       <!-- Section: Tickets -->
-      <div class="budget-section">
-        <div class="budget-section-title">Tickets</div>
-        <div class="budget-section-fields">
-          <div class="budget-field">
-            <label for="b-tickets">Tickets / person / day</label>
-            <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-tickets" min="0" step="1" placeholder="0"></div>
-            <label class="budget-ap-label"><input type="checkbox" id="b-annual-pass"> Annual Pass</label>
-            <span class="budget-note" id="b-ticket-days"></span>
+      <div class="budget-section" id="bs-tickets">
+        <button class="budget-section-title section-collapse-btn" data-section="bs-tickets" aria-expanded="true">
+          <span class="section-chevron">▾</span> Tickets
+        </button>
+        <div class="budget-section-body">
+          <div class="budget-section-fields">
+            <div class="budget-field">
+              <label for="b-tickets">Tickets / person / day</label>
+              <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-tickets" min="0" step="1" placeholder="0"></div>
+              <label class="budget-ap-label"><input type="checkbox" id="b-annual-pass"> Annual Pass</label>
+              <span class="budget-note" id="b-ticket-days"></span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Section: Cruise -->
-      <div class="budget-section">
-        <div class="budget-section-title">
-          <label class="cruise-toggle-label"><input type="checkbox" id="b-cruise-toggle"> Cruise</label>
-        </div>
-        <div id="b-cruise-fields" hidden>
+      <div class="budget-section" id="bs-cruise" hidden>
+        <button class="budget-section-title section-collapse-btn" data-section="bs-cruise" aria-expanded="true">
+          <span class="section-chevron">▾</span> Cruise
+        </button>
+        <div class="budget-section-body">
         <div class="budget-section-fields">
           <div class="budget-field">
             <label for="b-cruise-ship">Ship</label>
@@ -216,6 +250,12 @@
         <polyline points="3 5 5 5 17 5"/><path d="M6 5V3h8v2"/><path d="M7 8l.5 8M10 8v8M13 8l-.5 8"/><rect x="4" y="5" width="12" height="12" rx="1"/>
       </svg>
     </button>
+    <div class="park-toggles" id="park-toggles">
+      <button class="park-toggle active" data-park="Magic Kingdom">Magic Kingdom</button>
+      <button class="park-toggle active" data-park="EPCOT">EPCOT</button>
+      <button class="park-toggle active" data-park="Hollywood Studios">Hollywood Studios</button>
+      <button class="park-toggle active" data-park="Animal Kingdom">Animal Kingdom</button>
+    </div>
     <input type="text" id="sheets-tab-name" placeholder="Trip name…" spellcheck="false" hidden>
     <button id="sheets-rename-btn" hidden>Rename</button>
     <button id="trip-name-cancel-btn" hidden>Cancel</button>

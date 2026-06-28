@@ -381,7 +381,6 @@ function hideSheetsControls() {
   if (controls) controls.hidden = true;
   const budgetPanel = document.getElementById('budget-panel');
   if (budgetPanel) budgetPanel.hidden = true;
-  document.getElementById('budget-toggle-btn')?.classList.remove('active');
   setSaveLoadEnabled(false);
 
   for (const selId of ['sheets-tab-select', 'header-trip-select']) {
@@ -459,11 +458,30 @@ function defaultTabName() {
   return parts.length ? parts.join(' · ') : 'New Trip';
 }
 
+function parseSheetDate(name) {
+  // Try to extract a start date from names like "Jul 29 – Aug 1 · Yacht Club"
+  const m = name.match(/^([A-Za-z]+ \d+)/);
+  if (!m) return null;
+  const d = new Date(m[1] + ' ' + new Date().getFullYear());
+  return isNaN(d) ? null : d;
+}
+
 function populateSheetDropdown(sheets) {
+  // Sort chronologically; names without a parseable date go to the end alphabetically
+  const sorted = [...sheets].sort((a, b) => {
+    const da = parseSheetDate(a), db = parseSheetDate(b);
+    if (da && db) return da - db;
+    if (da) return -1;
+    if (db) return 1;
+    return a.localeCompare(b);
+  });
+
   // Header trip selector
   const headerSelect = document.getElementById('header-trip-select');
   if (headerSelect) {
-    headerSelect.innerHTML = sheets.map(s => `<option value="${s.replace(/"/g, '&quot;')}">${s}</option>`).join('');
+    headerSelect.innerHTML = sorted.map(s =>
+      `<option value="${s.replace(/"/g, '&quot;')}">${s}</option>`
+    ).join('');
   }
   const headerTrips = document.getElementById('header-trips');
   if (headerTrips) headerTrips.hidden = false;
@@ -471,16 +489,16 @@ function populateSheetDropdown(sheets) {
   // Legacy panel select (kept for compat, hidden in UI)
   const select = document.getElementById('sheets-tab-select');
   if (select) {
-    select.innerHTML = sheets.map(s => `<option value="${s.replace(/"/g, '&quot;')}">${s}</option>`).join('');
+    select.innerHTML = sorted.map(s => `<option value="${s.replace(/"/g, '&quot;')}">${s}</option>`).join('');
   }
 
-  currentSheetName = sheets[0];
+  currentSheetName = sorted[0];
   setSaveLoadEnabled(true);
 
   // Show controls, trip name bar, and cost bar
   const controls = document.querySelector('.controls');
   if (controls) controls.hidden = false;
-  for (const id of ['trip-name-bar', 'cost-summary-bar']) {
+  for (const id of ['trip-name-bar', 'cost-summary-bar', 'budget-panel']) {
     const el = document.getElementById(id);
     if (el) el.hidden = false;
   }
@@ -517,9 +535,41 @@ async function saveToSheet() {
     });
     clearDirty();
     setSheetsStatus(`Saved to "${currentSheetName}".`);
+
+    // Prompt to rename if the suggested name has changed
+    const suggested = defaultTabName();
+    if (suggested && suggested !== currentSheetName) {
+      showRenamePrompt(suggested);
+    }
   } catch (e) {
     setSheetsStatus('Save failed: ' + (e.result?.error?.message || e.message), true);
   }
+}
+
+function showRenamePrompt(suggested) {
+  // Remove any existing prompt
+  document.getElementById('rename-prompt')?.remove();
+
+  const bar = document.createElement('div');
+  bar.id = 'rename-prompt';
+  bar.className = 'rename-prompt';
+  bar.innerHTML = `
+    <span class="rename-prompt-msg">Rename sheet to <strong>"${suggested}"</strong>?</span>
+    <button class="rename-prompt-yes">Rename</button>
+    <button class="rename-prompt-no">Keep current</button>
+  `;
+
+  bar.querySelector('.rename-prompt-yes').addEventListener('click', async () => {
+    bar.remove();
+    const input = document.getElementById('sheets-tab-name');
+    if (input) { input.value = suggested; input.dataset.userEdited = 'false'; }
+    await renameCurrentTab();
+  });
+  bar.querySelector('.rename-prompt-no').addEventListener('click', () => bar.remove());
+
+  // Insert below the trip-name-bar
+  const nameBar = document.getElementById('trip-name-bar');
+  if (nameBar) nameBar.insertAdjacentElement('afterend', bar);
 }
 
 // ── Load ──────────────────────────────────────────────────────────────────────

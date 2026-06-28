@@ -77,6 +77,8 @@ let budget = {
   hotels: [],              // [{ id, resort, checkIn, checkOut, ratePerNight }]
   flights:    0,
   flightsMode: 'person',   // 'person' | 'total'
+  arriveAt: '',            // datetime-local string
+  departAt: '',            // datetime-local string
   transport:  0,
   ticketPerPersonPerDay: 0,
   annualPass: false,
@@ -243,10 +245,7 @@ function renderHotels() {
             </div>
             <div class="budget-dollar-wrap"><span>$</span><input class="hotel-rate-input" type="number" min="0" step="1" placeholder="0" value="${h.rateValue || ''}"></div>
           </div>
-          <div class="hotel-field hotel-field-note">
-            <label class="hotel-field-label">&nbsp;</label>
-            <span class="hotel-nights-note${isOverlap ? ' overlap-note' : ''}">${noteText}</span>
-          </div>
+          ${isOverlap ? `<span class="hotel-nights-note overlap-note">⚠ Overlaps another hotel</span>` : ''}
         </div>
       </div>`;
   }).join('');
@@ -255,13 +254,9 @@ function renderHotels() {
 function updateHotelNoteInPlace(hotel, rowEl) {
   const noteEl = rowEl.querySelector('.hotel-nights-note');
   if (!noteEl) return;
-  const nights    = nightsBetween(hotel.checkIn, hotel.checkOut);
-  const subtotal  = nights * hotelEffectiveRate(hotel);
   const overlaps  = overlappingHotelIds(budget.hotels);
   const isOverlap = overlaps.has(hotel.id);
-  noteEl.textContent = hotel.checkIn && hotel.checkOut && nights > 0
-    ? (isOverlap ? '⚠ Overlaps another hotel' : `${nights} night${nights !== 1 ? 's' : ''} = ${fmtMoney(subtotal)}`)
-    : '';
+  noteEl.textContent = isOverlap ? '⚠ Overlaps another hotel' : '';
   noteEl.classList.toggle('overlap-note', isOverlap);
 }
 
@@ -623,19 +618,34 @@ document.getElementById('toggle-cruise').addEventListener('change', e => {
   budget.cruise.enabled = e.target.checked;
   const cruiseWrap = document.getElementById('cs-cruise-wrap');
   if (cruiseWrap) cruiseWrap.hidden = !e.target.checked;
-  // Sync the in-panel checkbox too
-  const panelToggle = document.getElementById('b-cruise-toggle');
-  if (panelToggle) panelToggle.checked = e.target.checked;
-  const fieldsEl = document.getElementById('b-cruise-fields');
-  if (fieldsEl) fieldsEl.hidden = !e.target.checked;
+  // Show/hide the whole cruise budget section
+  const cruiseSection = document.getElementById('bs-cruise');
+  if (cruiseSection) cruiseSection.hidden = !e.target.checked;
   recalcTotals();
   if (typeof markDirty === 'function') markDirty();
 });
 
 document.getElementById('budget-toggle-btn').addEventListener('click', () => {
-  const panel = document.getElementById('budget-panel');
-  panel.hidden = !panel.hidden;
-  document.getElementById('budget-toggle-btn').classList.toggle('active', !panel.hidden);
+  const inner  = document.querySelector('.budget-panel-inner');
+  const btn    = document.getElementById('budget-toggle-btn');
+  const isOpen = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+  if (inner) inner.hidden = isOpen;
+});
+
+document.getElementById('budget-panel').addEventListener('click', e => {
+  const btn = e.target.closest('.section-collapse-btn');
+  if (!btn) return;
+  // Don't collapse when clicking the cruise checkbox inside the button
+  if (e.target.type === 'checkbox') return;
+  const sectionId = btn.dataset.section;
+  const section   = document.getElementById(sectionId);
+  if (!section) return;
+  const body      = section.querySelector('.budget-section-body');
+  if (!body) return;
+  const isOpen = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+  body.hidden = isOpen;
 });
 
 document.getElementById('b-travelers').addEventListener('input', e => {
@@ -728,17 +738,6 @@ function updateCruiseNote() {
   }
 }
 
-document.getElementById('b-cruise-toggle').addEventListener('change', e => {
-  budget.cruise.enabled = e.target.checked;
-  document.getElementById('b-cruise-fields').hidden = !e.target.checked;
-  // Sync header checkbox
-  const headerToggle = document.getElementById('toggle-cruise');
-  if (headerToggle) headerToggle.checked = e.target.checked;
-  const cruiseWrap = document.getElementById('cs-cruise-wrap');
-  if (cruiseWrap) cruiseWrap.hidden = !e.target.checked;
-  recalcTotals();
-  if (typeof markDirty === 'function') markDirty();
-});
 
 document.getElementById('b-cruise-ship').addEventListener('change', e => {
   budget.cruise.ship = e.target.value;
@@ -813,18 +812,23 @@ function applyMearsToTransport() {
   const el = document.getElementById('b-transport');
   if (el) el.value = total || '';
   const note = document.getElementById('b-mears-note');
-  if (note) {
-    const { ages3to9, ages10plus, ways } = budget.mears;
-    const wayLabel = ways === 1 ? '1-way' : 'round trip';
-    const parts = [];
-    if (ages3to9 > 0)   parts.push(`${ages3to9} × $13`);
-    if (ages10plus > 0) parts.push(`${ages10plus} × $16`);
-    note.textContent = parts.length
-      ? `${parts.join(' + ')} × ${ways} (${wayLabel}) = ${fmtMoney(total)}`
-      : '';
-  }
+  if (note) note.textContent = fmtMoney(total);
+  // Update stepper display values
+  const { under3, ages3to9, ages10plus } = budget.mears;
+  const u3El    = document.getElementById('mv-u3');
+  const s39El   = document.getElementById('mv-3to9');
+  const s10El   = document.getElementById('mv-10plus');
+  if (u3El)  u3El.textContent  = under3;
+  if (s39El) s39El.textContent = ages3to9;
+  if (s10El) s10El.textContent = ages10plus;
   recalcTotals();
   if (typeof markDirty === 'function') markDirty();
+}
+
+function syncMearsWayBtns() {
+  document.querySelectorAll('.mears-way-btn').forEach(b => {
+    b.classList.toggle('active', Number(b.dataset.ways) === budget.mears.ways);
+  });
 }
 
 document.getElementById('b-mears-toggle').addEventListener('change', e => {
@@ -833,20 +837,39 @@ document.getElementById('b-mears-toggle').addEventListener('change', e => {
   if (e.target.checked) {
     applyMearsToTransport();
   } else {
-    document.getElementById('b-mears-note').textContent = '';
+    const note = document.getElementById('b-mears-note');
+    if (note) note.textContent = '$0';
   }
   if (typeof markDirty === 'function') markDirty();
 });
 
-['b-mears-u3', 'b-mears-3to9', 'b-mears-10plus', 'b-mears-ways'].forEach(id => {
-  document.getElementById(id).addEventListener('change', e => {
+// Stepper buttons for Mears age counts
+document.getElementById('b-mears-fields').addEventListener('click', e => {
+  const btn = e.target.closest('.mears-step-btn');
+  if (btn) {
+    const field = btn.dataset.field;
+    const dir   = Number(btn.dataset.dir);
     const m = budget.mears;
-    m.under3    = parseInt(document.getElementById('b-mears-u3').value)     || 0;
-    m.ages3to9  = parseInt(document.getElementById('b-mears-3to9').value)   || 0;
-    m.ages10plus= parseInt(document.getElementById('b-mears-10plus').value) || 0;
-    m.ways      = parseInt(document.getElementById('b-mears-ways').value)   || 2;
+    m[field] = Math.max(0, (m[field] || 0) + dir);
     applyMearsToTransport();
-  });
+    return;
+  }
+  const wayBtn = e.target.closest('.mears-way-btn');
+  if (wayBtn) {
+    budget.mears.ways = Number(wayBtn.dataset.ways);
+    syncMearsWayBtns();
+    applyMearsToTransport();
+  }
+});
+
+// Arrival / departure listeners
+document.getElementById('b-arrive').addEventListener('change', e => {
+  budget.arriveAt = e.target.value;
+  if (typeof markDirty === 'function') markDirty();
+});
+document.getElementById('b-depart').addEventListener('change', e => {
+  budget.departAt = e.target.value;
+  if (typeof markDirty === 'function') markDirty();
 });
 
 document.getElementById('b-tickets').addEventListener('input', e => {
@@ -912,11 +935,12 @@ document.getElementById('planner').addEventListener('change', e => {
 document.getElementById('cost-summary-bar').addEventListener('click', e => {
   const btn = e.target.closest('[data-target]');
   if (!btn) return;
-  const targetId = btn.dataset.target;
-  const panel    = document.getElementById('budget-panel');
-  if (panel.hidden) {
-    panel.hidden = false;
-    document.getElementById('budget-toggle-btn').classList.add('active');
+  const targetId   = btn.dataset.target;
+  const inner      = document.querySelector('.budget-panel-inner');
+  const toggleBtn  = document.getElementById('budget-toggle-btn');
+  if (inner && inner.hidden) {
+    inner.hidden = false;
+    toggleBtn.setAttribute('aria-expanded', 'true');
   }
   const input = document.getElementById(targetId);
   if (input) {
@@ -936,6 +960,8 @@ function getAppState() {
     travelers:             budget.travelers,
     flights:               budget.flights,
     flightsMode:           budget.flightsMode,
+    arriveAt:              budget.arriveAt,
+    departAt:              budget.departAt,
     transport:             budget.transport,
     annualPass:            budget.annualPass,
     ticketPerPersonPerDay: budget.ticketPerPersonPerDay,
@@ -1004,6 +1030,16 @@ function applyAppState(state) {
     updateResortTier();
     renderHotels();
   }
+  if (state.arriveAt != null) {
+    budget.arriveAt = state.arriveAt || '';
+    const el = document.getElementById('b-arrive');
+    if (el) el.value = budget.arriveAt;
+  }
+  if (state.departAt != null) {
+    budget.departAt = state.departAt || '';
+    const el = document.getElementById('b-depart');
+    if (el) el.value = budget.departAt;
+  }
   if (state.mears != null) {
     budget.mears = { ...budget.mears, ...state.mears };
     const m = budget.mears;
@@ -1011,25 +1047,24 @@ function applyAppState(state) {
     if (toggle) toggle.checked = m.enabled;
     const fields = document.getElementById('b-mears-fields');
     if (fields) fields.hidden = !m.enabled;
-    const u3El = document.getElementById('b-mears-u3');
-    if (u3El) u3El.value = m.under3 || 0;
-    const s39El = document.getElementById('b-mears-3to9');
-    if (s39El) s39El.value = m.ages3to9 || 0;
-    const s10El = document.getElementById('b-mears-10plus');
-    if (s10El) s10El.value = m.ages10plus || 0;
-    const waysEl = document.getElementById('b-mears-ways');
-    if (waysEl) waysEl.value = m.ways || 2;
+    syncMearsWayBtns();
     if (m.enabled) applyMearsToTransport();
+    else {
+      const u3El  = document.getElementById('mv-u3');
+      const s39El = document.getElementById('mv-3to9');
+      const s10El = document.getElementById('mv-10plus');
+      if (u3El)  u3El.textContent  = m.under3    || 0;
+      if (s39El) s39El.textContent = m.ages3to9  || 0;
+      if (s10El) s10El.textContent = m.ages10plus || 0;
+    }
   }
   if (state.cruise != null) {
     budget.cruise = { ...budget.cruise, ...state.cruise };
     const c = budget.cruise;
-    const toggleEl = document.getElementById('b-cruise-toggle');
-    if (toggleEl) toggleEl.checked = !!c.enabled;
     const headerToggle = document.getElementById('toggle-cruise');
     if (headerToggle) headerToggle.checked = !!c.enabled;
-    const fieldsEl = document.getElementById('b-cruise-fields');
-    if (fieldsEl) fieldsEl.hidden = !c.enabled;
+    const cruiseSection = document.getElementById('bs-cruise');
+    if (cruiseSection) cruiseSection.hidden = !c.enabled;
     const cruiseWrap = document.getElementById('cs-cruise-wrap');
     if (cruiseWrap) cruiseWrap.hidden = !c.enabled;
     const shipEl = document.getElementById('b-cruise-ship');
