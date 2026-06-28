@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Disney Trip Planner — base icon 512×512
+  All y values shifted +5 from previous version.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="55%" r="60%">
+      <stop offset="0%" stop-color="#1e2d4a"/>
+      <stop offset="100%" stop-color="#0a1628"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="100" ry="100" fill="url(#bg)"/>
+
+  <!-- Ears -->
+  <circle cx="90"  cy="155" r="72" fill="#f59e0b"/>
+  <circle cx="422" cy="155" r="72" fill="#f59e0b"/>
+
+  <!-- Calendar body -->
+  <rect x="90" y="155" width="332" height="262" rx="20" ry="20" fill="#1e2d4a" stroke="#f59e0b" stroke-width="7"/>
+
+  <!-- Header band -->
+  <rect x="90"  y="155" width="332" height="62" rx="20" ry="20" fill="#f59e0b"/>
+  <rect x="90"  y="197" width="332" height="20"           fill="#f59e0b"/>
+
+  <!-- Binder rings -->
+  <rect x="163" y="143" width="14" height="28" rx="7" fill="#fcd34d"/>
+  <rect x="347" y="143" width="14" height="28" rx="7" fill="#fcd34d"/>
+
+  <!-- Day-of-week dots -->
+  <circle cx="106" cy="177" r="5" fill="#0a1628"/>
+  <circle cx="156" cy="177" r="5" fill="#0a1628"/>
+  <circle cx="206" cy="177" r="5" fill="#0a1628"/>
+  <circle cx="256" cy="177" r="5" fill="#0a1628"/>
+  <circle cx="306" cy="177" r="5" fill="#0a1628"/>
+  <circle cx="356" cy="177" r="5" fill="#0a1628"/>
+  <circle cx="406" cy="177" r="5" fill="#0a1628"/>
+
+  <!-- Row 1: y=233 -->
+  <rect x="106" y="233" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="150" y="233" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="194" y="233" width="36" height="36" rx="6" fill="#f59e0b" opacity="0.85"/>
+  <rect x="238" y="233" width="36" height="36" rx="6" fill="#f59e0b" opacity="0.85"/>
+  <rect x="282" y="233" width="36" height="36" rx="6" fill="#f59e0b" opacity="0.85"/>
+  <rect x="326" y="233" width="36" height="36" rx="6" fill="#f59e0b" opacity="0.85"/>
+  <rect x="370" y="233" width="36" height="36" rx="6" fill="#162035"/>
+
+  <!-- Row 2: y=277 -->
+  <rect x="106" y="277" width="36" height="36" rx="6" fill="#f59e0b" opacity="0.85"/>
+  <rect x="150" y="277" width="36" height="36" rx="6" fill="#f59e0b" opacity="0.85"/>
+  <rect x="194" y="277" width="36" height="36" rx="6" fill="#f59e0b" opacity="0.85"/>
+  <rect x="238" y="277" width="36" height="36" rx="6" fill="#f59e0b" opacity="0.85"/>
+  <rect x="282" y="277" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="326" y="277" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="370" y="277" width="36" height="36" rx="6" fill="#162035"/>
+
+  <!-- Row 3: y=321 -->
+  <rect x="106" y="321" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="150" y="321" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="194" y="321" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="238" y="321" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="282" y="321" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="326" y="321" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="370" y="321" width="36" height="36" rx="6" fill="#162035"/>
+
+  <!-- Row 4: y=365 -->
+  <rect x="106" y="365" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="150" y="365" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="194" y="365" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="238" y="365" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="282" y="365" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="326" y="365" width="36" height="36" rx="6" fill="#162035"/>
+  <rect x="370" y="365" width="36" height="36" rx="6" fill="#162035"/>
+</svg>
