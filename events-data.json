@@ -1,0 +1,5084 @@
+{
+  "scrapedAt": "2026-06-29T12:38:59Z",
+  "source": "https://www.mousesavers.com/walt-disney-world-vacation-discounts-and-deals/disney-world-special-events-festivals-and-parties/",
+  "byDate": {
+    "2026-08-11": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 126.74,
+        "priceChild": 116.09,
+        "priceNote": null
+      }
+    ],
+    "2026-08-14": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 126.74,
+        "priceChild": 116.09,
+        "priceNote": null
+      }
+    ],
+    "2026-08-18": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 137.39,
+        "priceChild": 126.74,
+        "priceNote": null
+      }
+    ],
+    "2026-08-21": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 148.04,
+        "priceChild": 137.39,
+        "priceNote": null
+      }
+    ],
+    "2026-08-23": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 148.04,
+        "priceChild": 137.39,
+        "priceNote": null
+      }
+    ],
+    "2026-08-25": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 153.36,
+        "priceChild": 142.71,
+        "priceNote": null
+      }
+    ],
+    "2026-08-28": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 158.69,
+        "priceChild": 148.04,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-08-30": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 158.69,
+        "priceChild": 148.04,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-01": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 158.69,
+        "priceChild": 148.04,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-04": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 164.01,
+        "priceChild": 153.36,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-08": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 164.01,
+        "priceChild": 153.36,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-08-07": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 169.34,
+        "priceChild": 158.69,
+        "priceNote": null
+      }
+    ],
+    "2026-09-11": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 169.34,
+        "priceChild": 158.69,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-13": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 169.34,
+        "priceChild": 158.69,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-15": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 174.66,
+        "priceChild": 164.01,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-18": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 179.99,
+        "priceChild": 169.34,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-20": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 179.99,
+        "priceChild": 169.34,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-22": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 179.99,
+        "priceChild": 169.34,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-24": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 185.31,
+        "priceChild": 174.66,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-25": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 190.64,
+        "priceChild": 179.99,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-27": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 190.64,
+        "priceChild": 179.99,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-29": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 195.96,
+        "priceChild": 185.31,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-01": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 201.29,
+        "priceChild": 190.64,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-02": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 201.29,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-04": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 201.29,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-06": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 201.29,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-08": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 217.26,
+        "priceChild": 206.61,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-09": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 222.59,
+        "priceChild": 211.94,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-13": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 222.59,
+        "priceChild": 211.94,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-15": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 227.91,
+        "priceChild": 217.26,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-16": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 233.24,
+        "priceChild": 222.59,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-18": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 233.24,
+        "priceChild": 222.59,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-22": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 233.24,
+        "priceChild": 222.59,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Disney Wine & Dine Half Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2026-10-23": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 238.56,
+        "priceChild": 227.91,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Disney Wine & Dine Half Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2026-10-25": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 238.56,
+        "priceChild": 227.91,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Disney Wine & Dine Half Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2026-10-27": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 238.56,
+        "priceChild": 227.91,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-29": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 238.56,
+        "priceChild": 227.91,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-31": [
+      {
+        "name": "Mickey's Not-So-Scary Halloween Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 243.89,
+        "priceChild": 233.24,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-10": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 179.99,
+        "priceChild": 169.34,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-11": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 179.99,
+        "priceChild": 169.34,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-13": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 190.64,
+        "priceChild": 179.99,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-16": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 190.64,
+        "priceChild": 179.99,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-18": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 190.64,
+        "priceChild": 179.99,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-20": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 190.64,
+        "priceChild": 179.99,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-14": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 201.29,
+        "priceChild": 190.64,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-21": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 201.29,
+        "priceChild": 190.64,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-07": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 201.29,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-25": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 201.29,
+        "priceNote": null
+      }
+    ],
+    "2026-11-26": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 201.29,
+        "priceNote": null
+      }
+    ],
+    "2026-11-30": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 201.29,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-02": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 201.29,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-04": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 201.29,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-11-28": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 222.59,
+        "priceChild": 211.94,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-05": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 222.59,
+        "priceChild": 211.94,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-07": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 222.59,
+        "priceChild": 211.94,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-09": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 222.59,
+        "priceChild": 211.94,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-11": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 222.59,
+        "priceChild": 211.94,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-12": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 233.24,
+        "priceChild": 222.59,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-14": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 233.24,
+        "priceChild": 222.59,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-16": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 233.24,
+        "priceChild": 222.59,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-18": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 233.24,
+        "priceChild": 222.59,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-19": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 243.89,
+        "priceChild": 233.24,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-21": [
+      {
+        "name": "Mickey's Very Merry Christmas Party",
+        "park": "Magic Kingdom",
+        "requiresTicket": true,
+        "priceAdult": 243.89,
+        "priceChild": 233.24,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-11-17": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 169.34,
+        "priceChild": 169.34,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-08": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 179.99,
+        "priceChild": 179.99,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-15": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 179.99,
+        "priceChild": 179.99,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-22": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 179.99,
+        "priceChild": 179.99,
+        "priceNote": null
+      }
+    ],
+    "2026-11-24": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 190.64,
+        "priceChild": 190.64,
+        "priceNote": null
+      }
+    ],
+    "2026-12-01": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 190.64,
+        "priceChild": 190.64,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-11-29": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 201.29,
+        "priceChild": 201.29,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-06": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 201.29,
+        "priceChild": 201.29,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-10": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 201.29,
+        "priceChild": 201.29,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-17": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 201.29,
+        "priceChild": 201.29,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-13": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 211.94,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-20": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 211.94,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-22": [
+      {
+        "name": "Disney Jollywood Nights",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": 211.94,
+        "priceChild": 211.94,
+        "priceNote": null
+      },
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-07-03": [
+      {
+        "name": "Disney H2O Glow After Hours",
+        "park": "Typhoon Lagoon",
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Pricing TBD"
+      }
+    ],
+    "2026-07-07": [
+      {
+        "name": "Disney H2O Glow After Hours",
+        "park": "Typhoon Lagoon",
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Pricing TBD"
+      }
+    ],
+    "2026-07-17": [
+      {
+        "name": "Disney H2O Glow After Hours",
+        "park": "Typhoon Lagoon",
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Pricing TBD"
+      }
+    ],
+    "2026-07-24": [
+      {
+        "name": "Disney H2O Glow After Hours",
+        "park": "Typhoon Lagoon",
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Pricing TBD"
+      }
+    ],
+    "2026-07-31": [
+      {
+        "name": "Disney H2O Glow After Hours",
+        "park": "Typhoon Lagoon",
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Pricing TBD"
+      }
+    ],
+    "2026-08-09": [
+      {
+        "name": "Disney H2O Glow After Hours",
+        "park": "Typhoon Lagoon",
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Pricing TBD"
+      }
+    ],
+    "2026-08-22": [
+      {
+        "name": "Disney H2O Glow After Hours",
+        "park": "Typhoon Lagoon",
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Pricing TBD"
+      }
+    ],
+    "2026-08-29": [
+      {
+        "name": "Disney H2O Glow After Hours",
+        "park": "Typhoon Lagoon",
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Pricing TBD"
+      },
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-06": [
+      {
+        "name": "Walt Disney World Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-01-07": [
+      {
+        "name": "Walt Disney World Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-01-08": [
+      {
+        "name": "Walt Disney World Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-01-09": [
+      {
+        "name": "Walt Disney World Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-01-10": [
+      {
+        "name": "Walt Disney World Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-01-16": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-17": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-18": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-19": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-20": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-21": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-22": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-23": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-24": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-25": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-26": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-27": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-28": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-29": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-30": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-01-31": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-01": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-02": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-03": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-04": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-05": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-06": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Puzzlehop Hollywood Studios",
+        "park": "Hollywood Studios",
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "$266.25/team (up to 4)"
+      }
+    ],
+    "2027-02-07": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-08": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-09": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-10": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-11": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-12": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-13": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-14": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-15": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-16": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-17": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-18": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-19": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-20": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-21": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-22": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-23": [
+      {
+        "name": "Epcot International Festival of the Arts",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-02-25": [
+      {
+        "name": "Disney Princess Half Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-02-26": [
+      {
+        "name": "Disney Princess Half Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-02-27": [
+      {
+        "name": "Disney Princess Half Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-02-28": [
+      {
+        "name": "Disney Princess Half Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-03-01": [
+      {
+        "name": "Disney Princess Half Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-03-04": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-05": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-06": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-07": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-08": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-09": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-10": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-11": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-12": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-13": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-14": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-15": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-16": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-17": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-18": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-19": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-20": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-21": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-22": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-23": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-24": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-25": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-26": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-27": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-28": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-29": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-30": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-03-31": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-01": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-02": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-03": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-04": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-05": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-06": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-07": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-08": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-09": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-10": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-11": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-12": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-13": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-14": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-15": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "runDisney Springtime Surprise Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-04-16": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "runDisney Springtime Surprise Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-04-17": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "runDisney Springtime Surprise Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-04-18": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "runDisney Springtime Surprise Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2027-04-19": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-20": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-21": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-22": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-23": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-24": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-25": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-26": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-27": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-28": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-29": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-04-30": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-01": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-02": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-03": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-04": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-05": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-06": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-07": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-08": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-09": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-10": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-11": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-12": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-13": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-14": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-15": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-16": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-17": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-18": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-19": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-20": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-21": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-22": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-23": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-24": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-25": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-26": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-27": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-28": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-29": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-30": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-05-31": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2027-06-01": [
+      {
+        "name": "Epcot International Flower & Garden Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-08-27": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-08-31": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-02": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-03": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-05": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-06": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-07": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-09": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-10": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-12": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-14": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-16": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-17": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-19": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-21": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-23": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-26": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-28": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-09-30": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-03": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-05": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-07": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-10": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-11": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-12": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-14": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-17": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-19": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-20": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-21": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-24": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Disney Wine & Dine Half Marathon Weekend",
+        "park": null,
+        "requiresTicket": true,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Registration required"
+      }
+    ],
+    "2026-10-26": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-28": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-10-30": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-01": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-02": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-03": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-04": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-05": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-06": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-09": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-12": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-19": [
+      {
+        "name": "Epcot International Food & Wine Festival",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-11-27": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      }
+    ],
+    "2026-12-03": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-08": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-15": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-23": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-24": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-25": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-26": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-27": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-28": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-29": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ],
+    "2026-12-30": [
+      {
+        "name": "Epcot International Festival of the Holidays",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission"
+      },
+      {
+        "name": "Candlelight Processional",
+        "park": "EPCOT",
+        "requiresTicket": false,
+        "priceAdult": null,
+        "priceChild": null,
+        "priceNote": "Included with Epcot admission (dining package optional)"
+      }
+    ]
+  },
+  "events": [
+    {
+      "name": "Mickey's Not-So-Scary Halloween Party",
+      "park": "Magic Kingdom",
+      "requiresTicket": true,
+      "perDatePricing": true,
+      "dates": [
+        {
+          "date": "2026-08-07",
+          "priceAdult": 169.34,
+          "priceChild": 158.69
+        },
+        {
+          "date": "2026-08-11",
+          "priceAdult": 126.74,
+          "priceChild": 116.09
+        },
+        {
+          "date": "2026-08-14",
+          "priceAdult": 126.74,
+          "priceChild": 116.09
+        },
+        {
+          "date": "2026-08-18",
+          "priceAdult": 137.39,
+          "priceChild": 126.74
+        },
+        {
+          "date": "2026-08-21",
+          "priceAdult": 148.04,
+          "priceChild": 137.39
+        },
+        {
+          "date": "2026-08-23",
+          "priceAdult": 148.04,
+          "priceChild": 137.39
+        },
+        {
+          "date": "2026-08-25",
+          "priceAdult": 153.36,
+          "priceChild": 142.71
+        },
+        {
+          "date": "2026-08-28",
+          "priceAdult": 158.69,
+          "priceChild": 148.04
+        },
+        {
+          "date": "2026-08-30",
+          "priceAdult": 158.69,
+          "priceChild": 148.04
+        },
+        {
+          "date": "2026-09-01",
+          "priceAdult": 158.69,
+          "priceChild": 148.04
+        },
+        {
+          "date": "2026-09-04",
+          "priceAdult": 164.01,
+          "priceChild": 153.36
+        },
+        {
+          "date": "2026-09-08",
+          "priceAdult": 164.01,
+          "priceChild": 153.36
+        },
+        {
+          "date": "2026-09-11",
+          "priceAdult": 169.34,
+          "priceChild": 158.69
+        },
+        {
+          "date": "2026-09-13",
+          "priceAdult": 169.34,
+          "priceChild": 158.69
+        },
+        {
+          "date": "2026-09-15",
+          "priceAdult": 174.66,
+          "priceChild": 164.01
+        },
+        {
+          "date": "2026-09-18",
+          "priceAdult": 179.99,
+          "priceChild": 169.34
+        },
+        {
+          "date": "2026-09-20",
+          "priceAdult": 179.99,
+          "priceChild": 169.34
+        },
+        {
+          "date": "2026-09-22",
+          "priceAdult": 179.99,
+          "priceChild": 169.34
+        },
+        {
+          "date": "2026-09-24",
+          "priceAdult": 185.31,
+          "priceChild": 174.66
+        },
+        {
+          "date": "2026-09-25",
+          "priceAdult": 190.64,
+          "priceChild": 179.99
+        },
+        {
+          "date": "2026-09-27",
+          "priceAdult": 190.64,
+          "priceChild": 179.99
+        },
+        {
+          "date": "2026-09-29",
+          "priceAdult": 195.96,
+          "priceChild": 185.31
+        },
+        {
+          "date": "2026-10-01",
+          "priceAdult": 201.29,
+          "priceChild": 190.64
+        },
+        {
+          "date": "2026-10-02",
+          "priceAdult": 211.94,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-10-04",
+          "priceAdult": 211.94,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-10-06",
+          "priceAdult": 211.94,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-10-08",
+          "priceAdult": 217.26,
+          "priceChild": 206.61
+        },
+        {
+          "date": "2026-10-09",
+          "priceAdult": 222.59,
+          "priceChild": 211.94
+        },
+        {
+          "date": "2026-10-13",
+          "priceAdult": 222.59,
+          "priceChild": 211.94
+        },
+        {
+          "date": "2026-10-15",
+          "priceAdult": 227.91,
+          "priceChild": 217.26
+        },
+        {
+          "date": "2026-10-16",
+          "priceAdult": 233.24,
+          "priceChild": 222.59
+        },
+        {
+          "date": "2026-10-18",
+          "priceAdult": 233.24,
+          "priceChild": 222.59
+        },
+        {
+          "date": "2026-10-22",
+          "priceAdult": 233.24,
+          "priceChild": 222.59
+        },
+        {
+          "date": "2026-10-23",
+          "priceAdult": 238.56,
+          "priceChild": 227.91
+        },
+        {
+          "date": "2026-10-25",
+          "priceAdult": 238.56,
+          "priceChild": 227.91
+        },
+        {
+          "date": "2026-10-27",
+          "priceAdult": 238.56,
+          "priceChild": 227.91
+        },
+        {
+          "date": "2026-10-29",
+          "priceAdult": 238.56,
+          "priceChild": 227.91
+        },
+        {
+          "date": "2026-10-31",
+          "priceAdult": 243.89,
+          "priceChild": 233.24
+        }
+      ]
+    },
+    {
+      "name": "Mickey's Very Merry Christmas Party",
+      "park": "Magic Kingdom",
+      "requiresTicket": true,
+      "perDatePricing": true,
+      "dates": [
+        {
+          "date": "2026-11-07",
+          "priceAdult": 211.94,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-11-10",
+          "priceAdult": 179.99,
+          "priceChild": 169.34
+        },
+        {
+          "date": "2026-11-11",
+          "priceAdult": 179.99,
+          "priceChild": 169.34
+        },
+        {
+          "date": "2026-11-13",
+          "priceAdult": 190.64,
+          "priceChild": 179.99
+        },
+        {
+          "date": "2026-11-14",
+          "priceAdult": 201.29,
+          "priceChild": 190.64
+        },
+        {
+          "date": "2026-11-16",
+          "priceAdult": 190.64,
+          "priceChild": 179.99
+        },
+        {
+          "date": "2026-11-18",
+          "priceAdult": 190.64,
+          "priceChild": 179.99
+        },
+        {
+          "date": "2026-11-20",
+          "priceAdult": 190.64,
+          "priceChild": 179.99
+        },
+        {
+          "date": "2026-11-21",
+          "priceAdult": 201.29,
+          "priceChild": 190.64
+        },
+        {
+          "date": "2026-11-25",
+          "priceAdult": 211.94,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-11-26",
+          "priceAdult": 211.94,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-11-28",
+          "priceAdult": 222.59,
+          "priceChild": 211.94
+        },
+        {
+          "date": "2026-11-30",
+          "priceAdult": 211.94,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-12-02",
+          "priceAdult": 211.94,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-12-04",
+          "priceAdult": 211.94,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-12-05",
+          "priceAdult": 222.59,
+          "priceChild": 211.94
+        },
+        {
+          "date": "2026-12-07",
+          "priceAdult": 222.59,
+          "priceChild": 211.94
+        },
+        {
+          "date": "2026-12-09",
+          "priceAdult": 222.59,
+          "priceChild": 211.94
+        },
+        {
+          "date": "2026-12-11",
+          "priceAdult": 222.59,
+          "priceChild": 211.94
+        },
+        {
+          "date": "2026-12-12",
+          "priceAdult": 233.24,
+          "priceChild": 222.59
+        },
+        {
+          "date": "2026-12-14",
+          "priceAdult": 233.24,
+          "priceChild": 222.59
+        },
+        {
+          "date": "2026-12-16",
+          "priceAdult": 233.24,
+          "priceChild": 222.59
+        },
+        {
+          "date": "2026-12-18",
+          "priceAdult": 233.24,
+          "priceChild": 222.59
+        },
+        {
+          "date": "2026-12-19",
+          "priceAdult": 243.89,
+          "priceChild": 233.24
+        },
+        {
+          "date": "2026-12-21",
+          "priceAdult": 243.89,
+          "priceChild": 233.24
+        }
+      ]
+    },
+    {
+      "name": "Disney Jollywood Nights",
+      "park": "Hollywood Studios",
+      "requiresTicket": true,
+      "perDatePricing": true,
+      "dates": [
+        {
+          "date": "2026-11-08",
+          "priceAdult": 179.99,
+          "priceChild": 179.99
+        },
+        {
+          "date": "2026-11-15",
+          "priceAdult": 179.99,
+          "priceChild": 179.99
+        },
+        {
+          "date": "2026-11-17",
+          "priceAdult": 169.34,
+          "priceChild": 169.34
+        },
+        {
+          "date": "2026-11-22",
+          "priceAdult": 179.99,
+          "priceChild": 179.99
+        },
+        {
+          "date": "2026-11-24",
+          "priceAdult": 190.64,
+          "priceChild": 190.64
+        },
+        {
+          "date": "2026-11-29",
+          "priceAdult": 201.29,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-12-01",
+          "priceAdult": 190.64,
+          "priceChild": 190.64
+        },
+        {
+          "date": "2026-12-06",
+          "priceAdult": 201.29,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-12-10",
+          "priceAdult": 201.29,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-12-13",
+          "priceAdult": 211.94,
+          "priceChild": 211.94
+        },
+        {
+          "date": "2026-12-17",
+          "priceAdult": 201.29,
+          "priceChild": 201.29
+        },
+        {
+          "date": "2026-12-20",
+          "priceAdult": 211.94,
+          "priceChild": 211.94
+        },
+        {
+          "date": "2026-12-22",
+          "priceAdult": 211.94,
+          "priceChild": 211.94
+        }
+      ]
+    },
+    {
+      "name": "Disney H2O Glow After Hours",
+      "park": "Typhoon Lagoon",
+      "requiresTicket": true,
+      "perDatePricing": false,
+      "dates": [
+        {
+          "date": "2026-07-03"
+        },
+        {
+          "date": "2026-07-07"
+        },
+        {
+          "date": "2026-07-17"
+        },
+        {
+          "date": "2026-07-24"
+        },
+        {
+          "date": "2026-07-31"
+        },
+        {
+          "date": "2026-08-09"
+        },
+        {
+          "date": "2026-08-22"
+        },
+        {
+          "date": "2026-08-29"
+        }
+      ]
+    },
+    {
+      "name": "Walt Disney World Marathon Weekend",
+      "park": null,
+      "requiresTicket": true,
+      "perDatePricing": false,
+      "priceNote": "Registration required",
+      "dates": [
+        {
+          "date": "2027-01-06"
+        },
+        {
+          "date": "2027-01-07"
+        },
+        {
+          "date": "2027-01-08"
+        },
+        {
+          "date": "2027-01-09"
+        },
+        {
+          "date": "2027-01-10"
+        }
+      ]
+    },
+    {
+      "name": "Epcot International Festival of the Arts",
+      "park": "EPCOT",
+      "requiresTicket": false,
+      "perDatePricing": false,
+      "priceNote": "Included with Epcot admission",
+      "dates": [
+        {
+          "date": "2027-01-16"
+        },
+        {
+          "date": "2027-01-17"
+        },
+        {
+          "date": "2027-01-18"
+        },
+        {
+          "date": "2027-01-19"
+        },
+        {
+          "date": "2027-01-20"
+        },
+        {
+          "date": "2027-01-21"
+        },
+        {
+          "date": "2027-01-22"
+        },
+        {
+          "date": "2027-01-23"
+        },
+        {
+          "date": "2027-01-24"
+        },
+        {
+          "date": "2027-01-25"
+        },
+        {
+          "date": "2027-01-26"
+        },
+        {
+          "date": "2027-01-27"
+        },
+        {
+          "date": "2027-01-28"
+        },
+        {
+          "date": "2027-01-29"
+        },
+        {
+          "date": "2027-01-30"
+        },
+        {
+          "date": "2027-01-31"
+        },
+        {
+          "date": "2027-02-01"
+        },
+        {
+          "date": "2027-02-02"
+        },
+        {
+          "date": "2027-02-03"
+        },
+        {
+          "date": "2027-02-04"
+        },
+        {
+          "date": "2027-02-05"
+        },
+        {
+          "date": "2027-02-06"
+        },
+        {
+          "date": "2027-02-07"
+        },
+        {
+          "date": "2027-02-08"
+        },
+        {
+          "date": "2027-02-09"
+        },
+        {
+          "date": "2027-02-10"
+        },
+        {
+          "date": "2027-02-11"
+        },
+        {
+          "date": "2027-02-12"
+        },
+        {
+          "date": "2027-02-13"
+        },
+        {
+          "date": "2027-02-14"
+        },
+        {
+          "date": "2027-02-15"
+        },
+        {
+          "date": "2027-02-16"
+        },
+        {
+          "date": "2027-02-17"
+        },
+        {
+          "date": "2027-02-18"
+        },
+        {
+          "date": "2027-02-19"
+        },
+        {
+          "date": "2027-02-20"
+        },
+        {
+          "date": "2027-02-21"
+        },
+        {
+          "date": "2027-02-22"
+        },
+        {
+          "date": "2027-02-23"
+        }
+      ]
+    },
+    {
+      "name": "Puzzlehop Hollywood Studios",
+      "park": "Hollywood Studios",
+      "requiresTicket": true,
+      "perDatePricing": false,
+      "priceNote": "$266.25/team (up to 4)",
+      "dates": [
+        {
+          "date": "2027-02-06"
+        }
+      ]
+    },
+    {
+      "name": "Disney Princess Half Marathon Weekend",
+      "park": null,
+      "requiresTicket": true,
+      "perDatePricing": false,
+      "priceNote": "Registration required",
+      "dates": [
+        {
+          "date": "2027-02-25"
+        },
+        {
+          "date": "2027-02-26"
+        },
+        {
+          "date": "2027-02-27"
+        },
+        {
+          "date": "2027-02-28"
+        },
+        {
+          "date": "2027-03-01"
+        }
+      ]
+    },
+    {
+      "name": "Epcot International Flower & Garden Festival",
+      "park": "EPCOT",
+      "requiresTicket": false,
+      "perDatePricing": false,
+      "priceNote": "Included with Epcot admission",
+      "dates": [
+        {
+          "date": "2027-03-04"
+        },
+        {
+          "date": "2027-03-05"
+        },
+        {
+          "date": "2027-03-06"
+        },
+        {
+          "date": "2027-03-07"
+        },
+        {
+          "date": "2027-03-08"
+        },
+        {
+          "date": "2027-03-09"
+        },
+        {
+          "date": "2027-03-10"
+        },
+        {
+          "date": "2027-03-11"
+        },
+        {
+          "date": "2027-03-12"
+        },
+        {
+          "date": "2027-03-13"
+        },
+        {
+          "date": "2027-03-14"
+        },
+        {
+          "date": "2027-03-15"
+        },
+        {
+          "date": "2027-03-16"
+        },
+        {
+          "date": "2027-03-17"
+        },
+        {
+          "date": "2027-03-18"
+        },
+        {
+          "date": "2027-03-19"
+        },
+        {
+          "date": "2027-03-20"
+        },
+        {
+          "date": "2027-03-21"
+        },
+        {
+          "date": "2027-03-22"
+        },
+        {
+          "date": "2027-03-23"
+        },
+        {
+          "date": "2027-03-24"
+        },
+        {
+          "date": "2027-03-25"
+        },
+        {
+          "date": "2027-03-26"
+        },
+        {
+          "date": "2027-03-27"
+        },
+        {
+          "date": "2027-03-28"
+        },
+        {
+          "date": "2027-03-29"
+        },
+        {
+          "date": "2027-03-30"
+        },
+        {
+          "date": "2027-03-31"
+        },
+        {
+          "date": "2027-04-01"
+        },
+        {
+          "date": "2027-04-02"
+        },
+        {
+          "date": "2027-04-03"
+        },
+        {
+          "date": "2027-04-04"
+        },
+        {
+          "date": "2027-04-05"
+        },
+        {
+          "date": "2027-04-06"
+        },
+        {
+          "date": "2027-04-07"
+        },
+        {
+          "date": "2027-04-08"
+        },
+        {
+          "date": "2027-04-09"
+        },
+        {
+          "date": "2027-04-10"
+        },
+        {
+          "date": "2027-04-11"
+        },
+        {
+          "date": "2027-04-12"
+        },
+        {
+          "date": "2027-04-13"
+        },
+        {
+          "date": "2027-04-14"
+        },
+        {
+          "date": "2027-04-15"
+        },
+        {
+          "date": "2027-04-16"
+        },
+        {
+          "date": "2027-04-17"
+        },
+        {
+          "date": "2027-04-18"
+        },
+        {
+          "date": "2027-04-19"
+        },
+        {
+          "date": "2027-04-20"
+        },
+        {
+          "date": "2027-04-21"
+        },
+        {
+          "date": "2027-04-22"
+        },
+        {
+          "date": "2027-04-23"
+        },
+        {
+          "date": "2027-04-24"
+        },
+        {
+          "date": "2027-04-25"
+        },
+        {
+          "date": "2027-04-26"
+        },
+        {
+          "date": "2027-04-27"
+        },
+        {
+          "date": "2027-04-28"
+        },
+        {
+          "date": "2027-04-29"
+        },
+        {
+          "date": "2027-04-30"
+        },
+        {
+          "date": "2027-05-01"
+        },
+        {
+          "date": "2027-05-02"
+        },
+        {
+          "date": "2027-05-03"
+        },
+        {
+          "date": "2027-05-04"
+        },
+        {
+          "date": "2027-05-05"
+        },
+        {
+          "date": "2027-05-06"
+        },
+        {
+          "date": "2027-05-07"
+        },
+        {
+          "date": "2027-05-08"
+        },
+        {
+          "date": "2027-05-09"
+        },
+        {
+          "date": "2027-05-10"
+        },
+        {
+          "date": "2027-05-11"
+        },
+        {
+          "date": "2027-05-12"
+        },
+        {
+          "date": "2027-05-13"
+        },
+        {
+          "date": "2027-05-14"
+        },
+        {
+          "date": "2027-05-15"
+        },
+        {
+          "date": "2027-05-16"
+        },
+        {
+          "date": "2027-05-17"
+        },
+        {
+          "date": "2027-05-18"
+        },
+        {
+          "date": "2027-05-19"
+        },
+        {
+          "date": "2027-05-20"
+        },
+        {
+          "date": "2027-05-21"
+        },
+        {
+          "date": "2027-05-22"
+        },
+        {
+          "date": "2027-05-23"
+        },
+        {
+          "date": "2027-05-24"
+        },
+        {
+          "date": "2027-05-25"
+        },
+        {
+          "date": "2027-05-26"
+        },
+        {
+          "date": "2027-05-27"
+        },
+        {
+          "date": "2027-05-28"
+        },
+        {
+          "date": "2027-05-29"
+        },
+        {
+          "date": "2027-05-30"
+        },
+        {
+          "date": "2027-05-31"
+        },
+        {
+          "date": "2027-06-01"
+        }
+      ]
+    },
+    {
+      "name": "runDisney Springtime Surprise Weekend",
+      "park": null,
+      "requiresTicket": true,
+      "perDatePricing": false,
+      "priceNote": "Registration required",
+      "dates": [
+        {
+          "date": "2027-04-15"
+        },
+        {
+          "date": "2027-04-16"
+        },
+        {
+          "date": "2027-04-17"
+        },
+        {
+          "date": "2027-04-18"
+        }
+      ]
+    },
+    {
+      "name": "Epcot International Food & Wine Festival",
+      "park": "EPCOT",
+      "requiresTicket": false,
+      "perDatePricing": false,
+      "priceNote": "Included with Epcot admission",
+      "dates": [
+        {
+          "date": "2026-08-27"
+        },
+        {
+          "date": "2026-08-28"
+        },
+        {
+          "date": "2026-08-29"
+        },
+        {
+          "date": "2026-08-30"
+        },
+        {
+          "date": "2026-08-31"
+        },
+        {
+          "date": "2026-09-01"
+        },
+        {
+          "date": "2026-09-02"
+        },
+        {
+          "date": "2026-09-03"
+        },
+        {
+          "date": "2026-09-04"
+        },
+        {
+          "date": "2026-09-05"
+        },
+        {
+          "date": "2026-09-06"
+        },
+        {
+          "date": "2026-09-07"
+        },
+        {
+          "date": "2026-09-08"
+        },
+        {
+          "date": "2026-09-09"
+        },
+        {
+          "date": "2026-09-10"
+        },
+        {
+          "date": "2026-09-11"
+        },
+        {
+          "date": "2026-09-12"
+        },
+        {
+          "date": "2026-09-13"
+        },
+        {
+          "date": "2026-09-14"
+        },
+        {
+          "date": "2026-09-15"
+        },
+        {
+          "date": "2026-09-16"
+        },
+        {
+          "date": "2026-09-17"
+        },
+        {
+          "date": "2026-09-18"
+        },
+        {
+          "date": "2026-09-19"
+        },
+        {
+          "date": "2026-09-20"
+        },
+        {
+          "date": "2026-09-21"
+        },
+        {
+          "date": "2026-09-22"
+        },
+        {
+          "date": "2026-09-23"
+        },
+        {
+          "date": "2026-09-24"
+        },
+        {
+          "date": "2026-09-25"
+        },
+        {
+          "date": "2026-09-26"
+        },
+        {
+          "date": "2026-09-27"
+        },
+        {
+          "date": "2026-09-28"
+        },
+        {
+          "date": "2026-09-29"
+        },
+        {
+          "date": "2026-09-30"
+        },
+        {
+          "date": "2026-10-01"
+        },
+        {
+          "date": "2026-10-02"
+        },
+        {
+          "date": "2026-10-03"
+        },
+        {
+          "date": "2026-10-04"
+        },
+        {
+          "date": "2026-10-05"
+        },
+        {
+          "date": "2026-10-06"
+        },
+        {
+          "date": "2026-10-07"
+        },
+        {
+          "date": "2026-10-08"
+        },
+        {
+          "date": "2026-10-09"
+        },
+        {
+          "date": "2026-10-10"
+        },
+        {
+          "date": "2026-10-11"
+        },
+        {
+          "date": "2026-10-12"
+        },
+        {
+          "date": "2026-10-13"
+        },
+        {
+          "date": "2026-10-14"
+        },
+        {
+          "date": "2026-10-15"
+        },
+        {
+          "date": "2026-10-16"
+        },
+        {
+          "date": "2026-10-17"
+        },
+        {
+          "date": "2026-10-18"
+        },
+        {
+          "date": "2026-10-19"
+        },
+        {
+          "date": "2026-10-20"
+        },
+        {
+          "date": "2026-10-21"
+        },
+        {
+          "date": "2026-10-22"
+        },
+        {
+          "date": "2026-10-23"
+        },
+        {
+          "date": "2026-10-24"
+        },
+        {
+          "date": "2026-10-25"
+        },
+        {
+          "date": "2026-10-26"
+        },
+        {
+          "date": "2026-10-27"
+        },
+        {
+          "date": "2026-10-28"
+        },
+        {
+          "date": "2026-10-29"
+        },
+        {
+          "date": "2026-10-30"
+        },
+        {
+          "date": "2026-10-31"
+        },
+        {
+          "date": "2026-11-01"
+        },
+        {
+          "date": "2026-11-02"
+        },
+        {
+          "date": "2026-11-03"
+        },
+        {
+          "date": "2026-11-04"
+        },
+        {
+          "date": "2026-11-05"
+        },
+        {
+          "date": "2026-11-06"
+        },
+        {
+          "date": "2026-11-07"
+        },
+        {
+          "date": "2026-11-08"
+        },
+        {
+          "date": "2026-11-09"
+        },
+        {
+          "date": "2026-11-10"
+        },
+        {
+          "date": "2026-11-11"
+        },
+        {
+          "date": "2026-11-12"
+        },
+        {
+          "date": "2026-11-13"
+        },
+        {
+          "date": "2026-11-14"
+        },
+        {
+          "date": "2026-11-15"
+        },
+        {
+          "date": "2026-11-16"
+        },
+        {
+          "date": "2026-11-17"
+        },
+        {
+          "date": "2026-11-18"
+        },
+        {
+          "date": "2026-11-19"
+        },
+        {
+          "date": "2026-11-20"
+        },
+        {
+          "date": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "name": "Disney Wine & Dine Half Marathon Weekend",
+      "park": null,
+      "requiresTicket": true,
+      "perDatePricing": false,
+      "priceNote": "Registration required",
+      "dates": [
+        {
+          "date": "2026-10-22"
+        },
+        {
+          "date": "2026-10-23"
+        },
+        {
+          "date": "2026-10-24"
+        },
+        {
+          "date": "2026-10-25"
+        }
+      ]
+    },
+    {
+      "name": "Epcot International Festival of the Holidays",
+      "park": "EPCOT",
+      "requiresTicket": false,
+      "perDatePricing": false,
+      "priceNote": "Included with Epcot admission",
+      "dates": [
+        {
+          "date": "2026-11-27"
+        },
+        {
+          "date": "2026-11-28"
+        },
+        {
+          "date": "2026-11-29"
+        },
+        {
+          "date": "2026-11-30"
+        },
+        {
+          "date": "2026-12-01"
+        },
+        {
+          "date": "2026-12-02"
+        },
+        {
+          "date": "2026-12-03"
+        },
+        {
+          "date": "2026-12-04"
+        },
+        {
+          "date": "2026-12-05"
+        },
+        {
+          "date": "2026-12-06"
+        },
+        {
+          "date": "2026-12-07"
+        },
+        {
+          "date": "2026-12-08"
+        },
+        {
+          "date": "2026-12-09"
+        },
+        {
+          "date": "2026-12-10"
+        },
+        {
+          "date": "2026-12-11"
+        },
+        {
+          "date": "2026-12-12"
+        },
+        {
+          "date": "2026-12-13"
+        },
+        {
+          "date": "2026-12-14"
+        },
+        {
+          "date": "2026-12-15"
+        },
+        {
+          "date": "2026-12-16"
+        },
+        {
+          "date": "2026-12-17"
+        },
+        {
+          "date": "2026-12-18"
+        },
+        {
+          "date": "2026-12-19"
+        },
+        {
+          "date": "2026-12-20"
+        },
+        {
+          "date": "2026-12-21"
+        },
+        {
+          "date": "2026-12-22"
+        },
+        {
+          "date": "2026-12-23"
+        },
+        {
+          "date": "2026-12-24"
+        },
+        {
+          "date": "2026-12-25"
+        },
+        {
+          "date": "2026-12-26"
+        },
+        {
+          "date": "2026-12-27"
+        },
+        {
+          "date": "2026-12-28"
+        },
+        {
+          "date": "2026-12-29"
+        },
+        {
+          "date": "2026-12-30"
+        }
+      ]
+    },
+    {
+      "name": "Candlelight Processional",
+      "park": "EPCOT",
+      "requiresTicket": false,
+      "perDatePricing": false,
+      "priceNote": "Included with Epcot admission (dining package optional)",
+      "dates": [
+        {
+          "date": "2026-11-28"
+        },
+        {
+          "date": "2026-11-29"
+        },
+        {
+          "date": "2026-11-30"
+        },
+        {
+          "date": "2026-12-01"
+        },
+        {
+          "date": "2026-12-02"
+        },
+        {
+          "date": "2026-12-03"
+        },
+        {
+          "date": "2026-12-04"
+        },
+        {
+          "date": "2026-12-05"
+        },
+        {
+          "date": "2026-12-06"
+        },
+        {
+          "date": "2026-12-07"
+        },
+        {
+          "date": "2026-12-08"
+        },
+        {
+          "date": "2026-12-09"
+        },
+        {
+          "date": "2026-12-10"
+        },
+        {
+          "date": "2026-12-11"
+        },
+        {
+          "date": "2026-12-12"
+        },
+        {
+          "date": "2026-12-13"
+        },
+        {
+          "date": "2026-12-14"
+        },
+        {
+          "date": "2026-12-15"
+        },
+        {
+          "date": "2026-12-16"
+        },
+        {
+          "date": "2026-12-17"
+        },
+        {
+          "date": "2026-12-18"
+        },
+        {
+          "date": "2026-12-19"
+        },
+        {
+          "date": "2026-12-20"
+        },
+        {
+          "date": "2026-12-21"
+        },
+        {
+          "date": "2026-12-22"
+        },
+        {
+          "date": "2026-12-23"
+        },
+        {
+          "date": "2026-12-24"
+        },
+        {
+          "date": "2026-12-25"
+        },
+        {
+          "date": "2026-12-26"
+        },
+        {
+          "date": "2026-12-27"
+        },
+        {
+          "date": "2026-12-28"
+        },
+        {
+          "date": "2026-12-29"
+        },
+        {
+          "date": "2026-12-30"
+        }
+      ]
+    }
+  ]
+}
