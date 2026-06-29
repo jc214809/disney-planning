@@ -93,14 +93,11 @@
       <div class="budget-section" id="bs-transport">
         <button class="budget-section-title section-collapse-btn" data-section="bs-transport" aria-expanded="true">
           <span class="section-chevron">▾</span> Transportation
+          <label class="mears-toggle-label" onclick="event.stopPropagation()"><input type="checkbox" id="b-mears-toggle"> Mears Connect</label>
         </button>
         <div class="budget-section-body">
           <div class="budget-section-fields">
             <div class="budget-field">
-              <div class="budget-field-header">
-                <label for="b-transport">Total Cost</label>
-                <label class="mears-toggle-label"><input type="checkbox" id="b-mears-toggle"> Mears Connect</label>
-              </div>
               <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-transport" min="0" step="1" placeholder="0"></div>
             </div>
           </div>
@@ -248,15 +245,15 @@
         <polyline points="3 5 5 5 17 5"/><path d="M6 5V3h8v2"/><path d="M7 8l.5 8M10 8v8M13 8l-.5 8"/><rect x="4" y="5" width="12" height="12" rx="1"/>
       </svg>
     </button>
+    <input type="text" id="sheets-tab-name" placeholder="Trip name…" spellcheck="false" hidden>
+    <button id="sheets-rename-btn" hidden>Rename</button>
+    <button id="trip-name-cancel-btn" hidden>Cancel</button>
     <div class="park-toggles" id="park-toggles">
       <button class="park-toggle active" data-park="Magic Kingdom">Magic Kingdom</button>
       <button class="park-toggle active" data-park="EPCOT">EPCOT</button>
       <button class="park-toggle active" data-park="Hollywood Studios">Hollywood Studios</button>
       <button class="park-toggle active" data-park="Animal Kingdom">Animal Kingdom</button>
     </div>
-    <input type="text" id="sheets-tab-name" placeholder="Trip name…" spellcheck="false" hidden>
-    <button id="sheets-rename-btn" hidden>Rename</button>
-    <button id="trip-name-cancel-btn" hidden>Cancel</button>
   </div>
   <span id="sheets-status" class="sheets-status"></span>
   <button id="sheets-save-btn" disabled>Save</button>

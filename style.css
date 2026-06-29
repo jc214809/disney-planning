@@ -287,6 +287,16 @@ h1 {
 
 .section-collapse-btn:hover { color: #64748b; }
 
+.section-collapse-btn .mears-toggle-label {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
 .section-chevron {
   font-size: 0.65rem;
   transition: transform 0.2s;
@@ -1886,7 +1896,7 @@ button.cost-item:focus-visible {
 }
 
 #trip-name-text {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #e2e8f0;
   letter-spacing: -0.01em;

@@ -398,11 +398,13 @@ function setTripNameDisplay(name) {
 function openTripNameEdit() {
   const nameText  = document.getElementById('trip-name-text');
   const editBtn   = document.getElementById('trip-name-edit-btn');
+  const deleteBtn = document.getElementById('trip-delete-btn');
   const input     = document.getElementById('sheets-tab-name');
   const renameBtn = document.getElementById('sheets-rename-btn');
   const cancelBtn = document.getElementById('trip-name-cancel-btn');
   if (nameText)  nameText.hidden  = true;
   if (editBtn)   editBtn.hidden   = true;
+  if (deleteBtn) deleteBtn.hidden = true;
   if (input) {
     input.hidden = false;
     delete input.dataset.userEdited;
@@ -418,11 +420,13 @@ function openTripNameEdit() {
 function closeTripNameEdit() {
   const nameText  = document.getElementById('trip-name-text');
   const editBtn   = document.getElementById('trip-name-edit-btn');
+  const deleteBtn = document.getElementById('trip-delete-btn');
   const input     = document.getElementById('sheets-tab-name');
   const renameBtn = document.getElementById('sheets-rename-btn');
   const cancelBtn = document.getElementById('trip-name-cancel-btn');
   if (nameText)  nameText.hidden  = false;
   if (editBtn)   editBtn.hidden   = false;
+  if (deleteBtn) deleteBtn.hidden = false;
   if (input)     input.hidden     = true;
   if (renameBtn) renameBtn.hidden = true;
   if (cancelBtn) cancelBtn.hidden = true;
