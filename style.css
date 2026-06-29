@@ -370,8 +370,11 @@ h1 {
   color: #f87171;
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.65rem;
-  padding: 1px 6px;
+  font-size: 0.72rem;
+  height: 28px;
+  padding: 0 10px;
+  white-space: nowrap;
+  align-self: flex-end;
   transition: all 0.15s;
 }
 

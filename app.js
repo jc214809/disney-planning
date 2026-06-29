@@ -216,10 +216,6 @@ function renderHotels() {
       : '';
     return `
       <div class="hotel-row${isOverlap ? ' overlap-error' : ''}" data-hotel-id="${h.id}">
-        <div class="hotel-row-header">
-          <span class="hotel-row-label">Hotel ${idx + 1}</span>
-          <button class="hotel-remove-btn" data-hotel-id="${h.id}" title="Remove">× Remove</button>
-        </div>
         <div class="hotel-row-fields">
           <div class="hotel-field">
             <label class="hotel-field-label">Resort</label>
@@ -246,6 +242,7 @@ function renderHotels() {
             <div class="budget-dollar-wrap"><span>$</span><input class="hotel-rate-input" type="number" min="0" step="1" placeholder="0" value="${h.rateValue || ''}"></div>
           </div>
           ${isOverlap ? `<span class="hotel-nights-note overlap-note">⚠ Overlaps another hotel</span>` : ''}
+          <button class="hotel-remove-btn" data-hotel-id="${h.id}" title="Remove">× Remove</button>
         </div>
       </div>`;
   }).join('');
@@ -838,6 +835,20 @@ document.getElementById('b-mears-toggle').addEventListener('change', e => {
   if (transportWrap) transportWrap.hidden = e.target.checked;
   if (e.target.checked) {
     applyMearsToTransport();
+  } else {
+    // Reset all Mears counters and transport cost to zero
+    budget.mears.under3 = 0;
+    budget.mears.ages3to9 = 0;
+    budget.mears.ages10plus = 0;
+    budget.mears.ways = 1;
+    budget.transport = 0;
+    document.getElementById('mv-u3').textContent   = 0;
+    document.getElementById('mv-3to9').textContent  = 0;
+    document.getElementById('mv-10plus').textContent = 0;
+    syncMearsWayBtns();
+    const transportInput = document.getElementById('b-transport');
+    if (transportInput) transportInput.value = '';
+    recalcTotals();
   }
   if (typeof markDirty === 'function') markDirty();
 });
@@ -880,6 +891,10 @@ document.getElementById('b-tickets').addEventListener('input', e => {
 document.getElementById('b-annual-pass').addEventListener('change', e => {
   budget.annualPass = e.target.checked;
   const ticketsInput = document.getElementById('b-tickets');
+  if (!budget.annualPass) {
+    budget.ticketPerPersonPerDay = 0;
+    ticketsInput.value = '';
+  }
   ticketsInput.disabled    = budget.annualPass;
   ticketsInput.style.opacity = budget.annualPass ? '0.4' : '';
   recalcTotals();
