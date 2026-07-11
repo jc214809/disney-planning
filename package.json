@@ -1,0 +1,11 @@
+{
+  "name": "disney-planning-dev-tools",
+  "private": true,
+  "description": "Dev-only tooling (screenshot verification). The app itself has no build step.",
+  "scripts": {
+    "screenshot": "node scripts/screenshot.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
+}

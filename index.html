@@ -47,11 +47,13 @@
     </div>
   </div>
 
-  <!-- Budget Panel -->
+  <!-- Budget Panel (slide-out drawer) -->
+  <div class="budget-backdrop" id="budget-backdrop"></div>
   <div class="budget-panel" id="budget-panel" hidden>
-    <button class="budget-panel-header" id="budget-toggle-btn" aria-expanded="true">
-      <span class="section-chevron">▾</span> Budget
-    </button>
+    <div class="budget-panel-header">
+      <span class="budget-panel-title">Budget</span>
+      <button class="budget-close-btn" id="budget-toggle-btn" aria-label="Close budget panel">✕</button>
+    </div>
     <div class="budget-panel-inner">
 
       <!-- Section: Air -->
@@ -93,7 +95,7 @@
       <div class="budget-section" id="bs-transport">
         <button class="budget-section-title section-collapse-btn" data-section="bs-transport" aria-expanded="true">
           <span class="section-chevron">▾</span> Transportation
-          <label class="mears-toggle-label" onclick="event.stopPropagation()"><input type="checkbox" id="b-mears-toggle"> Mears Connect</label>
+          <label class="mears-toggle-label section-inline-toggle" onclick="event.stopPropagation()"><input type="checkbox" id="b-mears-toggle"> Mears Connect</label>
         </button>
         <div class="budget-section-body">
           <div class="budget-section-fields">
@@ -103,39 +105,45 @@
           </div>
           <div id="b-mears-fields" hidden>
             <div class="mears-grid">
-              <div class="mears-age-row mears-ways-row">
-                <span class="mears-age-label">Direction</span>
-                <span class="mears-age-price"></span>
+              <div class="mears-ways-row">
                 <div class="mears-ways-toggle">
                   <button class="mears-way-btn active" data-ways="1">1-way</button>
                   <button class="mears-way-btn" data-ways="2">Round trip</button>
                 </div>
               </div>
-              <div class="mears-age-row">
-                <span class="mears-age-label">Under 3</span>
-                <span class="mears-age-price">FREE</span>
-                <div class="mears-stepper">
-                  <button class="mears-step-btn" data-field="under3" data-dir="-1">−</button>
-                  <span class="mears-step-val" id="mv-u3">0</span>
-                  <button class="mears-step-btn" data-field="under3" data-dir="1">+</button>
+              <div class="mears-ages-row">
+                <div class="mears-age-col">
+                  <div class="mears-age-label-group">
+                    <span class="mears-age-label">Under 3</span>
+                    <span class="mears-age-price">FREE</span>
+                  </div>
+                  <div class="mears-stepper">
+                    <button class="mears-step-btn" data-field="under3" data-dir="-1">−</button>
+                    <span class="mears-step-val" id="mv-u3">0</span>
+                    <button class="mears-step-btn" data-field="under3" data-dir="1">+</button>
+                  </div>
                 </div>
-              </div>
-              <div class="mears-age-row">
-                <span class="mears-age-label">Ages 3–9</span>
-                <span class="mears-age-price">$13/way</span>
-                <div class="mears-stepper">
-                  <button class="mears-step-btn" data-field="ages3to9" data-dir="-1">−</button>
-                  <span class="mears-step-val" id="mv-3to9">0</span>
-                  <button class="mears-step-btn" data-field="ages3to9" data-dir="1">+</button>
+                <div class="mears-age-col">
+                  <div class="mears-age-label-group">
+                    <span class="mears-age-label">Ages 3–9</span>
+                    <span class="mears-age-price">$13/way</span>
+                  </div>
+                  <div class="mears-stepper">
+                    <button class="mears-step-btn" data-field="ages3to9" data-dir="-1">−</button>
+                    <span class="mears-step-val" id="mv-3to9">0</span>
+                    <button class="mears-step-btn" data-field="ages3to9" data-dir="1">+</button>
+                  </div>
                 </div>
-              </div>
-              <div class="mears-age-row">
-                <span class="mears-age-label">Ages 10+</span>
-                <span class="mears-age-price">$16/way</span>
-                <div class="mears-stepper">
-                  <button class="mears-step-btn" data-field="ages10plus" data-dir="-1">−</button>
-                  <span class="mears-step-val" id="mv-10plus">0</span>
-                  <button class="mears-step-btn" data-field="ages10plus" data-dir="1">+</button>
+                <div class="mears-age-col">
+                  <div class="mears-age-label-group">
+                    <span class="mears-age-label">Ages 10+</span>
+                    <span class="mears-age-price">$16/way</span>
+                  </div>
+                  <div class="mears-stepper">
+                    <button class="mears-step-btn" data-field="ages10plus" data-dir="-1">−</button>
+                    <span class="mears-step-val" id="mv-10plus">0</span>
+                    <button class="mears-step-btn" data-field="ages10plus" data-dir="1">+</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -158,13 +166,13 @@
       <div class="budget-section" id="bs-tickets">
         <button class="budget-section-title section-collapse-btn" data-section="bs-tickets" aria-expanded="true">
           <span class="section-chevron">▾</span> Tickets
+          <label class="budget-ap-label section-inline-toggle" onclick="event.stopPropagation()"><input type="checkbox" id="b-annual-pass"> Annual Pass</label>
         </button>
         <div class="budget-section-body">
           <div class="budget-section-fields">
             <div class="budget-field">
               <label for="b-tickets">Tickets / person / day</label>
               <div class="budget-dollar-wrap"><span>$</span><input type="number" id="b-tickets" min="0" step="1" placeholder="0"></div>
-              <label class="budget-ap-label"><input type="checkbox" id="b-annual-pass"> Annual Pass</label>
               <span class="budget-note" id="b-ticket-days"></span>
             </div>
           </div>
@@ -226,6 +234,86 @@
       </div>
 
     </div>
+
+    <!-- Section: Dining (full-width row below the budget sections) -->
+    <div class="budget-dining-panel" id="bs-dining">
+      <button class="budget-section-title section-collapse-btn" data-section="bs-dining" aria-expanded="true">
+        <span class="section-chevron">▾</span> Dining
+      </button>
+      <div class="budget-section-body">
+        <div class="dining-filter-bar" id="dining-filter-bar">
+          <select class="dining-filter-select" id="df-location">
+            <option value="">All Locations</option>
+            <optgroup label="Parks">
+              <option>Magic Kingdom</option>
+              <option>EPCOT</option>
+              <option>Hollywood Studios</option>
+              <option>Animal Kingdom</option>
+            </optgroup>
+            <optgroup label="Disney Springs">
+              <option>Disney Springs</option>
+            </optgroup>
+            <optgroup label="Resorts">
+              <option>All-Star Movies</option>
+              <option>All-Star Music</option>
+              <option>Art of Animation</option>
+              <option>Animal Kingdom Lodge</option>
+              <option>Beach Club</option>
+              <option>BoardWalk</option>
+              <option>Caribbean Beach</option>
+              <option>Contemporary</option>
+              <option>Coronado Springs</option>
+              <option>Fort Wilderness</option>
+              <option>Grand Floridian</option>
+              <option>Old Key West</option>
+              <option>Polynesian</option>
+              <option>Pop Century</option>
+              <option>Port Orleans</option>
+              <option>Riviera</option>
+              <option>Wilderness Lodge</option>
+              <option>Yacht Club</option>
+            </optgroup>
+          </select>
+          <select class="dining-filter-select" id="df-type">
+            <option value="">All Types</option>
+            <option>Table Service</option>
+            <option>Buffet</option>
+            <option>Quick Service</option>
+            <option>Lounge</option>
+            <option>Snack</option>
+          </select>
+          <select class="dining-filter-select" id="df-cuisine">
+            <option value="">All Cuisines</option>
+            <option>African</option>
+            <option>American</option>
+            <option>Asian</option>
+            <option>BBQ</option>
+            <option>British</option>
+            <option>Cajun</option>
+            <option>Caribbean</option>
+            <option>Chinese</option>
+            <option>French</option>
+            <option>German</option>
+            <option>Global</option>
+            <option>Irish</option>
+            <option>Italian</option>
+            <option>Japanese</option>
+            <option>Mediterranean</option>
+            <option>Mexican</option>
+            <option>Norwegian</option>
+            <option>Polynesian</option>
+            <option>Seafood</option>
+            <option>Spanish</option>
+            <option>Steakhouse</option>
+          </select>
+          <label class="dining-filter-check">
+            <input type="checkbox" id="df-characters"> Characters only
+          </label>
+        </div>
+        <div id="budget-dining-list"></div>
+        <button class="add-hotel-btn" id="add-dining-btn">+ Add Reservation</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -283,6 +371,11 @@
       <span class="cost-label">Tickets</span>
       <span class="cost-value" id="cs-tickets-val">$0</span>
     </button>
+    <div class="cost-sep"></div>
+    <button class="cost-item" id="cs-dining" data-target="bs-dining">
+      <span class="cost-label">Dining</span>
+      <span class="cost-value" id="cs-dining-val">$0</span>
+    </button>
     <div class="cost-group" id="cs-llsp-wrap">
       <div class="cost-sep"></div>
       <button class="cost-item" id="cs-llsp">
@@ -303,10 +396,10 @@
       </button>
     </div>
     <div class="cost-sep cost-sep-total"></div>
-    <div class="cost-item cost-total">
+    <button class="cost-item cost-total" id="cs-open-budget">
       <span class="cost-label">TOTAL</span>
       <span class="cost-value" id="cs-total-val">$0</span>
-    </div>
+    </button>
     <div class="cost-sep cost-sep-total"></div>
     <div class="cost-item cost-total cost-per-person">
       <span class="cost-label">/ PERSON</span>

@@ -65,6 +65,29 @@ const PARK_ICONS = {
   'Animal Kingdom':    'icons/animal-kingdom.svg',
 };
 
+// ── Dining data ──────────────────────────────────────────────────────────────
+let diningData = [];
+(async () => {
+  try {
+    const res = await fetch('dining-data.json');
+    if (res.ok) diningData = await res.json();
+  } catch (e) {
+    console.warn('Could not load dining-data.json:', e.message);
+  }
+})();
+
+const diningFilter = { location: '', type: '', cuisine: '', characters: false };
+
+function filteredDiningData() {
+  return diningData.filter(d => {
+    if (diningFilter.location   && d.location !== diningFilter.location)   return false;
+    if (diningFilter.type       && d.type     !== diningFilter.type)       return false;
+    if (diningFilter.cuisine    && d.cuisine  !== diningFilter.cuisine)    return false;
+    if (diningFilter.characters && !d.characters)                          return false;
+    return true;
+  });
+}
+
 // ── App state ────────────────────────────────────────────────────────────────
 let activeParkFilters = new Set(['Magic Kingdom', 'EPCOT', 'Hollywood Studios', 'Animal Kingdom']);
 let isResortGuest   = false;
@@ -89,6 +112,7 @@ let budget = {
     ages10plus: 0,
     ways: 2,               // 1 = one-way, 2 = round trip
   },
+  dining: [],               // [{ id, restaurantId, date, meal, partySize, costPerPerson }]
   cruise: {
     enabled: false,
     ship: '',
@@ -99,7 +123,8 @@ let budget = {
     onboard: 0,            // onboard spending budget
   },
 };
-let nextHotelId = 1;
+let nextHotelId  = 1;
+let nextDiningId = 1;
 
 // LL rider/include state
 const llspRiders   = new Map(); // "rideName|date" -> rider count
@@ -151,7 +176,13 @@ function renderBadge(available) {
 }
 
 function fmtMoney(n) {
-  return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  return '$' + Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+
+function toDateTimeInputValue(dateStr, time = '12:00') {
+  if (!dateStr) return '';
+  if (dateStr.includes('T')) return dateStr.slice(0, 16);
+  return `${dateStr}T${time}`;
 }
 
 function parsePriceStr(str) {
@@ -216,8 +247,9 @@ function renderHotels() {
       : '';
     return `
       <div class="hotel-row${isOverlap ? ' overlap-error' : ''}" data-hotel-id="${h.id}">
+        <button class="hotel-remove-btn" data-hotel-id="${h.id}" title="Remove hotel">✕</button>
         <div class="hotel-row-fields">
-          <div class="hotel-field">
+          <div class="hotel-field hotel-field-resort">
             <label class="hotel-field-label">Resort</label>
             <select class="hotel-resort-select" data-hotel-id="${h.id}">
               ${resortSelectHtml(h.resort || '')}
@@ -242,7 +274,6 @@ function renderHotels() {
             <div class="budget-dollar-wrap"><span>$</span><input class="hotel-rate-input" type="number" min="0" step="1" placeholder="0" value="${h.rateValue || ''}"></div>
           </div>
           ${isOverlap ? `<span class="hotel-nights-note overlap-note">⚠ Overlaps another hotel</span>` : ''}
-          <button class="hotel-remove-btn" data-hotel-id="${h.id}" title="Remove">× Remove</button>
         </div>
       </div>`;
   }).join('');
@@ -282,6 +313,111 @@ function removeHotel(id) {
   if (typeof markDirty === 'function') markDirty();
 }
 
+// ── Dining helpers ────────────────────────────────────────────────────────────
+const PRICE_RANGE_MIDPOINT = { '$': 12, '$$': 25, '$$$': 48, '$$$$': 80 };
+
+function diningSubtotal(res) {
+  return (res.costPerPerson || 0) * (res.partySize || 1);
+}
+
+function renderDining() {
+  const list = document.getElementById('budget-dining-list');
+  if (!list) return;
+  if (!budget.dining.length) { list.innerHTML = ''; return; }
+
+  const tripStart = document.getElementById('start-date').value;
+  const tripEnd   = document.getElementById('end-date').value;
+
+  list.innerHTML = budget.dining.map(res => {
+    const restaurant = diningData.find(d => d.id === res.restaurantId) || null;
+    const subtotal   = diningSubtotal(res);
+    const diningDateValue = toDateTimeInputValue(res.date || '', '18:00');
+    const charBadge  = restaurant?.characters
+      ? `<span class="dining-badge dining-badge-char" title="Character dining">🎭</span>`
+      : '';
+    const resBadge   = restaurant?.reservations
+      ? `<span class="dining-badge dining-badge-adr" title="Reservations recommended">ADR</span>`
+      : '';
+    const menuLink   = restaurant?.menuUrl
+      ? `<a class="dining-menu-link" href="${restaurant.menuUrl}" target="_blank" rel="noopener" title="View menu">↗</a>`
+      : '';
+    const noteText   = restaurant?.notes || '';
+    const autoPrice  = restaurant ? PRICE_RANGE_MIDPOINT[restaurant.priceRange] || 0 : 0;
+
+    const options = filteredDiningData().map(d =>
+      `<option value="${d.id}" ${d.id === res.restaurantId ? 'selected' : ''}>${d.name} — ${d.location}</option>`
+    ).join('');
+
+    return `
+      <div class="dining-row" data-dining-id="${res.id}">
+        ${noteText ? `<div class="dining-note">${noteText}</div>` : ''}
+        <div class="dining-row-fields">
+          <div class="dining-field dining-field-name">
+            <label class="dining-field-label">Restaurant ${charBadge}${resBadge}${menuLink}</label>
+            <select class="dining-name-select">
+              <option value="">— Select restaurant —</option>
+              ${options}
+            </select>
+          </div>
+          <div class="dining-field dining-field-date">
+            <label class="dining-field-label">Date &amp; Time</label>
+            <input class="dining-date-input" type="datetime-local" value="${diningDateValue}"
+              min="${toDateTimeInputValue(tripStart, '00:00')}" max="${toDateTimeInputValue(tripEnd, '23:59')}">
+          </div>
+          <div class="dining-field dining-field-meal">
+            <label class="dining-field-label">Meal</label>
+            <select class="dining-meal-select">
+              <option value="Breakfast" ${res.meal === 'Breakfast' ? 'selected' : ''}>Breakfast</option>
+              <option value="Lunch"     ${res.meal === 'Lunch'     ? 'selected' : ''}>Lunch</option>
+              <option value="Dinner"    ${res.meal === 'Dinner'    ? 'selected' : ''}>Dinner</option>
+            </select>
+          </div>
+          <div class="dining-field dining-field-party">
+            <label class="dining-field-label">Party</label>
+            <input class="dining-party-input" type="number" min="1" max="20" step="1"
+              value="${res.partySize || budget.travelers}" placeholder="${budget.travelers}">
+          </div>
+          <div class="dining-field dining-field-cost">
+            <label class="dining-field-label">Est. / Person</label>
+            <div class="budget-dollar-wrap">
+              <span>$</span>
+              <input class="dining-cost-input" type="number" min="0" step="1"
+                value="${res.costPerPerson || autoPrice || ''}"
+                placeholder="${autoPrice || 0}">
+            </div>
+          </div>
+          <div class="dining-field dining-field-subtotal">
+            <label class="dining-field-label">Total</label>
+            <span class="dining-subtotal">${subtotal > 0 ? fmtMoney(subtotal) : '—'}</span>
+          </div>
+          <button class="hotel-remove-btn dining-remove-btn" data-dining-id="${res.id}" title="Remove">× Remove</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function addDining() {
+  budget.dining.push({
+    id: nextDiningId++,
+    restaurantId: null,
+    _nameInput: '',
+    date: toDateTimeInputValue(document.getElementById('start-date').value || '', '18:00'),
+    meal: 'Dinner',
+    partySize: budget.travelers,
+    costPerPerson: 0,
+  });
+  renderDining();
+  recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
+}
+
+function removeDining(id) {
+  budget.dining = budget.dining.filter(r => r.id !== id);
+  renderDining();
+  recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
+}
+
 // ── Budget date calculations ──────────────────────────────────────────────────
 function getTripDays() {
   const start = document.getElementById('start-date').value;
@@ -295,7 +431,7 @@ function getTripDays() {
 
 // ── recalcTotals ──────────────────────────────────────────────────────────────
 function recalcTotals() {
-  const { travelers, hotels, flights, transport, ticketPerPersonPerDay, annualPass, cruise } = budget;
+  const { travelers, hotels, flights, transport, ticketPerPersonPerDay, annualPass, cruise, dining } = budget;
   const days = getTripDays();
 
   const overlaps   = overlappingHotelIds(hotels);
@@ -340,9 +476,13 @@ function recalcTotals() {
     }
   }
 
-  const cruiseTotal = cruise.enabled ? (cruise.cabinCost || 0) + (cruise.portFees || 0) + (cruise.onboard || 0) : 0;
+  const cruiseTotal  = cruise.enabled ? (cruise.cabinCost || 0) + (cruise.portFees || 0) + (cruise.onboard || 0) : 0;
+  const diningTotal  = dining.reduce((sum, r) => sum + diningSubtotal(r), 0);
 
-  const total     = hotelTotal + flightsTotal + transportTotal + ticketsTotal + llspTotal + llmpTotal + cruiseTotal;
+  const diningValEl = document.getElementById('cs-dining-val');
+  if (diningValEl) diningValEl.textContent = fmtMoney(diningTotal);
+
+  const total     = hotelTotal + flightsTotal + transportTotal + ticketsTotal + llspTotal + llmpTotal + cruiseTotal + diningTotal;
   const perPerson = travelers > 0 ? total / travelers : 0;
 
   const cruiseValEl = document.getElementById('cs-cruise-val');
@@ -622,12 +762,21 @@ document.getElementById('toggle-cruise').addEventListener('change', e => {
   if (typeof markDirty === 'function') markDirty();
 });
 
-document.getElementById('budget-toggle-btn').addEventListener('click', () => {
-  const inner  = document.querySelector('.budget-panel-inner');
-  const btn    = document.getElementById('budget-toggle-btn');
-  const isOpen = btn.getAttribute('aria-expanded') === 'true';
-  btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-  if (inner) inner.hidden = isOpen;
+function openBudgetPanel() {
+  document.getElementById('budget-panel').classList.add('open');
+  document.getElementById('budget-backdrop').classList.add('open');
+}
+
+function closeBudgetPanel() {
+  document.getElementById('budget-panel').classList.remove('open');
+  document.getElementById('budget-backdrop').classList.remove('open');
+}
+
+document.getElementById('budget-toggle-btn').addEventListener('click', closeBudgetPanel);
+document.getElementById('budget-backdrop').addEventListener('click', closeBudgetPanel);
+document.getElementById('cs-open-budget').addEventListener('click', openBudgetPanel);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeBudgetPanel();
 });
 
 document.getElementById('budget-panel').addEventListener('click', e => {
@@ -719,6 +868,59 @@ document.getElementById('budget-hotels-list').addEventListener('input', e => {
 });
 
 document.getElementById('add-hotel-btn').addEventListener('click', addHotel);
+
+// ── Dining event listeners ────────────────────────────────────────────────────
+document.getElementById('df-location').addEventListener('change', e => { diningFilter.location = e.target.value; renderDining(); });
+document.getElementById('df-type').addEventListener('change', e => { diningFilter.type = e.target.value; renderDining(); });
+document.getElementById('df-cuisine').addEventListener('change', e => { diningFilter.cuisine = e.target.value; renderDining(); });
+document.getElementById('df-characters').addEventListener('change', e => { diningFilter.characters = e.target.checked; renderDining(); });
+
+document.getElementById('add-dining-btn').addEventListener('click', addDining);
+
+document.getElementById('budget-dining-list').addEventListener('click', e => {
+  const removeBtn = e.target.closest('.dining-remove-btn');
+  if (removeBtn) removeDining(Number(removeBtn.dataset.diningId));
+});
+
+document.getElementById('budget-dining-list').addEventListener('input', e => {
+  const row = e.target.closest('.dining-row');
+  if (!row) return;
+  const id  = Number(row.dataset.diningId);
+  const res = budget.dining.find(r => r.id === id);
+  if (!res) return;
+
+  if (e.target.classList.contains('dining-name-select')) {
+    const match = diningData.find(d => d.id === e.target.value);
+    res.restaurantId = match?.id || null;
+    res._nameInput   = match?.name || '';
+    if (match && !res.costPerPerson) res.costPerPerson = PRICE_RANGE_MIDPOINT[match.priceRange] || 0;
+    renderDining();
+    recalcTotals();
+    if (typeof markDirty === 'function') markDirty();
+    return;
+  }
+  if (e.target.classList.contains('dining-date-input')) {
+    res.date = e.target.value;
+  }
+  if (e.target.classList.contains('dining-meal-select')) {
+    res.meal = e.target.value;
+  }
+  if (e.target.classList.contains('dining-party-input')) {
+    res.partySize = parseInt(e.target.value) || 1;
+  }
+  if (e.target.classList.contains('dining-cost-input')) {
+    res.costPerPerson = parseFloat(e.target.value) || 0;
+  }
+
+  // Update subtotal in place without full re-render
+  const subtotalEl = row.querySelector('.dining-subtotal');
+  if (subtotalEl) {
+    const sub = diningSubtotal(res);
+    subtotalEl.textContent = sub > 0 ? fmtMoney(sub) : '—';
+  }
+  recalcTotals();
+  if (typeof markDirty === 'function') markDirty();
+});
 
 // ── Cruise ────────────────────────────────────────────────────────────────────
 function updateCruiseNote() {
@@ -949,12 +1151,13 @@ document.getElementById('planner').addEventListener('change', e => {
 document.getElementById('cost-summary-bar').addEventListener('click', e => {
   const btn = e.target.closest('[data-target]');
   if (!btn) return;
-  const targetId   = btn.dataset.target;
-  const inner      = document.querySelector('.budget-panel-inner');
-  const toggleBtn  = document.getElementById('budget-toggle-btn');
-  if (inner && inner.hidden) {
-    inner.hidden = false;
-    toggleBtn.setAttribute('aria-expanded', 'true');
+  const targetId = btn.dataset.target;
+  openBudgetPanel();
+  // For section targets (like bs-dining), scroll to the section
+  const section = document.getElementById(targetId);
+  if (section && section.classList.contains('budget-section')) {
+    section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    return;
   }
   const input = document.getElementById(targetId);
   if (input) {
@@ -983,6 +1186,7 @@ function getAppState() {
     hotels:                budget.hotels,
     mears:                 budget.mears,
     cruise:                budget.cruise,
+    dining:                budget.dining,
     showPremierPass:       showPremierPass,
     llspRiders:            [...llspRiders.entries()],
     llmpIncluded:          [...llmpIncluded.entries()],
@@ -1101,6 +1305,11 @@ function applyAppState(state) {
     showPremierPass = Boolean(state.showPremierPass);
     const cb = document.getElementById('toggle-premier');
     if (cb) cb.checked = showPremierPass;
+  }
+  if (Array.isArray(state.dining)) {
+    budget.dining = state.dining;
+    nextDiningId = (budget.dining.reduce((m, r) => Math.max(m, r.id ?? 0), 0)) + 1;
+    renderDining();
   }
   if (Array.isArray(state.llspRiders)) {
     llspRiders.clear();

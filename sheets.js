@@ -380,7 +380,9 @@ function hideSheetsControls() {
   const controls = document.querySelector('.controls');
   if (controls) controls.hidden = true;
   const budgetPanel = document.getElementById('budget-panel');
-  if (budgetPanel) budgetPanel.hidden = true;
+  if (budgetPanel) { budgetPanel.hidden = true; budgetPanel.classList.remove('open'); }
+  const budgetBackdrop = document.getElementById('budget-backdrop');
+  if (budgetBackdrop) budgetBackdrop.classList.remove('open');
   setSaveLoadEnabled(false);
 
   for (const selId of ['sheets-tab-select', 'header-trip-select']) {

@@ -1,2 +1,4 @@
 events-data.json
 config.js
+node_modules/
+*.png

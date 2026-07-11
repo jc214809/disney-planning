@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node cruise-shot.js)",
+      "Bash(rm -f /private/tmp/claude-501/-Users-joelclark-PycharmProjects-disney-planning/e8001f76-9f07-49df-b0bc-78decc9f7533/scratchpad/*.png)",
+      "Bash(node scripts/screenshot.js budget:cruise /tmp/verify-cruise.png)"
+    ],
+    "additionalDirectories": [
+      "/private/tmp/claude-501/-Users-joelclark-PycharmProjects-disney-planning/e8001f76-9f07-49df-b0bc-78decc9f7533/scratchpad"
+    ]
+  }
+}
