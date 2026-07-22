@@ -888,18 +888,6 @@
     "notes": "Key West-inspired casual dining; breakfast, lunch, dinner; Old Key West Resort"
   },
   {
-    "id": "capa",
-    "name": "Capa",
-    "location": "Four Seasons",
-    "type": "Table Service",
-    "cuisine": "Steakhouse",
-    "characters": false,
-    "reservations": true,
-    "priceRange": "$$$$",
-    "menuUrl": "https://www.fourseasons.com/orlando/dining/restaurants/capa/",
-    "notes": "Spanish-inspired steakhouse at Four Seasons Orlando; rooftop; dinner only"
-  },
-  {
     "id": "steakhouse-71",
     "name": "Steakhouse 71",
     "location": "Contemporary",
@@ -1616,7 +1604,7 @@
     "characters": false,
     "reservations": false,
     "priceRange": "$$",
-    "menuUrl": "https://disneyworld.disney.go.com/dining/yacht-club-resort/crews-cup-lounge/menus/",
+    "menuUrl": "https://disneyworld.disney.go.com/dining/yacht-club-resort/crew-cup-lounge/menus/bar-%E2%80%93-lounge/",
     "notes": "Nautical-themed bar adjacent to Yachtsman Steakhouse; walk-up"
   },
   {
