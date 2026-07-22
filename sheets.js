@@ -373,7 +373,7 @@ function setSaveLoadEnabled(enabled) {
 }
 
 function hideSheetsControls() {
-  for (const id of ['header-trips', 'trip-name-bar', 'cost-summary-bar']) {
+  for (const id of ['header-trips', 'trip-name-bar', 'trip-name-slot', 'cost-summary-bar']) {
     const el = document.getElementById(id);
     if (el) el.hidden = true;
   }
@@ -504,7 +504,7 @@ function populateSheetDropdown(sheets) {
   // Show controls, trip name bar, and cost bar
   const controls = document.querySelector('.controls');
   if (controls) controls.hidden = false;
-  for (const id of ['trip-name-bar', 'cost-summary-bar', 'budget-panel']) {
+  for (const id of ['trip-name-bar', 'trip-name-slot', 'cost-summary-bar', 'budget-panel']) {
     const el = document.getElementById(id);
     if (el) el.hidden = false;
   }

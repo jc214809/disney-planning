@@ -14,6 +14,7 @@
   <div class="header-top">
     <img src="icons/logo-wide.svg" alt="Disney Trip Planner" class="app-logo">
     <div class="header-top-right">
+      <button class="budget-toggle-btn" id="header-open-budget-btn">Budget</button>
       <button class="budget-toggle-btn" id="sheets-new-tab-btn" disabled>+ New Trip</button>
       <div id="google-auth-area">
         <div id="header-trips" hidden>
@@ -25,6 +26,23 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div id="trip-name-slot" hidden>
+    <span id="trip-name-text"></span>
+    <button id="trip-name-edit-btn" title="Rename trip">
+      <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13.586 3.586a2 2 0 1 1 2.828 2.828L7 15.828 3 17l1.172-4L13.586 3.586z"/>
+      </svg>
+    </button>
+    <button id="trip-delete-btn" title="Delete trip">
+      <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="3 5 5 5 17 5"/><path d="M6 5V3h8v2"/><path d="M7 8l.5 8M10 8v8M13 8l-.5 8"/><rect x="4" y="5" width="12" height="12" rx="1"/>
+      </svg>
+    </button>
+    <input type="text" id="sheets-tab-name" placeholder="Trip name…" spellcheck="false" hidden>
+    <button id="sheets-rename-btn" hidden>Rename</button>
+    <button id="trip-name-cancel-btn" hidden>Cancel</button>
   </div>
 
   <div class="controls" hidden>
@@ -321,27 +339,11 @@
 
 <!-- Trip name bar — shown above the calendar when signed in -->
 <div id="trip-name-bar" hidden>
-  <div id="trip-name-slot">
-    <span id="trip-name-text"></span>
-    <button id="trip-name-edit-btn" title="Rename trip">
-      <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M13.586 3.586a2 2 0 1 1 2.828 2.828L7 15.828 3 17l1.172-4L13.586 3.586z"/>
-      </svg>
-    </button>
-    <button id="trip-delete-btn" title="Delete trip">
-      <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="3 5 5 5 17 5"/><path d="M6 5V3h8v2"/><path d="M7 8l.5 8M10 8v8M13 8l-.5 8"/><rect x="4" y="5" width="12" height="12" rx="1"/>
-      </svg>
-    </button>
-    <input type="text" id="sheets-tab-name" placeholder="Trip name…" spellcheck="false" hidden>
-    <button id="sheets-rename-btn" hidden>Rename</button>
-    <button id="trip-name-cancel-btn" hidden>Cancel</button>
-    <div class="park-toggles" id="park-toggles">
-      <button class="park-toggle active" data-park="Magic Kingdom">Magic Kingdom</button>
-      <button class="park-toggle active" data-park="EPCOT">EPCOT</button>
-      <button class="park-toggle active" data-park="Hollywood Studios">Hollywood Studios</button>
-      <button class="park-toggle active" data-park="Animal Kingdom">Animal Kingdom</button>
-    </div>
+  <div class="park-toggles" id="park-toggles">
+    <button class="park-toggle active" data-park="Magic Kingdom">Magic Kingdom</button>
+    <button class="park-toggle active" data-park="EPCOT">EPCOT</button>
+    <button class="park-toggle active" data-park="Hollywood Studios">Hollywood Studios</button>
+    <button class="park-toggle active" data-park="Animal Kingdom">Animal Kingdom</button>
   </div>
   <span id="sheets-status" class="sheets-status"></span>
   <button id="sheets-save-btn" disabled>Save</button>
