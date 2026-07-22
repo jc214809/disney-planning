@@ -9,7 +9,26 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/1900-park-fare/menus/",
-    "notes": "Character breakfast with Cinderella & friends; character dinner with stepsisters & stepmother"
+    "notes": "Character breakfast with Cinderella & friends; character dinner with stepsisters & stepmother",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/1900-park-fare/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 58,
+          "child": 37
+        },
+        "dinner": {
+          "adult": 69,
+          "child": 44
+        }
+      }
+    }
   },
   {
     "id": "1d659f1e-9aa9-45ff-8aa9-a75bd55a7c49",
@@ -21,7 +40,26 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/polynesian-resort/ohana/menus/",
-    "notes": "Character breakfast with Lilo & Stitch; dinner is family-style skewers (no characters at dinner)"
+    "notes": "Character breakfast with Lilo & Stitch; dinner is family-style skewers (no characters at dinner)",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/polynesian-resort/ohana/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 53,
+          "child": 33
+        },
+        "dinner": {
+          "adult": 67,
+          "child": 44
+        }
+      }
+    }
   },
   {
     "id": "eb6a60d7-b354-47a1-a091-0beb11b24188",
@@ -33,7 +71,30 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/akershus-royal-banquet-hall/menus/",
-    "notes": "Disney princess characters all day; located in Norway pavilion"
+    "notes": "Disney princess characters all day; located in Norway pavilion",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/akershus-royal-banquet-hall/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 62,
+          "child": 39
+        },
+        "lunch": {
+          "adult": 69,
+          "child": 46
+        },
+        "dinner": {
+          "adult": 69,
+          "child": 46
+        }
+      }
+    }
   },
   {
     "id": "e847a8bd-7d21-432b-a7a1-f483517a22b5",
@@ -45,7 +106,26 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/be-our-guest-restaurant/menus/",
-    "notes": "Beauty and the Beast themed; dinner only table service; quick service at lunch"
+    "notes": "Beauty and the Beast themed; dinner only table service; quick service at lunch",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/be-our-guest-restaurant/menus/",
+      "meals": {
+        "lunch": {
+          "adult": 72,
+          "child": 43
+        },
+        "dinner": {
+          "adult": 72,
+          "child": 43
+        }
+      }
+    }
   },
   {
     "id": "853687d0-5de6-43ec-b0c3-ac43f1217e77",
@@ -57,7 +137,26 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/contemporary-resort/chef-mickeys/menus/",
-    "notes": "Fab Five characters (Mickey, Minnie, Donald, Goofy, Pluto); breakfast and dinner"
+    "notes": "Fab Five characters (Mickey, Minnie, Donald, Goofy, Pluto); breakfast and dinner",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/contemporary-resort/chef-mickeys/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 59,
+          "child": 38
+        },
+        "dinner": {
+          "adult": 69,
+          "child": 44
+        }
+      }
+    }
   },
   {
     "id": "ff9aa159-0b93-400b-a3ad-1b2a0640c132",
@@ -69,7 +168,26 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/beach-club-resort/cape-may-cafe/menus/",
-    "notes": "Character breakfast with Minnie & friends; dinner is seafood clambake buffet (no characters)"
+    "notes": "Character breakfast with Minnie & friends; dinner is seafood clambake buffet (no characters)",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/beach-club-resort/cape-may-cafe/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 49,
+          "child": 33
+        },
+        "dinner": {
+          "adult": 49,
+          "child": 29
+        }
+      }
+    }
   },
   {
     "id": "cinderella-royal-table",
@@ -81,7 +199,30 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/cinderellas-royal-table/menus/",
-    "notes": "Inside Cinderella Castle; Disney princess characters; prix fixe; hardest ADR to get at WDW"
+    "notes": "Inside Cinderella Castle; Disney princess characters; prix fixe; hardest ADR to get at WDW",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/cinderellas-royal-table/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 74,
+          "child": 45
+        },
+        "lunch": {
+          "adult": 88,
+          "child": 52
+        },
+        "dinner": {
+          "adult": 89,
+          "child": 54
+        }
+      }
+    }
   },
   {
     "id": "crystal-palace",
@@ -93,7 +234,30 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/crystal-palace/menus/",
-    "notes": "Winnie the Pooh & friends characters; breakfast, lunch, and dinner"
+    "notes": "Winnie the Pooh & friends characters; breakfast, lunch, and dinner",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/crystal-palace/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 52,
+          "child": 33
+        },
+        "lunch": {
+          "adult": 62,
+          "child": 42
+        },
+        "dinner": {
+          "adult": 64,
+          "child": 44
+        }
+      }
+    }
   },
   {
     "id": "garden-grill",
@@ -105,7 +269,30 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/garden-grill-restaurant/menus/",
-    "notes": "Rotating restaurant above Living with the Land; Mickey, Pluto, Chip & Dale; family-style"
+    "notes": "Rotating restaurant above Living with the Land; Mickey, Pluto, Chip & Dale; family-style",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/garden-grill-restaurant/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 49,
+          "child": 33
+        },
+        "lunch": {
+          "adult": 62,
+          "child": 42
+        },
+        "dinner": {
+          "adult": 62,
+          "child": 42
+        }
+      }
+    }
   },
   {
     "id": "hollywood-vine",
@@ -117,7 +304,30 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/hollywood-and-vine/menus/",
-    "notes": "Disney Junior characters at breakfast & lunch; seasonal dinner themes"
+    "notes": "Disney Junior characters at breakfast & lunch; seasonal dinner themes",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/hollywood-and-vine/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 49,
+          "child": 33
+        },
+        "lunch": {
+          "adult": 63,
+          "child": 42
+        },
+        "dinner": {
+          "adult": 63,
+          "child": 42
+        }
+      }
+    }
   },
   {
     "id": "tusker-house",
@@ -129,7 +339,30 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/tusker-house-restaurant/menus/",
-    "notes": "Donald Duck & friends in safari gear; African-inspired buffet; breakfast, lunch, dinner"
+    "notes": "Donald Duck & friends in safari gear; African-inspired buffet; breakfast, lunch, dinner",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/tusker-house-restaurant/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 49,
+          "child": 33
+        },
+        "lunch": {
+          "adult": 64,
+          "child": 42
+        },
+        "dinner": {
+          "adult": 64,
+          "child": 42
+        }
+      }
+    }
   },
   {
     "id": "story-book-dining",
@@ -141,7 +374,22 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/wilderness-lodge-resort/storybook-dining-at-artist-point/menus/",
-    "notes": "Snow White, Evil Queen, Dopey & Grumpy; prix fixe dinner only"
+    "notes": "Snow White, Evil Queen, Dopey & Grumpy; prix fixe dinner only",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/wilderness-lodge-resort/storybook-dining-at-artist-point/menus/",
+      "meals": {
+        "dinner": {
+          "adult": 67,
+          "child": 41
+        }
+      }
+    }
   },
   {
     "id": "topolinos-terrace",
@@ -153,7 +401,22 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/riviera-resort/topolinos-terrace-flavors-of-the-riviera/menus/",
-    "notes": "Mickey, Minnie, Donald & Daisy in artist attire at breakfast; dinner is character-free rooftop"
+    "notes": "Mickey, Minnie, Donald & Daisy in artist attire at breakfast; dinner is character-free rooftop",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/riviera-resort/topolinos-terrace-flavors-of-the-riviera/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 52,
+          "child": 33
+        }
+      }
+    }
   },
   {
     "id": "roundup-rodeo-bbq",
@@ -165,7 +428,26 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/roundup-rodeo-bbq/menus/",
-    "notes": "Toy Story characters; all-you-care-to-enjoy BBQ inside Toy Story Land"
+    "notes": "Toy Story characters; all-you-care-to-enjoy BBQ inside Toy Story Land",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/roundup-rodeo-bbq/menus/",
+      "meals": {
+        "lunch": {
+          "adult": 49,
+          "child": 27
+        },
+        "dinner": {
+          "adult": 49,
+          "child": 27
+        }
+      }
+    }
   },
   {
     "id": "hoop-dee-doo",
@@ -177,7 +459,37 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/fort-wilderness-resort/hoop-dee-doo-musical-revue/menus/",
-    "notes": "Dinner show with live entertainment; all-you-care-to-eat BBQ; WDW's longest-running show"
+    "notes": "Dinner show with live entertainment; all-you-care-to-eat BBQ; WDW's longest-running show",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": true,
+      "gratuityIncluded": true,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/fort-wilderness-resort/hoop-dee-doo-musical-revue/menus/",
+      "meals": {
+        "dinner": {
+          "options": [
+            {
+              "name": "Category 1",
+              "adult": 78,
+              "child": 45
+            },
+            {
+              "name": "Category 2",
+              "adult": 74,
+              "child": 41
+            },
+            {
+              "name": "Category 3",
+              "adult": 70,
+              "child": 40
+            }
+          ]
+        }
+      }
+    }
   },
   {
     "id": "ae9a4a79-ccf1-4561-9a95-cf83d3007b98",
@@ -189,7 +501,26 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/liberty-tree-tavern/menus/",
-    "notes": "Colonial American themed; family-style Thanksgiving dinner; à la carte lunch"
+    "notes": "Colonial American themed; family-style Thanksgiving dinner; à la carte lunch",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/liberty-tree-tavern/menus/",
+      "meals": {
+        "lunch": {
+          "adult": 45,
+          "child": 24
+        },
+        "dinner": {
+          "adult": 44,
+          "child": 24
+        }
+      }
+    }
   },
   {
     "id": "plaza-restaurant",
@@ -201,7 +532,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/plaza-restaurant/menus/",
-    "notes": "Victorian Main Street diner; sandwiches, salads, milkshakes"
+    "notes": "Victorian Main Street diner; sandwiches, salads, milkshakes",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/plaza-restaurant/menus/"
+    }
   },
   {
     "id": "tonys-town-square",
@@ -213,7 +550,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/tonys-town-square-restaurant/menus/",
-    "notes": "Lady and the Tramp themed; pasta, pizza, and sandwiches"
+    "notes": "Lady and the Tramp themed; pasta, pizza, and sandwiches",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/tonys-town-square-restaurant/menus/"
+    }
   },
   {
     "id": "jungle-skipper-canteen",
@@ -225,7 +568,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/jungle-navigation-co-ltd-skipper-canteen/menus/",
-    "notes": "Jungle Cruise themed; global cuisines; lunch and dinner"
+    "notes": "Jungle Cruise themed; global cuisines; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/jungle-navigation-co-ltd-skipper-canteen/menus/"
+    }
   },
   {
     "id": "diamond-horseshoe",
@@ -237,7 +586,26 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/diamond-horseshoe/menus/",
-    "notes": "Walk-up seating; all-you-care-to-enjoy family style; Frontierland saloon"
+    "notes": "Walk-up seating; all-you-care-to-enjoy family style; Frontierland saloon",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/diamond-horseshoe/menus/",
+      "meals": {
+        "lunch": {
+          "adult": 44,
+          "child": 24
+        },
+        "dinner": {
+          "adult": 44,
+          "child": 24
+        }
+      }
+    }
   },
   {
     "id": "biergarten",
@@ -249,7 +617,26 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/biergarten-restaurant/menus/",
-    "notes": "German buffet with live oompah band entertainment; Germany pavilion"
+    "notes": "German buffet with live oompah band entertainment; Germany pavilion",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/biergarten-restaurant/menus/",
+      "meals": {
+        "lunch": {
+          "adult": 49,
+          "child": 28
+        },
+        "dinner": {
+          "adult": 49,
+          "child": 28
+        }
+      }
+    }
   },
   {
     "id": "chefs-de-france",
@@ -261,7 +648,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/chefs-de-france/menus/",
-    "notes": "Classic French brasserie; France pavilion; lunch and dinner"
+    "notes": "Classic French brasserie; France pavilion; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/chefs-de-france/menus/"
+    }
   },
   {
     "id": "coral-reef",
@@ -273,7 +666,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/coral-reef-restaurant/menus/",
-    "notes": "Seats alongside The Seas aquarium; seafood focused; lunch and dinner"
+    "notes": "Seats alongside The Seas aquarium; seafood focused; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/coral-reef-restaurant/menus/"
+    }
   },
   {
     "id": "la-hacienda",
@@ -285,7 +684,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/la-hacienda-de-san-angel/menus/",
-    "notes": "Lakeside views of World Showcase Lagoon; Mexico pavilion; dinner only"
+    "notes": "Lakeside views of World Showcase Lagoon; Mexico pavilion; dinner only",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/la-hacienda-de-san-angel/menus/"
+    }
   },
   {
     "id": "le-cellier",
@@ -297,7 +702,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/le-cellier-steakhouse/menus/",
-    "notes": "Canadian steakhouse in a wine-cellar setting; Canada pavilion; very popular ADR"
+    "notes": "Canadian steakhouse in a wine-cellar setting; Canada pavilion; very popular ADR",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/le-cellier-steakhouse/menus/"
+    }
   },
   {
     "id": "monsieur-paul",
@@ -309,7 +720,24 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/monsieur-paul/menus/",
-    "notes": "Signature upscale French dining above Chefs de France; France pavilion; dinner only"
+    "notes": "Signature upscale French dining above Chefs de France; France pavilion; dinner only",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": null,
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/monsieur-paul/menus/",
+      "meals": {
+        "dinner": {
+          "adult": 195,
+          "child": null,
+          "startingAt": true
+        }
+      },
+      "minimumAge": null
+    }
   },
   {
     "id": "nine-dragons",
@@ -321,7 +749,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/nine-dragons-restaurant/menus/",
-    "notes": "Chinese cuisine; China pavilion; lunch and dinner"
+    "notes": "Chinese cuisine; China pavilion; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/nine-dragons-restaurant/menus/"
+    }
   },
   {
     "id": "rose-crown-dining",
@@ -333,7 +767,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/rose-and-crown-dining-room/menus/",
-    "notes": "British pub fare; UK pavilion; great lagoon views for fireworks"
+    "notes": "British pub fare; UK pavilion; great lagoon views for fireworks",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/rose-and-crown-dining-room/menus/"
+    }
   },
   {
     "id": "san-angel-inn",
@@ -345,7 +785,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/san-angel-inn-restaurante/menus/",
-    "notes": "Romantic indoor setting beside a river and pyramid; Mexico pavilion"
+    "notes": "Romantic indoor setting beside a river and pyramid; Mexico pavilion",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/san-angel-inn-restaurante/menus/"
+    }
   },
   {
     "id": "space-220",
@@ -357,7 +803,26 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/space-220/menus/",
-    "notes": "Simulated space station 220 miles above Earth; prix fixe lunch and dinner; very popular"
+    "notes": "Simulated space station 220 miles above Earth; prix fixe lunch and dinner; very popular",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/space-220/menus/",
+      "meals": {
+        "lunch": {
+          "adult": 55,
+          "child": 29
+        },
+        "dinner": {
+          "adult": 79,
+          "child": 35
+        }
+      }
+    }
   },
   {
     "id": "space-220-lounge",
@@ -369,7 +834,13 @@
     "reservations": false,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/space-220-lounge/menus/",
-    "notes": "Walk-up bar with same space views; limited menu; no reservations needed"
+    "notes": "Walk-up bar with same space views; limited menu; no reservations needed",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/space-220-lounge/menus/"
+    }
   },
   {
     "id": "spice-road-table",
@@ -381,7 +852,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/spice-road-table/menus/",
-    "notes": "Waterfront terrace; Morocco pavilion; small plates and cocktails"
+    "notes": "Waterfront terrace; Morocco pavilion; small plates and cocktails",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/spice-road-table/menus/"
+    }
   },
   {
     "id": "takumi-tei",
@@ -393,7 +870,31 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/takumi-tei/menus/",
-    "notes": "Signature Japanese dining; Japan pavilion; dinner only; prix fixe or à la carte options"
+    "notes": "Signature Japanese dining; Japan pavilion; dinner only; prix fixe or à la carte options",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": null,
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/takumi-tei/menus/",
+      "meals": {
+        "dinner": {
+          "child": null,
+          "options": [
+            {
+              "name": "Full Course",
+              "adult": 250
+            },
+            {
+              "name": "Semi Course",
+              "adult": 150
+            }
+          ]
+        }
+      }
+    }
   },
   {
     "id": "tangierine-cafe",
@@ -405,7 +906,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/tangierine-cafe/menus/",
-    "notes": "Counter service; Morocco pavilion; shawarma, falafel, wraps"
+    "notes": "Counter service; Morocco pavilion; shawarma, falafel, wraps",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/tangierine-cafe/menus/"
+    }
   },
   {
     "id": "teppan-edo",
@@ -417,7 +924,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/teppan-edo/menus/",
-    "notes": "Teppanyaki hibachi-style cooking; Japan pavilion; lunch and dinner"
+    "notes": "Teppanyaki hibachi-style cooking; Japan pavilion; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/teppan-edo/menus/"
+    }
   },
   {
     "id": "tutto-italia",
@@ -429,7 +942,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/tutto-italia-ristorante/menus/",
-    "notes": "Classic Italian; Italy pavilion; lunch and dinner"
+    "notes": "Classic Italian; Italy pavilion; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/tutto-italia-ristorante/menus/"
+    }
   },
   {
     "id": "via-napoli",
@@ -441,7 +960,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/via-napoli-ristorante-e-pizzeria/menus/",
-    "notes": "Neapolitan pizza cooked in wood-fired ovens; Italy pavilion; lunch and dinner"
+    "notes": "Neapolitan pizza cooked in wood-fired ovens; Italy pavilion; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/via-napoli-ristorante-e-pizzeria/menus/"
+    }
   },
   {
     "id": "la-creperie",
@@ -453,7 +978,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/la-creperie-de-paris/menus/",
-    "notes": "Sweet and savory crepes; France pavilion; table service and walk-up window"
+    "notes": "Sweet and savory crepes; France pavilion; table service and walk-up window",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/la-creperie-de-paris/menus/"
+    }
   },
   {
     "id": "connections-eatery",
@@ -465,7 +996,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/connections-eatery/menus/",
-    "notes": "Large quick-service food court in World Discovery; multiple food stations"
+    "notes": "Large quick-service food court in World Discovery; multiple food stations",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/connections-eatery/menus/"
+    }
   },
   {
     "id": "regal-eagle",
@@ -477,7 +1014,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/regal-eagle-smokehouse/menus/",
-    "notes": "American BBQ; American Adventure pavilion; quick service"
+    "notes": "American BBQ; American Adventure pavilion; quick service",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/regal-eagle-smokehouse/menus/"
+    }
   },
   {
     "id": "50s-prime-time",
@@ -489,7 +1032,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/50s-prime-time-cafe/menus/",
-    "notes": "Retro 1950s TV-themed diner; comfort food; servers play the role of scolding 'mom'"
+    "notes": "Retro 1950s TV-themed diner; comfort food; servers play the role of scolding 'mom'",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/50s-prime-time-cafe/menus/"
+    }
   },
   {
     "id": "hollywood-brown-derby",
@@ -501,7 +1050,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/hollywood-brown-derby/menus/",
-    "notes": "Replica of classic Hollywood restaurant; Cobb salad signature dish; lunch and dinner"
+    "notes": "Replica of classic Hollywood restaurant; Cobb salad signature dish; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/hollywood-brown-derby/menus/"
+    }
   },
   {
     "id": "sci-fi-dine-in",
@@ -513,7 +1068,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/sci-fi-dine-in-theater/menus/",
-    "notes": "Eat in cars at a drive-in movie theater showing vintage sci-fi clips; lunch and dinner"
+    "notes": "Eat in cars at a drive-in movie theater showing vintage sci-fi clips; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/sci-fi-dine-in-theater/menus/"
+    }
   },
   {
     "id": "mama-melrose",
@@ -525,7 +1086,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/mama-melroses-ristorante-italiano/menus/",
-    "notes": "Italian-American; wood-fired flatbreads and pasta; lunch and dinner"
+    "notes": "Italian-American; wood-fired flatbreads and pasta; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/mama-melroses-ristorante-italiano/menus/"
+    }
   },
   {
     "id": "ogas-cantina",
@@ -537,7 +1104,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/ogas-cantina/menus/",
-    "notes": "Star Wars: Galaxy's Edge themed bar; limited food; reservations recommended; 45-min time limit"
+    "notes": "Star Wars: Galaxy's Edge themed bar; limited food; reservations recommended; 45-min time limit",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/ogas-cantina/menus/"
+    }
   },
   {
     "id": "baseline-tap-house",
@@ -549,7 +1122,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/baseline-tap-house/menus/",
-    "notes": "California craft beers and wines; walk-up; light snacks"
+    "notes": "California craft beers and wines; walk-up; light snacks",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/baseline-tap-house/menus/"
+    }
   },
   {
     "id": "docking-bay-7",
@@ -561,7 +1140,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/docking-bay-7-food-and-cargo/menus/",
-    "notes": "Star Wars: Galaxy's Edge quick service; galactic themed food and drinks"
+    "notes": "Star Wars: Galaxy's Edge quick service; galactic themed food and drinks",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/docking-bay-7-food-and-cargo/menus/"
+    }
   },
   {
     "id": "woody-lunch-box",
@@ -573,7 +1158,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/woodys-lunch-box/menus/",
-    "notes": "Toy Story Land; totchos, grilled cheese, lunch box tarts; often long lines"
+    "notes": "Toy Story Land; totchos, grilled cheese, lunch box tarts; often long lines",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/woodys-lunch-box/menus/"
+    }
   },
   {
     "id": "backlot-express",
@@ -585,7 +1176,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/backlot-express/menus/",
-    "notes": "Quick service near Star Tours; burgers, hot dogs, salads"
+    "notes": "Quick service near Star Tours; burgers, hot dogs, salads",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/backlot-express/menus/"
+    }
   },
   {
     "id": "tiffins",
@@ -597,7 +1194,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/tiffins/menus/",
-    "notes": "Signature dining; inspired by global adventures; art-filled rooms; lunch and dinner"
+    "notes": "Signature dining; inspired by global adventures; art-filled rooms; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/tiffins/menus/"
+    }
   },
   {
     "id": "yak-yeti",
@@ -609,7 +1212,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/yak-and-yeti-restaurant/menus/",
-    "notes": "Pan-Asian cuisine near Expedition Everest; lunch and dinner"
+    "notes": "Pan-Asian cuisine near Expedition Everest; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/yak-and-yeti-restaurant/menus/"
+    }
   },
   {
     "id": "rainforest-cafe-ak",
@@ -621,7 +1230,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/rainforest-cafe/menus/",
-    "notes": "Animatronic jungle animals and thunderstorms; American menu; no park ticket required"
+    "notes": "Animatronic jungle animals and thunderstorms; American menu; no park ticket required",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/rainforest-cafe/menus/"
+    }
   },
   {
     "id": "flame-tree-bbq",
@@ -633,7 +1248,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/flame-tree-barbecue/menus/",
-    "notes": "Outdoor quick service; ribs, pulled pork, chicken; waterfront seating"
+    "notes": "Outdoor quick service; ribs, pulled pork, chicken; waterfront seating",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/flame-tree-barbecue/menus/"
+    }
   },
   {
     "id": "satuli-canteen",
@@ -645,7 +1266,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/satuli-canteen/menus/",
-    "notes": "Pandora: World of Avatar; customizable bowls; breakfast also available"
+    "notes": "Pandora: World of Avatar; customizable bowls; breakfast also available",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/satuli-canteen/menus/"
+    }
   },
   {
     "id": "harambe-market",
@@ -657,7 +1284,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/harambe-market/menus/",
-    "notes": "African street food; ribs, sausage, corn; open-air market setting"
+    "notes": "African street food; ribs, sausage, corn; open-air market setting",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/harambe-market/menus/"
+    }
   },
   {
     "id": "pizzafari",
@@ -669,7 +1302,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/pizzafari/menus/",
-    "notes": "Pizza and pasta; animal-themed murals; quick service"
+    "notes": "Pizza and pasta; animal-themed murals; quick service",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/pizzafari/menus/"
+    }
   },
   {
     "id": "nomad-lounge",
@@ -681,7 +1320,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/nomad-lounge/menus/",
-    "notes": "Walk-up bar adjacent to Tiffins; craft cocktails and small plates; walk-up only"
+    "notes": "Walk-up bar adjacent to Tiffins; craft cocktails and small plates; walk-up only",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/nomad-lounge/menus/"
+    }
   },
   {
     "id": "victoria-alberts",
@@ -693,7 +1338,24 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/victoria-and-alberts/menus/",
-    "notes": "AAA Five Diamond; most exclusive restaurant at WDW; prix fixe only; jackets required for men"
+    "notes": "AAA Five Diamond; most exclusive restaurant at WDW; prix fixe only; jackets required for men",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": null,
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/victoria-and-alberts/menus/",
+      "meals": {
+        "dinner": {
+          "adult": 295,
+          "child": null,
+          "startingAt": true
+        }
+      },
+      "minimumAge": 10
+    }
   },
   {
     "id": "california-grill",
@@ -705,7 +1367,22 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/contemporary-resort/california-grill/menus/",
-    "notes": "Rooftop of Contemporary; great fireworks views; sushi, flatbreads, seasonal menu"
+    "notes": "Rooftop of Contemporary; great fireworks views; sushi, flatbreads, seasonal menu",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/contemporary-resort/california-grill/menus/",
+      "meals": {
+        "dinner": {
+          "adult": 99,
+          "child": 42
+        }
+      }
+    }
   },
   {
     "id": "narcoossees",
@@ -717,7 +1394,13 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/narcoossees/menus/",
-    "notes": "Waterfront signature; Seven Seas Lagoon views; seafood and steaks; dinner only"
+    "notes": "Waterfront signature; Seven Seas Lagoon views; seafood and steaks; dinner only",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/narcoossees/menus/"
+    }
   },
   {
     "id": "citricos",
@@ -729,7 +1412,13 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/citricos/menus/",
-    "notes": "Mediterranean-inspired signature dining; Grand Floridian; dinner only"
+    "notes": "Mediterranean-inspired signature dining; Grand Floridian; dinner only",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/citricos/menus/"
+    }
   },
   {
     "id": "grand-floridian-cafe",
@@ -741,7 +1430,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/grand-floridian-cafe/menus/",
-    "notes": "Casual dining at Grand Floridian; breakfast, lunch, dinner; garden views"
+    "notes": "Casual dining at Grand Floridian; breakfast, lunch, dinner; garden views",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/grand-floridian-cafe/menus/"
+    }
   },
   {
     "id": "flying-fish",
@@ -753,7 +1448,13 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/boardwalk-resort/flying-fish/menus/",
-    "notes": "Signature seafood and steaks; BoardWalk; dinner only"
+    "notes": "Signature seafood and steaks; BoardWalk; dinner only",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/boardwalk-resort/flying-fish/menus/"
+    }
   },
   {
     "id": "trattoria-al-forno",
@@ -765,7 +1466,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/boardwalk-resort/trattoria-al-forno/menus/",
-    "notes": "Character breakfast with Tangled characters; dinner is Italian à la carte"
+    "notes": "Character breakfast with Tangled characters; dinner is Italian à la carte",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/boardwalk-resort/trattoria-al-forno/menus/"
+    }
   },
   {
     "id": "yachtsman-steakhouse",
@@ -777,7 +1484,13 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/yacht-club-resort/yachtsman-steakhouse/menus/",
-    "notes": "Signature steakhouse; hand-cut steaks; Yacht Club; dinner only"
+    "notes": "Signature steakhouse; hand-cut steaks; Yacht Club; dinner only",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/yacht-club-resort/yachtsman-steakhouse/menus/"
+    }
   },
   {
     "id": "beaches-cream",
@@ -789,7 +1502,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/beach-club-resort/beaches-and-cream-soda-shop/menus/",
-    "notes": "Classic soda shop; famous Kitchen Sink sundae; burgers, shakes; Beach Club"
+    "notes": "Classic soda shop; famous Kitchen Sink sundae; burgers, shakes; Beach Club",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/beach-club-resort/beaches-and-cream-soda-shop/menus/"
+    }
   },
   {
     "id": "whispering-canyon",
@@ -801,7 +1520,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/wilderness-lodge-resort/whispering-canyon-cafe/menus/",
-    "notes": "Rowdy cowboy fun with all-you-care-to-enjoy skillets; ask for ketchup for a fun surprise"
+    "notes": "Rowdy cowboy fun with all-you-care-to-enjoy skillets; ask for ketchup for a fun surprise",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/wilderness-lodge-resort/whispering-canyon-cafe/menus/"
+    }
   },
   {
     "id": "kona-cafe",
@@ -813,7 +1538,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/polynesian-resort/kona-cafe/menus/",
-    "notes": "Pan-Asian with macadamia nut pancakes at breakfast; Polynesian Resort; all day"
+    "notes": "Pan-Asian with macadamia nut pancakes at breakfast; Polynesian Resort; all day",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/polynesian-resort/kona-cafe/menus/"
+    }
   },
   {
     "id": "boma",
@@ -825,7 +1556,26 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom-lodge/boma-flavors-of-africa/menus/",
-    "notes": "African-inspired buffet; breakfast and dinner; Animal Kingdom Lodge; Jambo House"
+    "notes": "African-inspired buffet; breakfast and dinner; Animal Kingdom Lodge; Jambo House",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom-lodge/boma-flavors-of-africa/menus/",
+      "meals": {
+        "breakfast": {
+          "adult": 39,
+          "child": 23
+        },
+        "dinner": {
+          "adult": 58,
+          "child": 34
+        }
+      }
+    }
   },
   {
     "id": "jiko",
@@ -837,7 +1587,13 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom-lodge/jiko-the-cooking-place/menus/",
-    "notes": "Signature African dining; wood-burning ovens; Animal Kingdom Lodge; dinner only"
+    "notes": "Signature African dining; wood-burning ovens; Animal Kingdom Lodge; dinner only",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom-lodge/jiko-the-cooking-place/menus/"
+    }
   },
   {
     "id": "sanaa",
@@ -849,7 +1605,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom-lodge/sanaa/menus/",
-    "notes": "Views of the savanna; Indian-inspired with African touches; Kidani Village; lunch and dinner"
+    "notes": "Views of the savanna; Indian-inspired with African touches; Kidani Village; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom-lodge/sanaa/menus/"
+    }
   },
   {
     "id": "sebastian-bistro",
@@ -861,7 +1623,22 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/caribbean-beach-resort/sebastians-bistro/menus/",
-    "notes": "Caribbean-inspired; tapas-style sharing plates; Caribbean Beach Resort; dinner only"
+    "notes": "Caribbean-inspired; tapas-style sharing plates; Caribbean Beach Resort; dinner only",
+    "pricing": {
+      "mode": "flatRate",
+      "currency": "USD",
+      "childAgeRange": "3-9",
+      "taxIncluded": false,
+      "gratuityIncluded": false,
+      "verifiedDate": "2026-07-21",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/caribbean-beach-resort/sebastians-bistro/menus/",
+      "meals": {
+        "dinner": {
+          "adult": 39,
+          "child": 21
+        }
+      }
+    }
   },
   {
     "id": "toledo",
@@ -873,7 +1650,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/coronado-springs-resort/toledo-tapas-steak-seafood/menus/",
-    "notes": "Rooftop dining at Gran Destino Tower; tapas, steaks, seafood; dinner only"
+    "notes": "Rooftop dining at Gran Destino Tower; tapas, steaks, seafood; dinner only",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/coronado-springs-resort/toledo-tapas-steak-seafood/menus/"
+    }
   },
   {
     "id": "olivia-cafe",
@@ -885,7 +1668,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/old-key-west-resort/olivias-cafe/menus/",
-    "notes": "Key West-inspired casual dining; breakfast, lunch, dinner; Old Key West Resort"
+    "notes": "Key West-inspired casual dining; breakfast, lunch, dinner; Old Key West Resort",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/old-key-west-resort/olivias-cafe/menus/"
+    }
   },
   {
     "id": "steakhouse-71",
@@ -897,7 +1686,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/contemporary-resort/steakhouse-71/menus/",
-    "notes": "Named for 1971 park opening; Contemporary Resort; breakfast, lunch, dinner"
+    "notes": "Named for 1971 park opening; Contemporary Resort; breakfast, lunch, dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/contemporary-resort/steakhouse-71/menus/"
+    }
   },
   {
     "id": "boatwrights",
@@ -909,7 +1704,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/port-orleans-resort-riverside/boatwrights-dining-hall/menus/",
-    "notes": "Cajun and Southern; Port Orleans Riverside; dinner only"
+    "notes": "Cajun and Southern; Port Orleans Riverside; dinner only",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/port-orleans-resort-riverside/boatwrights-dining-hall/menus/"
+    }
   },
   {
     "id": "jaleo",
@@ -921,7 +1722,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/jaleo/menus/",
-    "notes": "Spanish tapas by celebrity chef José Andrés; Town Center; lunch and dinner"
+    "notes": "Spanish tapas by celebrity chef José Andrés; Town Center; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/jaleo/menus/"
+    }
   },
   {
     "id": "morimoto-asia",
@@ -933,7 +1740,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/morimoto-asia/menus/",
-    "notes": "Pan-Asian by Iron Chef Morimoto; dim sum, sushi, ramen; The Landing"
+    "notes": "Pan-Asian by Iron Chef Morimoto; dim sum, sushi, ramen; The Landing",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/morimoto-asia/menus/"
+    }
   },
   {
     "id": "the-boathouse",
@@ -945,7 +1758,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/the-boathouse/menus/",
-    "notes": "Waterfront seafood and steaks; The Landing; amphicar rides available"
+    "notes": "Waterfront seafood and steaks; The Landing; amphicar rides available",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/the-boathouse/menus/"
+    }
   },
   {
     "id": "paddlefish",
@@ -957,7 +1776,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/paddlefish/menus/",
-    "notes": "Seafood on a multi-deck riverboat; The Landing; lunch and dinner"
+    "notes": "Seafood on a multi-deck riverboat; The Landing; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/paddlefish/menus/"
+    }
   },
   {
     "id": "chef-art-smith",
@@ -969,7 +1794,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/homecomin/menus/",
-    "notes": "Southern comfort food by Top Chef's Art Smith; fried chicken and donuts; The Landing"
+    "notes": "Southern comfort food by Top Chef's Art Smith; fried chicken and donuts; The Landing",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/homecomin/menus/"
+    }
   },
   {
     "id": "wine-bar-george",
@@ -981,7 +1812,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/wine-bar-george/menus/",
-    "notes": "100+ wines by the glass; small plates; Master Sommelier George Miliotes; Town Center"
+    "notes": "100+ wines by the glass; small plates; Master Sommelier George Miliotes; Town Center",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/wine-bar-george/menus/"
+    }
   },
   {
     "id": "stk-steakhouse",
@@ -993,7 +1830,13 @@
     "reservations": true,
     "priceRange": "$$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/stk/menus/",
-    "notes": "Upscale steakhouse with a modern vibe; rooftop dining; The Landing"
+    "notes": "Upscale steakhouse with a modern vibe; rooftop dining; The Landing",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/stk/menus/"
+    }
   },
   {
     "id": "terralina",
@@ -1005,7 +1848,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/terralina-crafted-italian/menus/",
-    "notes": "Lakefront Italian; wood-fired dishes; The Landing; lunch and dinner"
+    "notes": "Lakefront Italian; wood-fired dishes; The Landing; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/terralina-crafted-italian/menus/"
+    }
   },
   {
     "id": "raglan-road",
@@ -1017,7 +1866,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/raglan-road-irish-pub-and-restaurant/menus/",
-    "notes": "Authentic Irish pub with live Celtic music and step dancing; Marketplace"
+    "notes": "Authentic Irish pub with live Celtic music and step dancing; Marketplace",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/raglan-road-irish-pub-and-restaurant/menus/"
+    }
   },
   {
     "id": "d-luxe-burger",
@@ -1029,7 +1884,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/d-luxe-burger/menus/",
-    "notes": "Gourmet burgers and hand-cut fries; Town Center; quick service"
+    "notes": "Gourmet burgers and hand-cut fries; Town Center; quick service",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/d-luxe-burger/menus/"
+    }
   },
   {
     "id": "frontera-cocina",
@@ -1041,7 +1902,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/frontera-cocina/menus/",
-    "notes": "Mexican by Rick Bayless; margaritas and tacos; Town Center"
+    "notes": "Mexican by Rick Bayless; margaritas and tacos; Town Center",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/frontera-cocina/menus/"
+    }
   },
   {
     "id": "planet-hollywood",
@@ -1053,7 +1920,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/planet-hollywood/menus/",
-    "notes": "Movie memorabilia themed; American comfort food; The Landing"
+    "notes": "Movie memorabilia themed; American comfort food; The Landing",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/planet-hollywood/menus/"
+    }
   },
   {
     "id": "rainforest-cafe-springs",
@@ -1065,7 +1938,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/rainforest-cafe/menus/",
-    "notes": "Jungle-themed with animatronics and thunderstorms; Marketplace; no park ticket required"
+    "notes": "Jungle-themed with animatronics and thunderstorms; Marketplace; no park ticket required",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/rainforest-cafe/menus/"
+    }
   },
   {
     "id": "t-rex",
@@ -1077,7 +1956,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/trex/menus/",
-    "notes": "Dinosaur-themed with animatronics; American menu; Marketplace; kid-friendly"
+    "notes": "Dinosaur-themed with animatronics; American menu; Marketplace; kid-friendly",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/trex/menus/"
+    }
   },
   {
     "id": "splitsville",
@@ -1089,7 +1974,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/splitsville-luxury-lanes/menus/",
-    "notes": "Bowling alley restaurant; sushi, flatbreads, burgers; West Side"
+    "notes": "Bowling alley restaurant; sushi, flatbreads, burgers; West Side",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/splitsville-luxury-lanes/menus/"
+    }
   },
   {
     "id": "enzo-hideaway",
@@ -1101,7 +1992,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/enzos-hideaway/menus/",
-    "notes": "Speakeasy-style underground Italian; The Landing; Roman pasta and cocktails"
+    "notes": "Speakeasy-style underground Italian; The Landing; Roman pasta and cocktails",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/enzos-hideaway/menus/"
+    }
   },
   {
     "id": "maria-enzos",
@@ -1113,7 +2010,13 @@
     "reservations": true,
     "priceRange": "$$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/maria-and-enzos/menus/",
-    "notes": "Italian in a 1930s airline terminal setting; The Landing; lunch and dinner"
+    "notes": "Italian in a 1930s airline terminal setting; The Landing; lunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/maria-and-enzos/menus/"
+    }
   },
   {
     "id": "house-of-blues",
@@ -1125,7 +2028,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/house-of-blues/menus/",
-    "notes": "Southern-inspired; live music venue; Gospel Brunch on Sundays; West Side"
+    "notes": "Southern-inspired; live music venue; Gospel Brunch on Sundays; West Side",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/house-of-blues/menus/"
+    }
   },
   {
     "id": "summer-house",
@@ -1137,7 +2046,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/summer-house-on-the-lake/menus/",
-    "notes": "California coastal-inspired; lakefront; Town Center; brunch and dinner"
+    "notes": "California coastal-inspired; lakefront; Town Center; brunch and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/summer-house-on-the-lake/menus/"
+    }
   },
   {
     "id": "the-edison",
@@ -1149,7 +2064,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/the-edison/menus/",
-    "notes": "Industrial-era themed bar and restaurant; West Side; dinner and late night"
+    "notes": "Industrial-era themed bar and restaurant; West Side; dinner and late night",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/the-edison/menus/"
+    }
   },
   {
     "id": "cosmic-rays",
@@ -1161,7 +2082,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/cosmic-rays-starlight-cafe/menus/",
-    "notes": "Largest quick service in MK; burgers, chicken, hot dogs; Tomorrowland"
+    "notes": "Largest quick service in MK; burgers, chicken, hot dogs; Tomorrowland",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/cosmic-rays-starlight-cafe/menus/"
+    }
   },
   {
     "id": "pecos-bill",
@@ -1173,7 +2100,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/pecos-bill-tall-tale-inn-and-cafe/menus/",
-    "notes": "Tex-Mex; burgers and bowls; Frontierland"
+    "notes": "Tex-Mex; burgers and bowls; Frontierland",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/pecos-bill-tall-tale-inn-and-cafe/menus/"
+    }
   },
   {
     "id": "columbia-harbour-house",
@@ -1185,7 +2118,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/columbia-harbour-house/menus/",
-    "notes": "New England seafood; lobster roll, clam chowder, fish and chips; Liberty Square"
+    "notes": "New England seafood; lobster roll, clam chowder, fish and chips; Liberty Square",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/columbia-harbour-house/menus/"
+    }
   },
   {
     "id": "caseys-corner",
@@ -1197,7 +2136,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/caseys-corner/menus/",
-    "notes": "Baseball-themed; hot dogs and corn dog nuggets; Main Street USA"
+    "notes": "Baseball-themed; hot dogs and corn dog nuggets; Main Street USA",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/caseys-corner/menus/"
+    }
   },
   {
     "id": "pinocchio-haus",
@@ -1209,7 +2154,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/pinocchio-village-haus/menus/",
-    "notes": "Pizza and flatbreads; overlooks 'it's a small world' boats; Fantasyland"
+    "notes": "Pizza and flatbreads; overlooks 'it's a small world' boats; Fantasyland",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/pinocchio-village-haus/menus/"
+    }
   },
   {
     "id": "sleepy-hollow",
@@ -1221,7 +2172,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/sleepy-hollow/menus/",
-    "notes": "Funnel cakes and waffle sandwiches; Liberty Square; outdoor walk-up"
+    "notes": "Funnel cakes and waffle sandwiches; Liberty Square; outdoor walk-up",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/sleepy-hollow/menus/"
+    }
   },
   {
     "id": "sunshine-tree-terrace",
@@ -1233,7 +2190,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/sunshine-tree-terrace/menus/",
-    "notes": "Citrus Swirl soft-serve; slushes; Adventureland walk-up"
+    "notes": "Citrus Swirl soft-serve; slushes; Adventureland walk-up",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/sunshine-tree-terrace/menus/"
+    }
   },
   {
     "id": "tortuga-tavern",
@@ -1245,7 +2208,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/tortuga-tavern/menus/",
-    "notes": "Pirates of the Caribbean themed; seasonal operation; Adventureland"
+    "notes": "Pirates of the Caribbean themed; seasonal operation; Adventureland",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/magic-kingdom/tortuga-tavern/menus/"
+    }
   },
   {
     "id": "trail-end",
@@ -1257,7 +2226,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/fort-wilderness-resort/trails-end-restaurant/menus/",
-    "notes": "Rustic comfort food buffet; Fort Wilderness; breakfast, lunch, dinner; good value"
+    "notes": "Rustic comfort food buffet; Fort Wilderness; breakfast, lunch, dinner; good value",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/fort-wilderness-resort/trails-end-restaurant/menus/"
+    }
   },
   {
     "id": "maya-grill",
@@ -1269,7 +2244,13 @@
     "reservations": true,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/coronado-springs-resort/maya-grill/menus/",
-    "notes": "Mayan-inspired; Coronado Springs; dinner only"
+    "notes": "Mayan-inspired; Coronado Springs; dinner only",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/coronado-springs-resort/maya-grill/menus/"
+    }
   },
   {
     "id": "contempo-cafe",
@@ -1281,7 +2262,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/contemporary-resort/contempo-cafe/menus/",
-    "notes": "Quick service at Contemporary; paninis, flatbreads, salads; monorail views"
+    "notes": "Quick service at Contemporary; paninis, flatbreads, salads; monorail views",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/contemporary-resort/contempo-cafe/menus/"
+    }
   },
   {
     "id": "roaring-fork",
@@ -1293,7 +2280,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/wilderness-lodge-resort/roaring-fork/menus/",
-    "notes": "Quick service at Wilderness Lodge; burgers, sandwiches, grab-and-go; open all day"
+    "notes": "Quick service at Wilderness Lodge; burgers, sandwiches, grab-and-go; open all day",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/wilderness-lodge-resort/roaring-fork/menus/"
+    }
   },
   {
     "id": "capt-cooks",
@@ -1305,7 +2298,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/polynesian-resort/capt-cooks/menus/",
-    "notes": "Quick service at Polynesian; open 24 hours; Tonga Toast available at breakfast"
+    "notes": "Quick service at Polynesian; open 24 hours; Tonga Toast available at breakfast",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/polynesian-resort/capt-cooks/menus/"
+    }
   },
   {
     "id": "gasparilla-grill",
@@ -1317,7 +2316,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/gasparilla-island-grill/menus/",
-    "notes": "Quick service at Grand Floridian; open 24 hours; burgers, pizza, sandwiches"
+    "notes": "Quick service at Grand Floridian; open 24 hours; burgers, pizza, sandwiches",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/gasparilla-island-grill/menus/"
+    }
   },
   {
     "id": "landscape-flavors",
@@ -1329,7 +2334,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/art-of-animation-resort/landscape-of-flavors/menus/",
-    "notes": "Large food court at Art of Animation; multiple stations; breakfast through late night"
+    "notes": "Large food court at Art of Animation; multiple stations; breakfast through late night",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/art-of-animation-resort/landscape-of-flavors/menus/"
+    }
   },
   {
     "id": "everything-pop",
@@ -1341,7 +2352,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/pop-century-resort/everything-pop-shopping-and-dining/menus/",
-    "notes": "Food court at Pop Century; multiple stations; open all day"
+    "notes": "Food court at Pop Century; multiple stations; open all day",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/pop-century-resort/everything-pop-shopping-and-dining/menus/"
+    }
   },
   {
     "id": "sassagoula",
@@ -1353,7 +2370,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/port-orleans-resort-french-quarter/sassagoula-floatworks-and-food-factory/menus/",
-    "notes": "Food court at Port Orleans French Quarter; Mardi Gras themed; beignets!"
+    "notes": "Food court at Port Orleans French Quarter; Mardi Gras themed; beignets!",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/port-orleans-resort-french-quarter/sassagoula-floatworks-and-food-factory/menus/"
+    }
   },
   {
     "id": "centertown-market",
@@ -1365,7 +2388,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/caribbean-beach-resort/centertown-market/menus/",
-    "notes": "Food court at Caribbean Beach; multiple stations; open all day"
+    "notes": "Food court at Caribbean Beach; multiple stations; open all day",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/caribbean-beach-resort/centertown-market/menus/"
+    }
   },
   {
     "id": "primo-piatto",
@@ -1377,7 +2406,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/riviera-resort/primo-piatto/menus/",
-    "notes": "Quick service at Riviera Resort; Italian breakfast and dinner"
+    "notes": "Quick service at Riviera Resort; Italian breakfast and dinner",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/riviera-resort/primo-piatto/menus/"
+    }
   },
   {
     "id": "intermission-food-court",
@@ -1389,7 +2424,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/all-star-music-resort/intermission-food-court/menus/",
-    "notes": "Food court at All-Star Music Resort; multiple stations"
+    "notes": "Food court at All-Star Music Resort; multiple stations",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/all-star-music-resort/intermission-food-court/menus/"
+    }
   },
   {
     "id": "sommerfest",
@@ -1401,7 +2442,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/sommerfest/menus/",
-    "notes": "Bratwurst and beer; Germany pavilion walk-up; quick service"
+    "notes": "Bratwurst and beer; Germany pavilion walk-up; quick service",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/sommerfest/menus/"
+    }
   },
   {
     "id": "karamell-kuche",
@@ -1413,7 +2460,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/karamell-kuche/menus/",
-    "notes": "Werther's caramel treats; Germany pavilion; candy shop and snack counter"
+    "notes": "Werther's caramel treats; Germany pavilion; candy shop and snack counter",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/karamell-kuche/menus/"
+    }
   },
   {
     "id": "refreshment-outpost",
@@ -1425,7 +2478,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/refreshment-outpost/menus/",
-    "notes": "African beer, frozen drinks, snacks; between China and Germany pavilions"
+    "notes": "African beer, frozen drinks, snacks; between China and Germany pavilions",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/refreshment-outpost/menus/"
+    }
   },
   {
     "id": "la-cava-tequila",
@@ -1437,7 +2496,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/la-cava-del-tequila/menus/",
-    "notes": "Cave bar inside Mexico pyramid; 200+ tequilas and margaritas; walk-up"
+    "notes": "Cave bar inside Mexico pyramid; 200+ tequilas and margaritas; walk-up",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/la-cava-del-tequila/menus/"
+    }
   },
   {
     "id": "rose-crown-pub",
@@ -1449,7 +2514,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/rose-and-crown-pub/menus/",
-    "notes": "British ales and pub snacks; UK pavilion; walk-up pub section"
+    "notes": "British ales and pub snacks; UK pavilion; walk-up pub section",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/rose-and-crown-pub/menus/"
+    }
   },
   {
     "id": "tutto-gusto",
@@ -1461,7 +2532,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/tutto-gusto-wine-cellar/menus/",
-    "notes": "Italian wines and small plates; Italy pavilion; walk-up wine bar"
+    "notes": "Italian wines and small plates; Italy pavilion; walk-up wine bar",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/tutto-gusto-wine-cellar/menus/"
+    }
   },
   {
     "id": "choza-margarita",
@@ -1473,7 +2550,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/choza-de-margarita/menus/",
-    "notes": "Outdoor margarita bar; Mexico pavilion walk-up; snacks and drinks"
+    "notes": "Outdoor margarita bar; Mexico pavilion walk-up; snacks and drinks",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/choza-de-margarita/menus/"
+    }
   },
   {
     "id": "fife-drum",
@@ -1485,7 +2568,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/fife-and-drum-tavern/menus/",
-    "notes": "Turkey legs, beer, slushes; American Adventure pavilion walk-up"
+    "notes": "Turkey legs, beer, slushes; American Adventure pavilion walk-up",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/fife-and-drum-tavern/menus/"
+    }
   },
   {
     "id": "yorkshire-fish",
@@ -1497,7 +2586,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/yorkshire-county-fish-shop/menus/",
-    "notes": "Fish and chips; UK pavilion walk-up"
+    "notes": "Fish and chips; UK pavilion walk-up",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/yorkshire-county-fish-shop/menus/"
+    }
   },
   {
     "id": "katsaka-kettle",
@@ -1509,7 +2604,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/kat-sakas-kettle/menus/",
-    "notes": "Galaxy's Edge; Outpost Mix popcorn and specialty drinks; walk-up"
+    "notes": "Galaxy's Edge; Outpost Mix popcorn and specialty drinks; walk-up",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/kat-sakas-kettle/menus/"
+    }
   },
   {
     "id": "ronto-roasters",
@@ -1521,7 +2622,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/ronto-roasters/menus/",
-    "notes": "Galaxy's Edge; Ronto wraps cooked on a pod-racer engine; walk-up"
+    "notes": "Galaxy's Edge; Ronto wraps cooked on a pod-racer engine; walk-up",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/ronto-roasters/menus/"
+    }
   },
   {
     "id": "milk-stand",
@@ -1533,7 +2640,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/milk-stand/menus/",
-    "notes": "Galaxy's Edge; Blue and Green Milk; must-try; walk-up"
+    "notes": "Galaxy's Edge; Blue and Green Milk; must-try; walk-up",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/hollywood-studios/milk-stand/menus/"
+    }
   },
   {
     "id": "dawa-bar",
@@ -1545,7 +2658,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/dawa-bar/menus/",
-    "notes": "African-inspired cocktails; Africa area walk-up bar; adjacent to Tusker House"
+    "notes": "African-inspired cocktails; Africa area walk-up bar; adjacent to Tusker House",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/animal-kingdom/dawa-bar/menus/"
+    }
   },
   {
     "id": "jock-lindsey",
@@ -1557,7 +2676,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/disney-springs/jock-lindseys-hangar-bar/menus/",
-    "notes": "Indiana Jones themed bar; The Landing; walk-up; small plates and specialty drinks"
+    "notes": "Indiana Jones themed bar; The Landing; walk-up; small plates and specialty drinks",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/disney-springs/jock-lindseys-hangar-bar/menus/"
+    }
   },
   {
     "id": "trader-sams",
@@ -1569,7 +2694,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/polynesian-resort/trader-sams-grog-grotto/menus/",
-    "notes": "Tiki bar with theatrical reactions to certain drink orders; walk-up; very popular"
+    "notes": "Tiki bar with theatrical reactions to certain drink orders; walk-up; very popular",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/polynesian-resort/trader-sams-grog-grotto/menus/"
+    }
   },
   {
     "id": "enchanted-rose",
@@ -1581,7 +2712,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/enchanted-rose/menus/",
-    "notes": "Beauty and the Beast themed lounge; Grand Floridian; cocktails and light bites"
+    "notes": "Beauty and the Beast themed lounge; Grand Floridian; cocktails and light bites",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/enchanted-rose/menus/"
+    }
   },
   {
     "id": "abracadabar",
@@ -1593,7 +2730,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/boardwalk-resort/abracadabar/menus/",
-    "notes": "Magic-themed cocktail bar; BoardWalk; walk-up"
+    "notes": "Magic-themed cocktail bar; BoardWalk; walk-up",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/boardwalk-resort/abracadabar/menus/"
+    }
   },
   {
     "id": "crews-cup",
@@ -1605,7 +2748,13 @@
     "reservations": false,
     "priceRange": "$$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/yacht-club-resort/crew-cup-lounge/menus/bar-%E2%80%93-lounge/",
-    "notes": "Nautical-themed bar adjacent to Yachtsman Steakhouse; walk-up"
+    "notes": "Nautical-themed bar adjacent to Yachtsman Steakhouse; walk-up",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/yacht-club-resort/crews-cup-lounge/menus/"
+    }
   },
   {
     "id": "gurgling-suitcase",
@@ -1617,7 +2766,13 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/old-key-west-resort/gurgling-suitcase/menus/",
-    "notes": "Tiny walk-up bar at Old Key West; margaritas and light snacks"
+    "notes": "Tiny walk-up bar at Old Key West; margaritas and light snacks",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/old-key-west-resort/gurgling-suitcase/menus/"
+    }
   },
   {
     "id": "muddy-rivers",
@@ -1629,6 +2784,12 @@
     "reservations": false,
     "priceRange": "$",
     "menuUrl": "https://disneyworld.disney.go.com/dining/port-orleans-resort-riverside/muddy-rivers/menus/",
-    "notes": "Poolside bar at Port Orleans Riverside; walk-up; frozen drinks"
+    "notes": "Poolside bar at Port Orleans Riverside; walk-up; frozen drinks",
+    "pricing": {
+      "mode": "sharedAverage",
+      "currency": "USD",
+      "averageKey": "$",
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/port-orleans-resort-riverside/muddy-rivers/menus/"
+    }
   }
 ]
