@@ -1612,19 +1612,19 @@ button.cost-item.cost-total {
 .header-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 16px;
   margin-bottom: 20px;
 }
 
 .header-top h1 { margin: 0; line-height: 1; padding-bottom: 2px; }
-.app-logo { display: block; height: 90px; width: auto; }
+.app-logo { display: block; height: 90px; width: auto; flex-shrink: 0; }
 
 .header-top-right {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 #google-auth-area {
@@ -1993,18 +1993,14 @@ button.cost-item.cost-total {
   flex-wrap: wrap;
 }
 
-/* Trip name slot — label and edit controls share this space */
+/* Trip name slot — standalone row directly above the Start/End date row */
 #trip-name-slot {
   display: flex;
   align-items: center;
   gap: 6px;
-  flex: 1;
+  max-width: 100%;
   min-width: 0;
-  flex-wrap: wrap;
-}
-
-#trip-name-slot .park-toggles {
-  margin-left: 8px;
+  margin-bottom: 12px;
 }
 
 #trip-name-text {
@@ -2012,6 +2008,10 @@ button.cost-item.cost-total {
   font-weight: 600;
   color: #e2e8f0;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 #trip-name-edit-btn,
@@ -2038,7 +2038,7 @@ button.cost-item.cost-total {
   background: rgba(239,68,68,0.1);
 }
 
-#trip-name-bar #sheets-tab-name {
+#sheets-tab-name {
   min-width: 180px;
   max-width: 320px;
   background: rgba(30,41,59,0.8);
@@ -2052,7 +2052,7 @@ button.cost-item.cost-total {
   outline: none;
 }
 
-#trip-name-bar #sheets-tab-name:focus {
+#sheets-tab-name:focus {
   border-color: rgba(99,155,255,0.6);
   background: rgba(30,41,59,0.95);
 }
@@ -2272,14 +2272,17 @@ button.cost-item.cost-total {
 .dining-field-name { flex: 1; min-width: 220px; }
 .dining-field-date { min-width: 130px; }
 .dining-field-meal { min-width: 90px; }
-.dining-field-party { min-width: 60px; }
+.dining-field-adults { min-width: 60px; }
+.dining-field-children { min-width: 60px; }
 .dining-field-cost { min-width: 110px; }
+.dining-field-child-cost { min-width: 110px; }
 .dining-field-subtotal { min-width: 60px; }
 
 .dining-name-select,
 .dining-date-input,
 .dining-meal-select,
-.dining-party-input {
+.dining-adults-input,
+.dining-children-input {
   height: 28px;
   background: rgba(30,41,59,0.8);
   border: 1px solid rgba(51,65,85,0.8);
@@ -2296,16 +2299,19 @@ button.cost-item.cost-total {
 .dining-name-select:focus,
 .dining-date-input:focus,
 .dining-meal-select:focus,
-.dining-party-input:focus {
+.dining-adults-input:focus,
+.dining-children-input:focus {
   border-color: rgba(99,155,255,0.5);
 }
 
-.dining-field-cost .budget-dollar-wrap {
+.dining-field-cost .budget-dollar-wrap,
+.dining-field-child-cost .budget-dollar-wrap {
   height: 28px;
   box-sizing: border-box;
 }
 
-.dining-field-cost .budget-dollar-wrap input {
+.dining-field-cost .budget-dollar-wrap input,
+.dining-field-child-cost .budget-dollar-wrap input {
   width: 70px;
 }
 

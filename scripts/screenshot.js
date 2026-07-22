@@ -11,6 +11,8 @@
 //   budget                budget panel open, Air section visible
 //   budget:cruise          budget panel open, Cruise section toggled on
 //   budget:mears            budget panel open, Transportation + Mears Connect toggled on
+//   budget:dining           budget panel open, a dining reservation row added
+//   header-budget-click     clicks the header "Budget" button (real user path)
 //
 // Requires a local server on :8765 (Google OAuth is registered to that origin):
 //   python3 -m http.server 8765
@@ -51,6 +53,35 @@ const STATES = {
     await openBudgetPanel(page);
     await toggleCheckbox(page, 'b-mears-toggle');
   },
+  async 'budget:dining'(page) {
+    await openBudgetPanel(page);
+    await page.evaluate(() => {
+      addDining();
+      const res = budget.dining[budget.dining.length - 1];
+      res.restaurantId = 'dd39f200-6465-42e6-bff1-6a8b25512e6e'; // 1900 Park Fare (flatRate pricing)
+      res.meal = 'Breakfast';
+      res.children = 2;
+      const match = diningData.find(d => d.id === res.restaurantId);
+      const price = diningMealPrice(match, res.meal);
+      res.costPerPerson = price.adult;
+      res.childCostPerPerson = price.child;
+      renderDining();
+      recalcTotals();
+    });
+  },
+  async 'header-budget-click'(page) {
+    await page.click('#header-open-budget-btn');
+  },
+  async 'trip-loaded'(page) {
+    await page.evaluate(() => {
+      document.querySelector('.controls').hidden = false;
+      document.getElementById('trip-name-bar').hidden = false;
+      document.getElementById('trip-name-slot').hidden = false;
+      document.getElementById('trip-name-text').textContent = 'My WDW Trip 2026';
+      document.getElementById('start-date').value = '2026-08-01';
+      document.getElementById('end-date').value = '2026-08-07';
+    });
+  },
 };
 
 async function main() {
@@ -63,7 +94,7 @@ async function main() {
 
   const browser = await chromium.launch();
   try {
-    const page = await browser.newPage({ viewport: { width: 480, height: 900 } });
+    const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
     await page.goto(BASE_URL);
     await page.waitForTimeout(500);
     await STATES[state](page);

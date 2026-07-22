@@ -112,7 +112,7 @@ let budget = {
     ages10plus: 0,
     ways: 2,               // 1 = one-way, 2 = round trip
   },
-  dining: [],               // [{ id, restaurantId, date, meal, partySize, costPerPerson }]
+  dining: [],               // [{ id, restaurantId, date, meal, adults, children, costPerPerson, childCostPerPerson }]
   cruise: {
     enabled: false,
     ship: '',
@@ -316,8 +316,21 @@ function removeHotel(id) {
 // ── Dining helpers ────────────────────────────────────────────────────────────
 const PRICE_RANGE_MIDPOINT = { '$': 12, '$$': 25, '$$$': 48, '$$$$': 80 };
 
+// Returns { adult, child } estimated per-person prices for a restaurant + meal.
+function diningMealPrice(restaurant, meal) {
+  const fallback = restaurant ? (PRICE_RANGE_MIDPOINT[restaurant.priceRange] || 0) : 0;
+  const pricing  = restaurant?.pricing;
+  if (pricing?.mode === 'flatRate' && meal) {
+    const mealPrice = pricing.meals?.[meal.toLowerCase()];
+    if (mealPrice) return { adult: mealPrice.adult ?? fallback, child: mealPrice.child ?? fallback };
+  }
+  return { adult: fallback, child: fallback };
+}
+
 function diningSubtotal(res) {
-  return (res.costPerPerson || 0) * (res.partySize || 1);
+  const adults   = res.adults ?? res.partySize ?? 1;
+  const children = res.children || 0;
+  return (res.costPerPerson || 0) * adults + (res.childCostPerPerson || 0) * children;
 }
 
 function renderDining() {
@@ -342,7 +355,9 @@ function renderDining() {
       ? `<a class="dining-menu-link" href="${restaurant.menuUrl}" target="_blank" rel="noopener" title="View menu">↗</a>`
       : '';
     const noteText   = restaurant?.notes || '';
-    const autoPrice  = restaurant ? PRICE_RANGE_MIDPOINT[restaurant.priceRange] || 0 : 0;
+    const autoPrice  = diningMealPrice(restaurant, res.meal);
+    const adults     = res.adults ?? res.partySize ?? budget.travelers;
+    const children   = res.children || 0;
 
     const options = filteredDiningData().map(d =>
       `<option value="${d.id}" ${d.id === res.restaurantId ? 'selected' : ''}>${d.name} — ${d.location}</option>`
@@ -372,18 +387,32 @@ function renderDining() {
               <option value="Dinner"    ${res.meal === 'Dinner'    ? 'selected' : ''}>Dinner</option>
             </select>
           </div>
-          <div class="dining-field dining-field-party">
-            <label class="dining-field-label">Party</label>
-            <input class="dining-party-input" type="number" min="1" max="20" step="1"
-              value="${res.partySize || budget.travelers}" placeholder="${budget.travelers}">
+          <div class="dining-field dining-field-adults">
+            <label class="dining-field-label">Adults</label>
+            <input class="dining-adults-input" type="number" min="0" max="20" step="1"
+              value="${adults}" placeholder="${budget.travelers}">
+          </div>
+          <div class="dining-field dining-field-children">
+            <label class="dining-field-label">Children</label>
+            <input class="dining-children-input" type="number" min="0" max="20" step="1"
+              value="${children}" placeholder="0">
           </div>
           <div class="dining-field dining-field-cost">
-            <label class="dining-field-label">Est. / Person</label>
+            <label class="dining-field-label">Adult $</label>
             <div class="budget-dollar-wrap">
               <span>$</span>
               <input class="dining-cost-input" type="number" min="0" step="1"
-                value="${res.costPerPerson || autoPrice || ''}"
-                placeholder="${autoPrice || 0}">
+                value="${res.costPerPerson || autoPrice.adult || ''}"
+                placeholder="${autoPrice.adult || 0}">
+            </div>
+          </div>
+          <div class="dining-field dining-field-child-cost">
+            <label class="dining-field-label">Child $</label>
+            <div class="budget-dollar-wrap">
+              <span>$</span>
+              <input class="dining-child-cost-input" type="number" min="0" step="1"
+                value="${res.childCostPerPerson || (children ? autoPrice.child : '') || ''}"
+                placeholder="${autoPrice.child || 0}">
             </div>
           </div>
           <div class="dining-field dining-field-subtotal">
@@ -403,8 +432,10 @@ function addDining() {
     _nameInput: '',
     date: toDateTimeInputValue(document.getElementById('start-date').value || '', '18:00'),
     meal: 'Dinner',
-    partySize: budget.travelers,
+    adults: budget.travelers,
+    children: 0,
     costPerPerson: 0,
+    childCostPerPerson: 0,
   });
   renderDining();
   recalcTotals();
@@ -763,7 +794,9 @@ document.getElementById('toggle-cruise').addEventListener('change', e => {
 });
 
 function openBudgetPanel() {
-  document.getElementById('budget-panel').classList.add('open');
+  const panel = document.getElementById('budget-panel');
+  panel.hidden = false;
+  panel.classList.add('open');
   document.getElementById('budget-backdrop').classList.add('open');
 }
 
@@ -775,6 +808,7 @@ function closeBudgetPanel() {
 document.getElementById('budget-toggle-btn').addEventListener('click', closeBudgetPanel);
 document.getElementById('budget-backdrop').addEventListener('click', closeBudgetPanel);
 document.getElementById('cs-open-budget').addEventListener('click', openBudgetPanel);
+document.getElementById('header-open-budget-btn').addEventListener('click', openBudgetPanel);
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeBudgetPanel();
 });
@@ -893,7 +927,11 @@ document.getElementById('budget-dining-list').addEventListener('input', e => {
     const match = diningData.find(d => d.id === e.target.value);
     res.restaurantId = match?.id || null;
     res._nameInput   = match?.name || '';
-    if (match && !res.costPerPerson) res.costPerPerson = PRICE_RANGE_MIDPOINT[match.priceRange] || 0;
+    if (match) {
+      const price = diningMealPrice(match, res.meal);
+      if (!res.costPerPerson) res.costPerPerson = price.adult;
+      if (!res.childCostPerPerson) res.childCostPerPerson = price.child;
+    }
     renderDining();
     recalcTotals();
     if (typeof markDirty === 'function') markDirty();
@@ -904,12 +942,28 @@ document.getElementById('budget-dining-list').addEventListener('input', e => {
   }
   if (e.target.classList.contains('dining-meal-select')) {
     res.meal = e.target.value;
+    const restaurant = diningData.find(d => d.id === res.restaurantId) || null;
+    if (restaurant) {
+      const price = diningMealPrice(restaurant, res.meal);
+      res.costPerPerson      = price.adult;
+      res.childCostPerPerson = price.child;
+      renderDining();
+      recalcTotals();
+      if (typeof markDirty === 'function') markDirty();
+      return;
+    }
   }
-  if (e.target.classList.contains('dining-party-input')) {
-    res.partySize = parseInt(e.target.value) || 1;
+  if (e.target.classList.contains('dining-adults-input')) {
+    res.adults = parseInt(e.target.value) || 0;
+  }
+  if (e.target.classList.contains('dining-children-input')) {
+    res.children = parseInt(e.target.value) || 0;
   }
   if (e.target.classList.contains('dining-cost-input')) {
     res.costPerPerson = parseFloat(e.target.value) || 0;
+  }
+  if (e.target.classList.contains('dining-child-cost-input')) {
+    res.childCostPerPerson = parseFloat(e.target.value) || 0;
   }
 
   // Update subtotal in place without full re-render
