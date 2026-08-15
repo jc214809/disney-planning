@@ -419,7 +419,7 @@ function renderDining() {
             <label class="dining-field-label">Total</label>
             <span class="dining-subtotal">${subtotal > 0 ? fmtMoney(subtotal) : '—'}</span>
           </div>
-          <button class="hotel-remove-btn dining-remove-btn" data-dining-id="${res.id}" title="Remove">× Remove</button>
+          <button class="hotel-remove-btn dining-remove-btn" data-dining-id="${res.id}" title="Remove">✕</button>
         </div>
       </div>`;
   }).join('');
