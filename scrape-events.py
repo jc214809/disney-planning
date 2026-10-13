@@ -101,6 +101,8 @@ FIXED_EVENTS = [
     {"heading": "Earth Month",             "name": "Earth Month Celebration",   "park": "Animal Kingdom","month": None, "days": None},
 ]
 
+PAST_GRACE_DAYS = 60  # keep recently-finished events (a trip you just took still shows them)
+
 MIN_EVENTS = 8  # a healthy scrape yields ~11; far fewer means the page layout changed
 
 
@@ -177,6 +179,19 @@ def lineup_name(series, act, narrators=False):
     if narrators and act.strip().upper() in ("TBA", "TBD"):
         return f"{series}: Narrator TBA"
     return f"{series}: {act}"
+
+
+def prune_past(data, today=None, grace_days=PAST_GRACE_DAYS):
+    """Drop dates older than `grace_days` before today from byDate and events[]; drop emptied events."""
+    cutoff = ((today or datetime.today()) - timedelta(days=grace_days)).strftime("%Y-%m-%d")
+    data["byDate"] = {d: v for d, v in data["byDate"].items() if d >= cutoff}
+    kept = []
+    for ev in data["events"]:
+        ev["dates"] = [x for x in ev["dates"] if x["date"] >= cutoff]
+        if ev["dates"]:
+            kept.append(ev)
+    data["events"] = kept
+    return data
 
 
 def fetch_html(url):
@@ -553,6 +568,7 @@ if __name__ == "__main__":
     if len(data["events"]) < MIN_EVENTS:
         # Fail before writing so the workflow stops and the last good data branch stays published
         sys.exit(f"ERROR: only {len(data['events'])} events scraped (< {MIN_EVENTS}); page layout likely changed")
+    data = prune_past(data)
     with open("events-data.json", "w") as f:
         json.dump(data, f, indent=2)
     total_dates = sum(len(e["dates"]) for e in data["events"])

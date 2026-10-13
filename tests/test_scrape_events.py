@@ -65,6 +65,29 @@ class Dates(unittest.TestCase):
         self.assertEqual((r["priceAdult"], r["priceChild"]), (99.0, 99.0))
 
 
+class Prune(unittest.TestCase):
+    def _data(self):
+        return {
+            "byDate": {"2026-06-01": [{"name": "Old"}], "2026-09-01": [{"name": "Recent"}], "2026-12-01": [{"name": "New"}]},
+            "events": [
+                {"name": "Old", "dates": [{"date": "2026-06-01"}]},
+                {"name": "Spans", "dates": [{"date": "2026-06-01"}, {"date": "2026-09-01"}, {"date": "2026-12-01"}]},
+            ],
+        }
+
+    def test_drops_dates_older_than_grace(self):
+        from datetime import datetime
+        d = se.prune_past(self._data(), today=datetime(2026, 10, 13), grace_days=60)
+        self.assertEqual(sorted(d["byDate"]), ["2026-09-01", "2026-12-01"])  # Aug 14 cutoff
+        self.assertEqual([e["name"] for e in d["events"]], ["Spans"])
+        self.assertEqual([x["date"] for x in d["events"][0]["dates"]], ["2026-09-01", "2026-12-01"])
+
+    def test_cutoff_day_is_kept(self):
+        from datetime import datetime
+        d = {"byDate": {"2026-08-14": [1], "2026-08-13": [1]}, "events": []}
+        self.assertEqual(sorted(se.prune_past(d, today=datetime(2026, 10, 13), grace_days=60)["byDate"]), ["2026-08-14"])
+
+
 class Narrators(unittest.TestCase):
     def test_narrator_ranges(self):
         d, a = se.parse_lineup_item("November 29 - December 1: Gary Sinise", 2026)

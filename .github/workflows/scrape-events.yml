@@ -14,15 +14,15 @@ concurrency:
 
 jobs:
   scrape:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
 
@@ -45,3 +45,22 @@ jobs:
           git push origin data-tmp:data --force
           git checkout -f main
           git branch -D data-tmp
+
+      # Optional: needs repo secrets PUSHOVER_APP_TOKEN and PUSHOVER_USER_KEY; silently skipped if unset.
+      - name: Notify on failure (Pushover)
+        if: failure()
+        env:
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$PUSHOVER_APP_TOKEN" ] || [ -z "$PUSHOVER_USER_KEY" ]; then
+            echo "Pushover secrets not set; skipping notification"; exit 0
+          fi
+          curl -sS --max-time 15 \
+            --form-string "token=$PUSHOVER_APP_TOKEN" \
+            --form-string "user=$PUSHOVER_USER_KEY" \
+            --form-string "title=Disney events scrape failed" \
+            --form-string "message=The weekly events scrape failed. Events data was NOT updated." \
+            --form-string "url=$RUN_URL" \
+            https://api.pushover.net/1/messages.json

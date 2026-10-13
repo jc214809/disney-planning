@@ -469,8 +469,9 @@ The output is a single JSON file:
 
 A GitHub Actions workflow runs the scraper automatically every Monday. The workflow:
 
+0. Runs the tests (`python3 -m unittest`); a failure stops the run before anything is published
 1. Runs `scrape-events.py` with the mousesavers.com URL
-2. Writes `events-data.json`
+2. Writes `events-data.json` (dates more than 60 days in the past are dropped; the scraper fails instead of writing if it finds fewer than 8 events)
 3. Switches to a special orphan branch called `data` (separate from your code on `main`)
 4. Commits and force-pushes just that one JSON file to the `data` branch
 
@@ -484,6 +485,8 @@ This means:
 - No server needed — GitHub hosts the data for free
 - The `main` branch stays clean with only source code
 - If the scrape fails, the previous week's data is still there
+- A failed run sends a Pushover notification if the repo secrets `PUSHOVER_APP_TOKEN` and `PUSHOVER_USER_KEY` are set (skipped silently otherwise); GitHub's own failure email still applies
+- Both workflows run on `ubuntu-24.04` with Node-24-based actions (`checkout@v7`, `setup-python@v7`, `upload-pages-artifact@v5`, `deploy-pages@v5`); the deploy workflow also runs the tests first (`npm test` locally)
 
 ---
 
