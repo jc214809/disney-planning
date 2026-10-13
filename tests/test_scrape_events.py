@@ -65,6 +65,21 @@ class Dates(unittest.TestCase):
         self.assertEqual((r["priceAdult"], r["priceChild"]), (99.0, 99.0))
 
 
+class Narrators(unittest.TestCase):
+    def test_narrator_ranges(self):
+        d, a = se.parse_lineup_item("November 29 - December 1: Gary Sinise", 2026)
+        self.assertEqual((d[0], d[-1], len(d), a), ("2026-11-29", "2026-12-01", 3, "Gary Sinise"))
+        d, a = se.parse_lineup_item("December 28-30: Eva Longoria", 2026)
+        self.assertEqual((d[0], d[-1], a), ("2026-12-28", "2026-12-30", "Eva Longoria"))
+
+    def test_tba_name(self):
+        self.assertEqual(se.lineup_name("Candlelight Processional", "TBA", narrators=True),
+                         "Candlelight Processional: Narrator TBA")
+        self.assertEqual(se.lineup_name("Eat to the Beat", "TBA"), "Eat to the Beat: TBA")
+        self.assertEqual(se.lineup_name("Candlelight Processional", "Gary Sinise", narrators=True),
+                         "Candlelight Processional: Gary Sinise")
+
+
 class Holidays(unittest.TestCase):
     def test_single_date(self):
         self.assertEqual(se.parse_single_date("In 2027, Easter Sunday will be March 28. In Epcot...", 2027), ["2027-03-28"])

@@ -58,7 +58,6 @@ DATE_RANGE_EVENTS = [
     {"heading": "Epcot International Food and Wine Festival", "name": "Epcot International Food & Wine Festival","park": "EPCOT",           "requiresTicket": False, "priceNote": "Included with Epcot admission"},
     {"heading": "Disney Wine & Dine Half Marathon Weekend","name": "Disney Wine & Dine Half Marathon Weekend",   "park": None,              "requiresTicket": True,  "priceNote": "Registration required"},
     {"heading": "Epcot International Festival of the Holidays", "name": "Epcot International Festival of the Holidays", "park": "EPCOT",  "requiresTicket": False, "priceNote": "Included with Epcot admission"},
-    {"heading": "Candlelight Processional",              "name": "Candlelight Processional",                     "park": "EPCOT",           "requiresTicket": False, "priceNote": "Included with Epcot admission (dining package optional)"},
 ]
 
 
@@ -68,6 +67,8 @@ DATE_RANGE_EVENTS = [
 LINEUP_EVENTS = [
     {"heading": "Eat to the Beat Concerts",          "series": "Eat to the Beat",   "park": "EPCOT", "requiresTicket": False, "priceNote": "Included with Epcot admission"},
     {"heading": "Garden Rocks Concerts",             "series": "Garden Rocks",      "park": "EPCOT", "requiresTicket": False, "priceNote": "Included with Epcot admission"},
+    {"heading": "Candlelight Processional",          "series": "Candlelight Processional", "park": "EPCOT", "requiresTicket": False, "priceNote": "Included with Epcot admission (dining package optional)",
+     "narrators": True, "fallback_range": True},
     {"heading": "Disney on Broadway Concert Series", "series": "Disney on Broadway","park": "EPCOT", "requiresTicket": False, "priceNote": "Included with Epcot admission"},
 ]
 
@@ -169,6 +170,13 @@ def fixed_dates(month, days, years):
         else:
             out += [datetime(y, month, d).strftime("%Y-%m-%d") for d in days]
     return out
+
+
+def lineup_name(series, act, narrators=False):
+    """'Eat to the Beat' + 'Hanson' -> 'Eat to the Beat: Hanson'; unannounced narrators read 'Narrator TBA'."""
+    if narrators and act.strip().upper() in ("TBA", "TBD"):
+        return f"{series}: Narrator TBA"
+    return f"{series}: {act}"
 
 
 def fetch_html(url):
@@ -507,6 +515,9 @@ def scrape():
                 lineup.append(parsed)
         if not lineup:
             warn(f"no lineup found for '{ev['heading']}'")
+            dates = extract_date_range(body, year) if ev.get("fallback_range") else []
+            if dates:  # still show the event itself, without per-night names
+                add_simple(ev["series"], ev["park"], ev["requiresTicket"], ev["priceNote"], dates)
             continue
 
         event_dates = []
@@ -514,7 +525,7 @@ def scrape():
             for date in dates:
                 event_dates.append({"date": date, "act": act})
                 add_to_index(date, {
-                    "name": f"{ev['series']}: {act}", "park": ev["park"],
+                    "name": lineup_name(ev["series"], act, ev.get("narrators", False)), "park": ev["park"],
                     "requiresTicket": ev["requiresTicket"],
                     "priceAdult": None, "priceChild": None,
                     "priceNote": ev["priceNote"],
