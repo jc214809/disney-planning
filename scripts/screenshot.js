@@ -13,8 +13,10 @@
 //   budget:mears            budget panel open, Transportation + Mears Connect toggled on
 //   budget:dining           budget panel open, a dining reservation row added
 //   header-budget-click     clicks the header "Budget" button (real user path)
-//   events-sept             loads Sep 5–9 2026 through the real Load button, prints the Epcot Events row
+//   events-dec              loads Dec 22–26 2026 (holiday-crowded notes row)
+//   events-sept             loads Sep 5–9 2026 through the real Load button, prints Notes + Events rows
 //
+// Set EVENTS_JSON=<file> to serve that file instead of the published events-data.json.
 // Set BASE_URL=https://jc214809.github.io/disney-planning/ to check the deployed site instead.
 // Requires a local server on :8765 (Google OAuth is registered to that origin):
 //   python3 -m http.server 8765
@@ -38,6 +40,27 @@ async function toggleCheckbox(page, id) {
     el.checked = true;
     el.dispatchEvent(new Event('change', { bubbles: true }));
   }, id);
+}
+
+async function loadRange(page, start, end) {
+  await page.evaluate(([s, e]) => {
+    document.querySelector('.controls').hidden = false; // normally revealed after sign-in
+    document.getElementById('start-date').value = s;
+    document.getElementById('end-date').value = e;
+  }, [start, end]);
+  await page.click('#load-btn');
+  await page.waitForSelector('.calendar-grid', { timeout: 20000 });
+  // Print the Notes row and each park's Events row as text, so event checks don't need eyeballing
+  const rows = await page.evaluate(() => {
+    const cells = (row) => [...row.querySelectorAll('.cal-cell')].map(c => c.textContent.trim());
+    const out = { notes: cells(document.querySelector('.cal-notes-row')) };
+    for (const g of document.querySelectorAll('.cal-park-group')) {
+      const ev = [...g.querySelectorAll('.cal-row')].find(r => r.textContent.trim().startsWith('Events'));
+      if (ev) out[g.querySelector('.cal-park-name').textContent] = cells(ev);
+    }
+    return out;
+  });
+  console.log(JSON.stringify(rows, null, 1));
 }
 
 const STATES = {
@@ -74,20 +97,11 @@ const STATES = {
   async 'header-budget-click'(page) {
     await page.click('#header-open-budget-btn');
   },
+  async 'events-dec'(page) {
+    await loadRange(page, '2026-12-22', '2026-12-26');
+  },
   async 'events-sept'(page) {
-    await page.evaluate(() => {
-      document.querySelector('.controls').hidden = false; // normally revealed after sign-in
-      document.getElementById('start-date').value = '2026-09-05';
-      document.getElementById('end-date').value = '2026-09-09';
-    });
-    await page.click('#load-btn');
-    await page.waitForSelector('.calendar-grid', { timeout: 20000 });
-    const rows = await page.$$eval('.cal-park-group', groups => groups.map(g => ({
-      park: g.querySelector('.cal-park-name')?.textContent,
-      events: [...g.querySelectorAll('.cal-row')].filter(r => r.textContent.trim().startsWith('Events'))
-        .map(r => [...r.querySelectorAll('.cal-cell')].map(c => c.textContent.trim())),
-    })));
-    console.log(JSON.stringify(rows.filter(r => r.park === 'EPCOT'), null, 1));
+    await loadRange(page, '2026-09-05', '2026-09-09');
   },
   async 'trip-loaded'(page) {
     await page.evaluate(() => {
@@ -112,6 +126,9 @@ async function main() {
   const browser = await chromium.launch();
   try {
     const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+    if (process.env.EVENTS_JSON) {
+      await page.route('**/events-data.json', (route) => route.fulfill({ path: process.env.EVENTS_JSON }));
+    }
     await page.goto(BASE_URL);
     await page.waitForTimeout(500);
     await STATES[state](page);

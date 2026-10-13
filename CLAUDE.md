@@ -35,4 +35,4 @@ Personal WDW trip-planning web app: park hours, Lightning Lane prices, and speci
 `scripts/screenshot.js` (Playwright, dev-only — `npm install` once) drives common UI states headlessly and saves a screenshot, so visual checks don't require re-deriving DOM quirks (e.g. the budget panel needs both `hidden = false` and `.open`) each session.
 
 - Requires the local server on port 8765 (`python3 -m http.server 8765` — Google OAuth is registered to that origin, [[Local dev port is always 8765]]).
-- `node scripts/screenshot.js <state> [outfile]` — states: `full`, `budget`, `budget:cruise`, `budget:mears`. Add new states to the `STATES` map in the script as new panels/toggles need covering.
+- `node scripts/screenshot.js <state> [outfile]` — states: `full`, `budget`, `budget:cruise`, `budget:mears`, `events-sept`, `events-dec` (the events-* states load a date range and print the Notes/Events rows; `EVENTS_JSON=<file>` serves a local events file, `BASE_URL=<url>` checks the deployed site). Add new states to the `STATES` map in the script as new panels/toggles need covering.

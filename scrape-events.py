@@ -71,6 +71,39 @@ LINEUP_EVENTS = [
     {"heading": "Disney on Broadway Concert Series", "series": "Disney on Broadway","park": "EPCOT", "requiresTicket": False, "priceNote": "Included with Epcot admission"},
 ]
 
+# Holiday/festival sections whose text states a range with the year ("In 2026, ... November 13 through January 6")
+DATE_RANGE_EVENTS += [
+    {"heading": "ESPN Events Invitational",   "name": "ESPN Events Invitational",         "park": None,               "requiresTicket": False, "priceNote": "At ESPN Wide World of Sports"},
+    {"heading": "Holidays at Disney Springs", "name": "Holidays at Disney Springs",       "park": None,               "requiresTicket": False, "priceNote": None},
+    {"heading": "Christmas at Magic Kingdom", "name": "Christmas at Magic Kingdom",       "park": "Magic Kingdom",    "requiresTicket": False, "priceNote": "Included with park admission"},
+    {"heading": "Christmas at Animal Kingdom","name": "Christmas at Animal Kingdom",      "park": "Animal Kingdom",   "requiresTicket": False, "priceNote": "Included with park admission"},
+    {"heading": "Christmas at Hollywood Studios","name": "Christmas at Hollywood Studios","park": "Hollywood Studios","requiresTicket": False, "priceNote": "Included with park admission"},
+    {"heading": "Gay Days",                   "name": "Gay Days (not Disney-run)",        "park": None,               "requiresTicket": False, "priceNote": None},
+]
+
+# Single dated days ("In 2027, Easter Sunday will be March 28")
+SINGLE_DATE_EVENTS = [
+    {"heading": "Easter",        "name": "Easter Sunday", "park": None},
+    {"heading": "Mardi Gras",    "name": "Mardi Gras",    "park": None},
+    {"heading": "Thanksgiving",  "name": "Thanksgiving",  "park": None},
+    {"heading": "Mother",        "name": "Mother's Day",  "park": None},
+]
+
+# Annual observances whose section has no year (or only "the month of April"). The section must
+# still exist on the page (warn if not); dates are generated for this year and next.
+# "days": None means the whole month, with the month read from "the month of <Month>".
+FIXED_EVENTS = [
+    {"heading": "Independence Day",        "name": "Independence Day fireworks", "park": "Magic Kingdom", "month": 7,  "days": [3, 4]},
+    {"heading": "Bastille Day",            "name": "Bastille Day",              "park": "EPCOT",         "month": 7,  "days": [14]},
+    {"heading": "Cinco de Mayo",           "name": "Cinco de Mayo",             "park": "EPCOT",         "month": 5,  "days": [5]},
+    {"heading": "Christmas Eve",           "name": "Christmas Eve",             "park": None,            "month": 12, "days": [24]},
+    {"heading": "Christmas Eve",           "name": "Christmas Day",             "park": None,            "month": 12, "days": [25]},
+    {"heading": "New Years Eve",    "name": "New Year's Eve",            "park": None,            "month": 12, "days": [31]},
+    {"heading": "New Years Day",    "name": "New Year's Day",            "park": None,            "month": 1,  "days": [1]},
+    {"heading": "Earth Month",             "name": "Earth Month Celebration",   "park": "Animal Kingdom","month": None, "days": None},
+    {"heading": "Holiday Sleigh Rides",    "name": "Holiday Sleigh Rides",      "park": None,            "month": None, "days": None},
+]
+
 MIN_EVENTS = 8  # a healthy scrape yields ~11; far fewer means the page layout changed
 
 
@@ -115,6 +148,31 @@ def parse_lineup_item(line, year=None):
     except ValueError:
         return None
     return dates, m.group(5).strip()
+
+
+def parse_single_date(text, year=None):
+    """'In 2027, Easter Sunday will be March 28.' -> ['2027-03-28']"""
+    m = re.search(r"will be\s+([A-Za-z]+\s+\d+)", text)
+    return parse_date_phrase(m.group(1), year) if m else []
+
+
+def month_of(text):
+    """'Throughout the month of April, ...' -> 4"""
+    m = re.search(r"month of ([A-Za-z]+)", text, re.IGNORECASE)
+    return MONTH_NUMS.get(m.group(1).lower()) if m else None
+
+
+def fixed_dates(month, days, years):
+    """Dates for an annual observance in each year; days=None means the whole month."""
+    out = []
+    for y in years:
+        if days is None:
+            first = datetime(y, month, 1)
+            nxt = datetime(y + (month == 12), month % 12 + 1, 1)
+            out += expand_date_range(first, nxt - timedelta(days=1))
+        else:
+            out += [datetime(y, month, d).strftime("%Y-%m-%d") for d in days]
+    return out
 
 
 def fetch_html(url):
@@ -270,9 +328,10 @@ def get_sections(html):
 
 def find_section(sections, heading_substr):
     """Find a section whose heading contains heading_substr (case-insensitive)."""
-    hl = heading_substr.lower()
+    norm = lambda t: re.sub(r"[\u2019']", "", t.lower())  # curly vs straight apostrophes
+    hl = norm(heading_substr)
     for h, b in sections.items():
-        if hl in h.lower():
+        if hl in norm(h):
             return h, b
     return None, None
 
@@ -398,6 +457,42 @@ def scrape():
             "priceNote": ev["priceNote"],
             "dates": [{"date": d} for d in dates],
         })
+
+    def add_simple(name, park, requires_ticket, price_note, dates):
+        for date in dates:
+            add_to_index(date, {
+                "name": name, "park": park, "requiresTicket": requires_ticket,
+                "priceAdult": None, "priceChild": None, "priceNote": price_note,
+            })
+        raw_events.append({
+            "name": name, "park": park, "requiresTicket": requires_ticket,
+            "perDatePricing": False, "priceNote": price_note,
+            "dates": [{"date": d} for d in dates],
+        })
+        print(f"  {name}: {len(dates)} dates ({dates[0]} – {dates[-1]})", file=sys.stderr)
+
+    # ── Single dated days ─────────────────────────────────────────────────────
+    for ev in SINGLE_DATE_EVENTS:
+        _, body = find_section(sections, ev["heading"])
+        dates = parse_single_date(body, section_year(body)) if body else []
+        if not dates:
+            warn(f"no date found for '{ev['name']}'")
+            continue
+        add_simple(ev["name"], ev["park"], False, None, dates)
+
+    # ── Annual observances (fixed month/day, or a whole month) ────────────────
+    this_year = datetime.today().year
+    for ev in FIXED_EVENTS:
+        _, body = find_section(sections, ev["heading"])
+        if not body:
+            warn(f"no section for '{ev['heading']}'")
+            continue
+        month = ev["month"] or month_of(body)
+        if not month:
+            warn(f"no month found for '{ev['name']}'")
+            continue
+        add_simple(ev["name"], ev["park"], False, None,
+                   fixed_dates(month, ev["days"], [this_year, this_year + 1]))
 
     # ── Concert lineups (one act per night) ───────────────────────────────────
     for ev in LINEUP_EVENTS:

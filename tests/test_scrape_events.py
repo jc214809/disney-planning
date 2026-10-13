@@ -65,6 +65,38 @@ class Dates(unittest.TestCase):
         self.assertEqual((r["priceAdult"], r["priceChild"]), (99.0, 99.0))
 
 
+class Holidays(unittest.TestCase):
+    def test_single_date(self):
+        self.assertEqual(se.parse_single_date("In 2027, Easter Sunday will be March 28. In Epcot...", 2027), ["2027-03-28"])
+        self.assertEqual(se.parse_single_date("In 2026, Thanksgiving will be November 26.", 2026), ["2026-11-26"])
+
+    def test_single_date_missing(self):
+        self.assertEqual(se.parse_single_date("Valentine's Day is February 14 every year."), [])
+
+    def test_range_crossing_new_year_for_christmas_decor(self):
+        d = se.extract_date_range("In 2026, Magic Kingdom will have holiday entertainment and décor November 13 through January 6.", 2026)
+        self.assertEqual((d[0], d[-1], len(d)), ("2026-11-13", "2027-01-06", 55))
+
+    def test_month_of(self):
+        self.assertEqual(se.month_of("Throughout the month of April, Earth Month takes place"), 4)
+        self.assertEqual(se.month_of("During the month of December, Disney offers"), 12)
+        self.assertIsNone(se.month_of("no month here"))
+
+    def test_fixed_dates_each_year(self):
+        self.assertEqual(se.fixed_dates(7, [3, 4], [2026, 2027]),
+                         ["2026-07-03", "2026-07-04", "2027-07-03", "2027-07-04"])
+
+    def test_fixed_dates_whole_month(self):
+        d = se.fixed_dates(12, None, [2026])
+        self.assertEqual((d[0], d[-1], len(d)), ("2026-12-01", "2026-12-31", 31))
+        feb = se.fixed_dates(2, None, [2027])
+        self.assertEqual(len(feb), 28)
+
+    def test_find_section_ignores_apostrophe_style(self):
+        secs = {"New Year\u2019s Eve": "x", "Christmas Eve & Christmas Day": "y"}
+        self.assertEqual(se.find_section(secs, "New Years Eve")[1], "x")
+
+
 class Lineup(unittest.TestCase):
     def test_single_day(self):
         self.assertEqual(se.parse_lineup_item("November 1: Southbound", 2026), (["2026-11-01"], "Southbound"))
