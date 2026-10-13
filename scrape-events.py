@@ -232,18 +232,20 @@ def parse_price_line(line, year=None):
     if len(parts) != 2:
         return None
     price_part, date_part = parts
-    pairs = re.findall(r"\$\s*[\d,]+\.?\d*\s*\([^)]+\)", price_part)
     price_adult = price_child = None
-    for pair in pairs:
-        price = parse_price(pair)
-        age_m = re.search(r"\(age\s+([^)]+)\)", pair, re.IGNORECASE)
-        if not age_m:
-            price_adult = price_child = price
-            continue
-        age_text = age_m.group(1).lower()
-        if "10" in age_text or "adult" in age_text:
+    # Each price may carry an "(age ...)" label; the page sometimes omits the label on
+    # the second price ("$206.61 (age 10+), $195.96 for ..."), which is then the child price.
+    for m in re.finditer(r"\$\s*([\d,]+\.?\d*)\s*(?:\(([^)]*)\))?", price_part):
+        price = float(m.group(1).replace(",", ""))
+        label = (m.group(2) or "").lower()
+        if not label:
+            if price_adult is None:
+                price_adult = price
+            elif price_child is None:
+                price_child = price
+        elif "10" in label or "adult" in label:
             price_adult = price
-        elif "3" in age_text and "up" in age_text:
+        elif "3" in label and "up" in label:
             price_adult = price_child = price
         else:
             price_child = price

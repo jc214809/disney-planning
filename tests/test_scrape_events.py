@@ -50,6 +50,21 @@ class Dates(unittest.TestCase):
         self.assertEqual((r["priceAdult"], r["priceChild"]), (126.74, 116.09))
 
 
+    def test_price_line_unlabeled_child_price(self):
+        # Regression: "$206.61 (age 10+), $195.96 for ..." had priceChild None
+        r = se.parse_price_line("$206.61 (age 10+), $195.96 for November 23; December 5, 7; January 3", 2026)
+        self.assertEqual((r["priceAdult"], r["priceChild"]), (206.61, 195.96))
+        self.assertEqual(r["dates"], ["2026-11-23", "2026-12-05", "2026-12-07", "2027-01-03"])
+
+    def test_price_line_adult_only_unlabeled(self):
+        r = se.parse_price_line("$150.00 for August 1", 2026)
+        self.assertEqual((r["priceAdult"], r["priceChild"]), (150.0, None))
+
+    def test_price_line_all_ages_label(self):
+        r = se.parse_price_line("$99.00 (ages 3 and up) for August 1", 2026)
+        self.assertEqual((r["priceAdult"], r["priceChild"]), (99.0, 99.0))
+
+
 class Lineup(unittest.TestCase):
     def test_single_day(self):
         self.assertEqual(se.parse_lineup_item("November 1: Southbound", 2026), (["2026-11-01"], "Southbound"))
