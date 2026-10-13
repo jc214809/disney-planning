@@ -419,6 +419,8 @@ These events come from `events-data.json`, a file that is automatically updated 
 
 ## How the Scraper Works
 
+> **Concert lineups:** Eat to the Beat, Garden Rocks and Disney on Broadway are read from the `<li>` lineups on the page (`LINEUP_EVENTS` in the scraper) and stored as one entry per night named `<series>: <act>` (e.g. `Eat to the Beat: Hanson`). Next season's lineup is picked up automatically once mousesavers posts it; to add another series, add a `LINEUP_EVENTS` entry.
+
 > **Year handling & safety:** each section's year is read from the page text ("In 2027, …" / "The 2026 …"); dates in a list that wrap past December roll into the next year. The scraper exits non-zero if fewer than 8 events are found (page layout changed), so the workflow fails and the `data` branch keeps the last good file. Parsing is covered by `tests/test_scrape_events.py`.
 
 `scrape-events.py` is a Python script that reads pricing and date information from [mousesavers.com](https://mousesavers.com) — a well-known Disney fan site that maintains up-to-date event calendars and pricing.

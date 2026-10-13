@@ -7,6 +7,7 @@ Run manually: EVENT_URL=<url> python3 scrape-events.py
 Or via GitHub Actions weekly.
 """
 
+import difflib
 import json
 import os
 import re
@@ -61,6 +62,15 @@ DATE_RANGE_EVENTS = [
 ]
 
 
+# Concert series whose section has an <li> lineup ("March 5-7: The Music of ABBA").
+# One calendar entry per night, named "<series>: <act>". Year comes from the page
+# text, so next season's lineup is picked up automatically once the page updates.
+LINEUP_EVENTS = [
+    {"heading": "Eat to the Beat Concerts",          "series": "Eat to the Beat",   "park": "EPCOT", "requiresTicket": False, "priceNote": "Included with Epcot admission"},
+    {"heading": "Garden Rocks Concerts",             "series": "Garden Rocks",      "park": "EPCOT", "requiresTicket": False, "priceNote": "Included with Epcot admission"},
+    {"heading": "Disney on Broadway Concert Series", "series": "Disney on Broadway","park": "EPCOT", "requiresTicket": False, "priceNote": "Included with Epcot admission"},
+]
+
 MIN_EVENTS = 8  # a healthy scrape yields ~11; far fewer means the page layout changed
 
 
@@ -68,6 +78,43 @@ def warn(msg):
     print(f"  WARN: {msg}", file=sys.stderr)
     if os.environ.get("GITHUB_ACTIONS"):
         print(f"::warning::{msg}")
+
+
+def month_number(word):
+    """'May' -> 5; tolerates the page's typos ('Mary 5-7' -> 5)."""
+    w = word.lower()
+    if w in MONTH_NUMS:
+        return MONTH_NUMS[w]
+    close = difflib.get_close_matches(w, MONTH_NUMS, n=1, cutoff=0.8)
+    return MONTH_NUMS[close[0]] if close else None
+
+
+LINEUP_RE = re.compile(
+    r"^([A-Za-z]+)\s+(\d+)(?:\s*-\s*(?:([A-Za-z]+)\s+)?(\d+))?\s*:\s*(.+)$"
+)
+
+
+def parse_lineup_item(line, year=None):
+    """'March 5-7: The Music of ABBA' / 'May 31-June 1: X' / 'November 1: X'
+    -> (['2026-03-05', ...], 'The Music of ABBA'), or None if the line isn't a lineup entry."""
+    m = LINEUP_RE.match(line)
+    if not m:
+        return None
+    m1 = month_number(m.group(1))
+    if not m1:
+        return None
+    d1 = int(m.group(2))
+    m2 = month_number(m.group(3)) if m.group(3) else m1
+    d2 = int(m.group(4)) if m.group(4) else d1
+    if not m2:
+        return None
+    y1 = year or guess_year(m1)
+    y2 = y1 + 1 if m2 < m1 else y1
+    try:
+        dates = expand_date_range(datetime(y1, m1, d1), datetime(y2, m2, d2))
+    except ValueError:
+        return None
+    return dates, m.group(5).strip()
 
 
 def fetch_html(url):
@@ -349,6 +396,44 @@ def scrape():
             "priceNote": ev["priceNote"],
             "dates": [{"date": d} for d in dates],
         })
+
+    # ── Concert lineups (one act per night) ───────────────────────────────────
+    for ev in LINEUP_EVENTS:
+        _, body = find_section(sections, ev["heading"])
+        if not body:
+            warn(f"no section for '{ev['heading']}'")
+            continue
+        raw_section = next(
+            (b for h, b in re.findall(r"<h[23][^>]*>(.*?)</h[23]>(.*?)(?=<h[23]|$)", html, re.DOTALL)
+             if ev["heading"].lower() in clean(h).lower()), "")
+        year = section_year(body)
+        lineup = []
+        for item in re.findall(r"<li[^>]*>(.*?)</li>", raw_section, re.DOTALL):
+            parsed = parse_lineup_item(clean(item), year)
+            if parsed:
+                lineup.append(parsed)
+        if not lineup:
+            warn(f"no lineup found for '{ev['heading']}'")
+            continue
+
+        event_dates = []
+        for dates, act in lineup:
+            for date in dates:
+                event_dates.append({"date": date, "act": act})
+                add_to_index(date, {
+                    "name": f"{ev['series']}: {act}", "park": ev["park"],
+                    "requiresTicket": ev["requiresTicket"],
+                    "priceAdult": None, "priceChild": None,
+                    "priceNote": ev["priceNote"],
+                })
+        raw_events.append({
+            "name": ev["series"], "park": ev["park"],
+            "requiresTicket": ev["requiresTicket"],
+            "perDatePricing": False,
+            "priceNote": ev["priceNote"],
+            "dates": sorted(event_dates, key=lambda x: x["date"]),
+        })
+        print(f"  {ev['series']}: {len(event_dates)} nights ({event_dates[0]['date']} – {event_dates[-1]['date']})", file=sys.stderr)
 
     output = {
         "scrapedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
