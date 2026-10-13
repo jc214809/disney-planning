@@ -683,13 +683,13 @@
     "characters": false,
     "reservations": true,
     "priceRange": "$$$",
-    "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/la-hacienda-de-san-angel/menus/",
+    "menuUrl": "https://disneyworld.disney.go.com/dining/epcot/hacienda-de-san-angel/menus/dinner/",
     "notes": "Lakeside views of World Showcase Lagoon; Mexico pavilion; dinner only",
     "pricing": {
       "mode": "sharedAverage",
       "currency": "USD",
       "averageKey": "$$$",
-      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/la-hacienda-de-san-angel/menus/"
+      "sourceUrl": "https://disneyworld.disney.go.com/dining/epcot/hacienda-de-san-angel/menus/dinner/"
     }
   },
   {
