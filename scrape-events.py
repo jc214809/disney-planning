@@ -71,13 +71,9 @@ LINEUP_EVENTS = [
     {"heading": "Disney on Broadway Concert Series", "series": "Disney on Broadway","park": "EPCOT", "requiresTicket": False, "priceNote": "Included with Epcot admission"},
 ]
 
-# Holiday/festival sections whose text states a range with the year ("In 2026, ... November 13 through January 6")
+# Other sections whose text states a range with the year ("The 2026 Events Invitational will be held November 23-27")
 DATE_RANGE_EVENTS += [
     {"heading": "ESPN Events Invitational",   "name": "ESPN Events Invitational",         "park": None,               "requiresTicket": False, "priceNote": "At ESPN Wide World of Sports"},
-    {"heading": "Holidays at Disney Springs", "name": "Holidays at Disney Springs",       "park": None,               "requiresTicket": False, "priceNote": None},
-    {"heading": "Christmas at Magic Kingdom", "name": "Christmas at Magic Kingdom",       "park": "Magic Kingdom",    "requiresTicket": False, "priceNote": "Included with park admission"},
-    {"heading": "Christmas at Animal Kingdom","name": "Christmas at Animal Kingdom",      "park": "Animal Kingdom",   "requiresTicket": False, "priceNote": "Included with park admission"},
-    {"heading": "Christmas at Hollywood Studios","name": "Christmas at Hollywood Studios","park": "Hollywood Studios","requiresTicket": False, "priceNote": "Included with park admission"},
     {"heading": "Gay Days",                   "name": "Gay Days (not Disney-run)",        "park": None,               "requiresTicket": False, "priceNote": None},
 ]
 
@@ -92,6 +88,8 @@ SINGLE_DATE_EVENTS = [
 # Annual observances whose section has no year (or only "the month of April"). The section must
 # still exist on the page (warn if not); dates are generated for this year and next.
 # "days": None means the whole month, with the month read from "the month of <Month>".
+# (Deliberately skipped: Christmas at MK/AK/HS, Holidays at Disney Springs, Holiday Sleigh Rides —
+# month-long décor/entertainment that only added daily clutter.)
 FIXED_EVENTS = [
     {"heading": "Independence Day",        "name": "Independence Day fireworks", "park": "Magic Kingdom", "month": 7,  "days": [3, 4]},
     {"heading": "Bastille Day",            "name": "Bastille Day",              "park": "EPCOT",         "month": 7,  "days": [14]},
@@ -101,7 +99,6 @@ FIXED_EVENTS = [
     {"heading": "New Years Eve",    "name": "New Year's Eve",            "park": None,            "month": 12, "days": [31]},
     {"heading": "New Years Day",    "name": "New Year's Day",            "park": None,            "month": 1,  "days": [1]},
     {"heading": "Earth Month",             "name": "Earth Month Celebration",   "park": "Animal Kingdom","month": None, "days": None},
-    {"heading": "Holiday Sleigh Rides",    "name": "Holiday Sleigh Rides",      "park": None,            "month": None, "days": None},
 ]
 
 MIN_EVENTS = 8  # a healthy scrape yields ~11; far fewer means the page layout changed
