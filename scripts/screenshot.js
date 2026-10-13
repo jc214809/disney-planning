@@ -13,14 +13,16 @@
 //   budget:mears            budget panel open, Transportation + Mears Connect toggled on
 //   budget:dining           budget panel open, a dining reservation row added
 //   header-budget-click     clicks the header "Budget" button (real user path)
+//   events-sept             loads Sep 5–9 2026 through the real Load button, prints the Epcot Events row
 //
+// Set BASE_URL=https://jc214809.github.io/disney-planning/ to check the deployed site instead.
 // Requires a local server on :8765 (Google OAuth is registered to that origin):
 //   python3 -m http.server 8765
 
 const { chromium } = require('playwright');
 
 const PORT = 8765;
-const BASE_URL = `http://localhost:${PORT}/index.html`;
+const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}/index.html`;
 
 async function openBudgetPanel(page) {
   await page.evaluate(() => {
@@ -71,6 +73,21 @@ const STATES = {
   },
   async 'header-budget-click'(page) {
     await page.click('#header-open-budget-btn');
+  },
+  async 'events-sept'(page) {
+    await page.evaluate(() => {
+      document.querySelector('.controls').hidden = false; // normally revealed after sign-in
+      document.getElementById('start-date').value = '2026-09-05';
+      document.getElementById('end-date').value = '2026-09-09';
+    });
+    await page.click('#load-btn');
+    await page.waitForSelector('.calendar-grid', { timeout: 20000 });
+    const rows = await page.$$eval('.cal-park-group', groups => groups.map(g => ({
+      park: g.querySelector('.cal-park-name')?.textContent,
+      events: [...g.querySelectorAll('.cal-row')].filter(r => r.textContent.trim().startsWith('Events'))
+        .map(r => [...r.querySelectorAll('.cal-cell')].map(c => c.textContent.trim())),
+    })));
+    console.log(JSON.stringify(rows.filter(r => r.park === 'EPCOT'), null, 1));
   },
   async 'trip-loaded'(page) {
     await page.evaluate(() => {
