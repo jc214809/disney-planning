@@ -1,17 +1,21 @@
 // ── Special Events (scraped from mousesavers.com weekly) ─────────────────────
 let specialEventsData = null;
+let specialEventsReady = Promise.resolve();
 
 const EVENTS_DATA_URL = 'https://raw.githubusercontent.com/jc214809/disney-planning/data/events-data.json';
 
-async function loadSpecialEvents() {
-  try {
-    const res = await fetch(EVENTS_DATA_URL);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    specialEventsData = await res.json();
-  } catch (e) {
-    console.warn('Could not load events data:', e.message);
-    specialEventsData = { byDate: {} };
-  }
+function loadSpecialEvents() {
+  specialEventsReady = (async () => {
+    try {
+      const res = await fetch(EVENTS_DATA_URL);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      specialEventsData = await res.json();
+    } catch (e) {
+      console.warn('Could not load events data:', e.message);
+      specialEventsData = { byDate: {} };
+    }
+  })();
+  return specialEventsReady;
 }
 
 function getEventsForDate(date) {

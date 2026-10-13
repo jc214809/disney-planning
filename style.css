@@ -1982,6 +1982,23 @@ button.cost-item.cost-total {
   border-color: rgba(99,155,255,0.45);
 }
 
+#header-trip-select option,
+#header-trip-select optgroup {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+/* Year headings: bold label; trips under it are indented by the browser */
+#header-trip-select optgroup {
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+#header-trip-select optgroup option {
+  font-weight: 400;
+  color: #e2e8f0;
+}
+
 /* ── Trip name bar (above planner) ── */
 #trip-name-bar {
   display: flex;

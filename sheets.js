@@ -293,29 +293,20 @@ function pickDefaultTab(sheets) {
   const savedTab = localStorage.getItem('sheets_tab_name');
   if (savedTab && sheets.includes(savedTab)) return savedTab;
 
-  // Otherwise find the most upcoming trip by parsing start date from tab name
-  // Format: "Jun 28 – Jul 4 · Grand Floridian" or similar
+  // Otherwise find the most upcoming trip by saved start date (title as fallback)
   const now = new Date();
   now.setHours(0, 0, 0, 0);
-  const year = now.getFullYear();
-
   let bestTab  = sheets[0];
   let bestDiff = Infinity;
 
   for (const name of sheets) {
-    // Grab everything before the dash or middle-dot
-    const dateStr = name.split(/[–·]/)[0].trim();
-    // Try parsing with current year, then next year
-    for (const y of [year, year + 1]) {
-      const d = new Date(`${dateStr} ${y}`);
-      if (isNaN(d)) continue;
-      const diff = d - now;
-      // Prefer upcoming trips (diff >= 0), then least-past
-      if (Math.abs(diff) < Math.abs(bestDiff) || (diff >= 0 && bestDiff < 0)) {
-        bestDiff = diff;
-        bestTab  = name;
-      }
-      break;
+    const d = tripStartDate(name);
+    if (!d) continue;
+    const diff = d - now;
+    // Prefer upcoming trips (diff >= 0), then least-past
+    if (Math.abs(diff) < Math.abs(bestDiff) || (diff >= 0 && bestDiff < 0)) {
+      bestDiff = diff;
+      bestTab  = name;
     }
   }
   return bestTab;
@@ -327,6 +318,7 @@ async function loadSheetTabs() {
     fields: 'sheets/properties/title',
   });
   const sheets = res.result.sheets.map(s => s.properties.title);
+  await loadTripStartDates(sheets);
   populateSheetDropdown(sheets);
 
   const defaultTab = pickDefaultTab(sheets);
@@ -444,13 +436,17 @@ function refreshSheetsTabName() {
   if (renameBtn) renameBtn.disabled = (name === currentSheetName);
 }
 
+function formatTripDates(start, end) {
+  const fmt = d => new Date(d + 'T12:00:00').toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+  return `${fmt(start)} – ${fmt(end)}`;
+}
+
 function defaultTabName() {
   const state = getAppState();
   const parts  = [];
 
   if (state.startDate && state.endDate) {
-    const fmt = d => new Date(d + 'T12:00:00').toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
-    parts.push(`${fmt(state.startDate)} – ${fmt(state.endDate)}`);
+    parts.push(formatTripDates(state.startDate, state.endDate));
   }
 
   if (Array.isArray(state.hotels) && state.hotels.length) {
@@ -464,39 +460,95 @@ function defaultTabName() {
   return parts.length ? parts.join(' · ') : 'New Trip';
 }
 
+// Full start date (with year) per tab name, read from each tab's saved startDate.
+// Tab titles carry no year, so this is what makes the sort year-aware.
+const tripStartDates = new Map();
+
 function parseSheetDate(name) {
-  // Try to extract a start date from names like "Jul 29 – Aug 1 · Yacht Club"
+  // Fallback for tabs with no saved data: month/day from the title, current year
   const m = name.match(/^([A-Za-z]+ \d+)/);
   if (!m) return null;
   const d = new Date(m[1] + ' ' + new Date().getFullYear());
   return isNaN(d) ? null : d;
 }
 
-function populateSheetDropdown(sheets) {
-  // Sort chronologically; names without a parseable date go to the end alphabetically
-  const sorted = [...sheets].sort((a, b) => {
-    const da = parseSheetDate(a), db = parseSheetDate(b);
-    if (da && db) return da - db;
+function tripStartDate(name) {
+  const iso = tripStartDates.get(name);
+  if (iso) {
+    const d = new Date(iso + 'T12:00:00');
+    if (!isNaN(d)) return d;
+  }
+  return parseSheetDate(name);
+}
+
+async function loadTripStartDates(names) {
+  tripStartDates.clear();
+  if (!names.length) return;
+  try {
+    const res = await gapi.client.sheets.spreadsheets.values.batchGet({
+      spreadsheetId: currentSpreadsheetId,
+      ranges: names.map(n => `'${n.replace(/'/g, "''")}'!A2:B2`),
+    });
+    (res.result.valueRanges || []).forEach((vr, idx) => {
+      const [k, v] = vr.values?.[0] ?? [];
+      if (k === 'startDate' && /^\d{4}-\d{2}-\d{2}$/.test(v)) tripStartDates.set(names[idx], v);
+    });
+  } catch (e) {
+    console.warn('Could not read trip start dates; sorting by title:', e.result?.error?.message || e.message);
+  }
+}
+
+function sortSheetNames(sheets) {
+  // Chronological by full start date; names without a parseable date go last, alphabetically
+  return [...sheets].sort((a, b) => {
+    const da = tripStartDate(a), db = tripStartDate(b);
+    if (da && db) return da - db || a.localeCompare(b);
     if (da) return -1;
     if (db) return 1;
     return a.localeCompare(b);
   });
+}
+
+// <option>s for the trip dropdowns, grouped under a year heading (<optgroup>) by start year.
+// Tabs with no usable date go last, ungrouped.
+function tripOptionsHtml(names) {
+  const esc = n => n.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  const opt = n => `<option value="${esc(n)}">${esc(n)}</option>`;
+  const byYear = new Map();
+  const undated = [];
+  for (const n of sortSheetNames(names)) {
+    const d = tripStartDate(n);
+    if (!d) { undated.push(n); continue; }
+    const y = d.getFullYear();
+    if (!byYear.has(y)) byYear.set(y, []);
+    byYear.get(y).push(n);
+  }
+  const groups = [...byYear].map(([y, ns]) => `<optgroup label="${y}">${ns.map(opt).join('')}</optgroup>`);
+  return groups.join('') + undated.map(opt).join('');
+}
+
+// Re-sort the trip dropdowns in place after a trip is added or renamed
+function resortTripSelects(selected) {
+  for (const selId of ['sheets-tab-select', 'header-trip-select']) {
+    const sel = document.getElementById(selId);
+    if (!sel) continue;
+    sel.innerHTML = tripOptionsHtml([...sel.options].map(o => o.value));
+    sel.value = selected;
+  }
+}
+
+function populateSheetDropdown(sheets) {
+  const sorted = sortSheetNames(sheets);
 
   // Header trip selector
   const headerSelect = document.getElementById('header-trip-select');
-  if (headerSelect) {
-    headerSelect.innerHTML = sorted.map(s =>
-      `<option value="${s.replace(/"/g, '&quot;')}">${s}</option>`
-    ).join('');
-  }
+  if (headerSelect) headerSelect.innerHTML = tripOptionsHtml(sheets);
   const headerTrips = document.getElementById('header-trips');
   if (headerTrips) headerTrips.hidden = false;
 
   // Legacy panel select (kept for compat, hidden in UI)
   const select = document.getElementById('sheets-tab-select');
-  if (select) {
-    select.innerHTML = sorted.map(s => `<option value="${s.replace(/"/g, '&quot;')}">${s}</option>`).join('');
-  }
+  if (select) select.innerHTML = tripOptionsHtml(sheets);
 
   currentSheetName = sorted[0];
   setSaveLoadEnabled(true);
@@ -540,6 +592,8 @@ async function saveToSheet() {
       range: `'${currentSheetName}'!A${clearStart}:B1000`,
     });
     clearDirty();
+    if (state.startDate) tripStartDates.set(currentSheetName, state.startDate);
+    resortTripSelects(currentSheetName);
     setSheetsStatus(`Saved to "${currentSheetName}".`);
 
     // Prompt to rename if the suggested name has changed
@@ -590,7 +644,7 @@ async function loadFromSheet() {
       range: `'${currentSheetName}'!A1:B1000`,
     });
     const rows = res.result.values || [];
-    if (rows.length < 2) { setSheetsStatus('Tab is empty — nothing to load.', true); return; }
+    if (rows.length < 2) { setSheetsStatus(`"${currentSheetName}" has no saved data yet — the planner still shows the previous trip's values. Set dates/hotels and Save to store this trip.`, true); return; }
 
     const state = {};
     for (let i = 1; i < rows.length; i++) {
@@ -652,12 +706,14 @@ async function renameCurrentTab() {
       });
 
       for (const selId of ['sheets-tab-select', 'header-trip-select']) {
-        const sel = document.getElementById(selId);
-        if (sel) {
-          const opt = [...sel.options].find(o => o.value === currentSheetName);
-          if (opt) { opt.value = newName; opt.textContent = newName; sel.value = newName; }
-        }
+        const opt = [...(document.getElementById(selId)?.options ?? [])].find(o => o.value === currentSheetName);
+        if (opt) { opt.value = newName; opt.textContent = newName; }
       }
+      if (tripStartDates.has(currentSheetName)) {
+        tripStartDates.set(newName, tripStartDates.get(currentSheetName));
+        tripStartDates.delete(currentSheetName);
+      }
+      resortTripSelects(newName);
     }
 
     currentSheetName = newName;
@@ -741,8 +797,7 @@ function ntDefaultName() {
   const resort   = resortEl?.options[resortEl.selectedIndex]?.text;
   const parts    = [];
   if (start && end) {
-    const fmt = d => new Date(d + 'T12:00:00').toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
-    parts.push(`${fmt(start)} – ${fmt(end)}`);
+    parts.push(formatTripDates(start, end));
   }
   if (resort && resort !== 'Off-site / Day Guest') {
     parts.push(resort.replace(/ Resort.*$/, '').replace(/ Hotel.*$/, '').trim());
@@ -809,9 +864,10 @@ async function createNewTab() {
         const opt = document.createElement('option');
         opt.value = newName; opt.textContent = newName;
         sel.appendChild(opt);
-        sel.value = newName;
       }
     }
+    if (startDate) tripStartDates.set(newName, startDate);
+    resortTripSelects(newName);
 
     currentSheetName = newName;
     localStorage.setItem('sheets_tab_name', newName);
@@ -829,7 +885,9 @@ async function createNewTab() {
     setTripNameDisplay(newName);
     closeTripNameEdit();
     setSaveLoadEnabled(true);
-    setSheetsStatus(`Created “${newName}”.`);
+    // Write the starter state now; otherwise the new tab stays empty until a manual
+    // Save, and switching away/reloading hits "Tab is empty — nothing to load."
+    await saveToSheet();
   } catch (e) {
     setSheetsStatus('Create failed: ' + (e.result?.error?.message || e.message), true);
   }

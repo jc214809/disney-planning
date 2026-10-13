@@ -751,7 +751,14 @@ async function load() {
   setStatus('Loading park data…');
   document.getElementById('planner').innerHTML = '';
   try {
-    const data = await loadPlannerData(start, end);
+    // Wait for events JSON so it can't lose a race with the schedule fetch
+    const [data] = await Promise.all([loadPlannerData(start, end), specialEventsReady]);
+    // Keep a column for every date in the range, even when the schedule API
+    // returned nothing, so special events (parties, etc.) still show.
+    for (const d = new Date(start + 'T12:00:00'), last = new Date(end + 'T12:00:00'); d <= last; d.setDate(d.getDate() + 1)) {
+      const key = localDate(d);
+      if (!data[key]) data[key] = {};
+    }
     renderPlanner(data);
     setStatus('');
   } catch (err) {
