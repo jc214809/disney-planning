@@ -74,7 +74,6 @@ LINEUP_EVENTS = [
 # Other sections whose text states a range with the year ("The 2026 Events Invitational will be held November 23-27")
 DATE_RANGE_EVENTS += [
     {"heading": "ESPN Events Invitational",   "name": "ESPN Events Invitational",         "park": None,               "requiresTicket": False, "priceNote": "At ESPN Wide World of Sports"},
-    {"heading": "Gay Days",                   "name": "Gay Days (not Disney-run)",        "park": None,               "requiresTicket": False, "priceNote": None},
 ]
 
 # Single dated days ("In 2027, Easter Sunday will be March 28")
@@ -89,7 +88,7 @@ SINGLE_DATE_EVENTS = [
 # still exist on the page (warn if not); dates are generated for this year and next.
 # "days": None means the whole month, with the month read from "the month of <Month>".
 # (Deliberately skipped: Christmas at MK/AK/HS, Holidays at Disney Springs, Holiday Sleigh Rides —
-# month-long décor/entertainment that only added daily clutter.)
+# month-long décor/entertainment that only added daily clutter — and Gay Days, which isn't Disney-sponsored.)
 FIXED_EVENTS = [
     {"heading": "Independence Day",        "name": "Independence Day fireworks", "park": "Magic Kingdom", "month": 7,  "days": [3, 4]},
     {"heading": "Bastille Day",            "name": "Bastille Day",              "park": "EPCOT",         "month": 7,  "days": [14]},
