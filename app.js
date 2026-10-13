@@ -1254,6 +1254,27 @@ function getAppState() {
   };
 }
 
+// A fresh trip: default dates (today + 6 days), no hotels/dining, budget zeroed.
+// Used when a trip tab has no saved data, so the previous trip's values can't leak into it.
+function blankAppState() {
+  const start = new Date();
+  const end   = new Date(start);
+  end.setDate(start.getDate() + 6);
+  const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  return {
+    startDate: ymd(start), endDate: ymd(end),
+    travelers: 1, flights: 0, flightsMode: 'person', arriveAt: '', departAt: '',
+    transport: 0, annualPass: false, ticketPerPersonPerDay: 0,
+    activeParkFilters: ['Magic Kingdom', 'EPCOT', 'Hollywood Studios', 'Animal Kingdom'],
+    hotels: [],
+    mears:  { enabled: false, under3: 0, ages3to9: 0, ages10plus: 0, ways: 2 },
+    cruise: { enabled: false, ship: '', sailDate: '', nights: 0, cabinCost: 0, portFees: 0, onboard: 0 },
+    dining: [],
+    showPremierPass: false,
+    llspRiders: [], llmpIncluded: [],
+  };
+}
+
 function applyAppState(state) {
   if (state.startDate) document.getElementById('start-date').value = state.startDate;
   if (state.endDate)   document.getElementById('end-date').value   = state.endDate;

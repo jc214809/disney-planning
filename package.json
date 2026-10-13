@@ -3,7 +3,8 @@
   "private": true,
   "description": "Dev-only tooling (screenshot verification). The app itself has no build step.",
   "scripts": {
-    "screenshot": "node scripts/screenshot.js"
+    "screenshot": "node scripts/screenshot.js",
+    "test": "node --test tests/*.test.js && python3 -B -m unittest discover -s tests"
   },
   "devDependencies": {
     "playwright": "^1.61.1"

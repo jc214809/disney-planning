@@ -13,6 +13,7 @@
 //   budget:mears            budget panel open, Transportation + Mears Connect toggled on
 //   budget:dining           budget panel open, a dining reservation row added
 //   header-budget-click     clicks the header "Budget" button (real user path)
+//   blank-trip              asserts blankAppState() fully resets a populated trip (exits 1 on mismatch)
 //   events-dec              loads Dec 22–26 2026 (holiday-crowded notes row)
 //   events-sept             loads Sep 5–9 2026 through the real Load button, prints Notes + Events rows
 //
@@ -96,6 +97,34 @@ const STATES = {
   },
   async 'header-budget-click'(page) {
     await page.click('#header-open-budget-btn');
+  },
+  async 'blank-trip'(page) {
+    const result = await page.evaluate(() => {
+      // Populate every area, then reset, as loading an empty tab does
+      applyAppState({
+        travelers: 5, flights: 900, transport: 120, annualPass: true, ticketPerPersonPerDay: 150,
+        hotels: [{ id: 1, resort: 'Yacht Club', checkIn: '2026-12-01', checkOut: '2026-12-05', ratePerNight: 500 }],
+        dining: [{ id: 1, restaurantId: 'x', date: '2026-12-02', meal: 'Dinner', adults: 2, children: 0, costPerPerson: 50, childCostPerPerson: 0 }],
+        cruise: { enabled: true, ship: 'Wish', nights: 4, cabinCost: 2000 },
+        mears: { enabled: true, under3: 1, ages3to9: 1, ages10plus: 2, ways: 1 },
+        showPremierPass: true,
+        startDate: '2030-01-01', endDate: '2030-01-05',
+      });
+      applyAppState(blankAppState());
+      const s = getAppState();
+      return {
+        travelers: s.travelers, flights: s.flights, transport: s.transport, annualPass: s.annualPass,
+        ticket: s.ticketPerPersonPerDay, hotels: s.hotels.length, dining: s.dining.length,
+        cruise: s.cruise.enabled, mears: s.mears.enabled, premier: s.showPremierPass,
+        start: s.startDate, notOldDates: s.startDate !== '2030-01-01',
+      };
+    });
+    console.log(JSON.stringify(result));
+    const ok = result.travelers === 1 && result.flights === 0 && result.transport === 0 && !result.annualPass
+      && result.ticket === 0 && result.hotels === 0 && result.dining === 0 && !result.cruise
+      && !result.mears && !result.premier && result.notOldDates;
+    if (!ok) { console.error('FAIL: blank trip did not fully reset'); process.exitCode = 1; }
+    else console.log('PASS: blank trip fully resets');
   },
   async 'events-dec'(page) {
     await loadRange(page, '2026-12-22', '2026-12-26');
