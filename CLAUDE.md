@@ -26,7 +26,8 @@ Personal WDW trip-planning web app: park hours, Lightning Lane prices, and speci
 ## Gotchas
 
 - The app fetches `events-data.json` from the `data` branch on raw.githubusercontent.com — local scraper output is NOT picked up until the workflow (or a manual push) updates that branch.
-- No test suite: verify changes by opening `index.html` and checking the browser console; scraper changes by running it locally and diffing the JSON.
+- Only the scraper has tests: `python3 -B -m unittest discover -s tests` (also run in the scrape workflow). Front-end changes: open `index.html` and check the browser console. Scraper changes: also run it against the live page and diff the JSON (macOS python.org builds can fail SSL verification locally — fetch via curl and patch `fetch_html`).
+- The scraper takes each section's year from the page text (`section_year`), not from today's date; it exits non-zero if fewer than `MIN_EVENTS` events are found, so the workflow fails (and the `data` branch keeps the last good file) when the page layout changes.
 - `config.js` must never be committed; only `config.example.js` is tracked.
 
 ## Front-end verification

@@ -346,7 +346,7 @@ Clicking any cost category in the sticky bar at the bottom opens the budget pane
 
 ### The spreadsheet
 
-One Google Sheets workbook named **"Disney Trip Planner"** lives in your Google Drive. Each trip is a separate tab (sheet) inside that workbook. Tab names are automatically generated from dates and hotel name — e.g., `Jun 28 – Jul 4 · Grand Floridian`.
+One Google Sheets workbook named **"Disney Trip Planner"** lives in your Google Drive. Each trip is a separate tab (sheet) inside that workbook. Tab names are automatically generated from dates and hotel name — e.g., `Jun 28 – Jul 4 · Grand Floridian` (no year). The trip dropdown groups trips under year headings (`<optgroup>`) and sorts by each trip's full saved start date (`startDate`, read from every tab on sign-in); tabs with no saved data fall back to the title's month/day in the current year, and names with no parseable date sort last.
 
 ### Sign-in flow
 
@@ -418,6 +418,8 @@ These events come from `events-data.json`, a file that is automatically updated 
 ---
 
 ## How the Scraper Works
+
+> **Year handling & safety:** each section's year is read from the page text ("In 2027, …" / "The 2026 …"); dates in a list that wrap past December roll into the next year. The scraper exits non-zero if fewer than 8 events are found (page layout changed), so the workflow fails and the `data` branch keeps the last good file. Parsing is covered by `tests/test_scrape_events.py`.
 
 `scrape-events.py` is a Python script that reads pricing and date information from [mousesavers.com](https://mousesavers.com) — a well-known Disney fan site that maintains up-to-date event calendars and pricing.
 
