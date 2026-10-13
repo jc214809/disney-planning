@@ -3,3 +3,6 @@ config.js
 node_modules/
 *.png
 .claude/worktrees/
+scrape-report.md
+scrape-notable.flag
+old-events-data.json

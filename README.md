@@ -485,6 +485,7 @@ This means:
 - No server needed — GitHub hosts the data for free
 - The `main` branch stays clean with only source code
 - If the scrape fails, the previous week's data is still there
+- Every run compares the new data with the previously published file and writes a change report to the run's Summary page (new/removed events, dates added/removed, price changes, and page sections the scraper doesn't handle). The comparison is on the parsed events, so reworded page text is never a "change". A GitHub issue ("Events data changed") is opened only when an event we publish is **added or removed**; unhandled page sections are listed for information but never alert on their own (add them to a scraper list or to `IGNORED_HEADINGS`)
 - A failed run sends a Pushover notification if the repo secrets `PUSHOVER_APP_TOKEN` and `PUSHOVER_USER_KEY` are set (skipped silently otherwise); GitHub's own failure email still applies
 - Both workflows run on `ubuntu-24.04` with Node-24-based actions (`checkout@v7`, `setup-python@v7`, `upload-pages-artifact@v5`, `deploy-pages@v5`); the deploy workflow also runs the tests first (`npm test` locally)
 

@@ -65,6 +65,79 @@ class Dates(unittest.TestCase):
         self.assertEqual((r["priceAdult"], r["priceChild"]), (99.0, 99.0))
 
 
+def _data(entries):
+    """entries: {(date, name): extra_fields} -> minimal events-data dict"""
+    by_date = {}
+    for (date, name), extra in entries.items():
+        by_date.setdefault(date, []).append({"name": name, "park": "EPCOT", **extra})
+    return {"byDate": by_date, "events": []}
+
+
+class Report(unittest.TestCase):
+    TODAY = __import__("datetime").datetime(2026, 10, 13)
+
+    def test_new_event_is_notable(self):
+        old = _data({("2026-11-01", "A"): {}})
+        new = _data({("2026-11-01", "A"): {}, ("2026-11-02", "B"): {}, ("2026-11-03", "B"): {}})
+        md, notable = se.diff_events(old, new, self.TODAY)
+        self.assertTrue(notable)
+        self.assertIn("**New:** B (2 dates, 2026-11-02 to 2026-11-03)", md)
+
+    def test_removed_event_is_notable(self):
+        md, notable = se.diff_events(_data({("2026-11-01", "A"): {}}), _data({("2026-11-01", "B"): {}}), self.TODAY)
+        self.assertTrue(notable)
+        self.assertIn("**No longer listed:** A", md)
+
+    def test_date_and_price_changes_reported_but_not_notable(self):
+        old = _data({("2026-11-01", "A"): {"priceAdult": 100}, ("2026-11-02", "A"): {}})
+        new = _data({("2026-11-01", "A"): {"priceAdult": 120}, ("2026-11-03", "A"): {}})
+        md, notable = se.diff_events(old, new, self.TODAY)
+        self.assertFalse(notable)
+        self.assertIn("1 dates added", md)
+        self.assertIn("1 dates removed", md)
+        self.assertIn("1 dates changed", md)
+
+    def test_no_changes(self):
+        d = _data({("2026-11-01", "A"): {}})
+        md, notable = se.diff_events(d, d, self.TODAY)
+        self.assertEqual((md, notable), ("", False))
+
+    def test_ageing_out_is_not_a_change(self):
+        # Old file still has a date that has since fallen out of the 60-day window
+        old = _data({("2026-06-01", "Gone"): {}, ("2026-11-01", "A"): {}})
+        new = _data({("2026-11-01", "A"): {}})
+        self.assertEqual(se.diff_events(old, new, self.TODAY), ("", False))
+
+    def test_unrecognized_headings(self):
+        heads = ["Epcot International Food and Wine Festival", "Valentine\u2019s Day", "Eat to the Beat Dining Package",
+                 "Star Wars Galactic Nights", "Mother\u2019s Day"]
+        self.assertEqual(se.unrecognized_headings(heads), ["Star Wars Galactic Nights"])
+
+    def test_new_page_section_is_listed_but_never_alerts(self):
+        # Text/heading changes on the page alone must not trigger an alert
+        d = _data({("2026-11-01", "A"): {}})
+        md, notable = se.build_report(d, d, ["Star Wars Galactic Nights"], self.TODAY)
+        self.assertFalse(notable)
+        self.assertIn("Star Wars Galactic Nights", md)
+
+    def test_report_without_baseline_is_not_notable(self):
+        d = _data({("2026-11-01", "A"): {}})
+        md, notable = se.build_report(None, d, [], self.TODAY)
+        self.assertFalse(notable)
+        self.assertIn("No previous published data", md)
+
+    def test_report_new_event_is_notable(self):
+        old = _data({("2026-11-01", "A"): {}})
+        new = _data({("2026-11-01", "A"): {}, ("2026-11-02", "B"): {}})
+        self.assertTrue(se.build_report(old, new, [], self.TODAY)[1])
+
+    def test_report_unchanged_data(self):
+        d = _data({("2026-11-01", "A"): {}})
+        md, notable = se.build_report(d, d, [], self.TODAY)
+        self.assertFalse(notable)
+        self.assertIn("No changes since the last scrape.", md)
+
+
 class Prune(unittest.TestCase):
     def _data(self):
         return {

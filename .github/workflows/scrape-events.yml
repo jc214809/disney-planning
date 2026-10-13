@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write   # open an issue when events are added/removed
 
 concurrency:
   group: scrape-events
@@ -29,9 +30,13 @@ jobs:
       - name: Test scraper parsing
         run: python3 -B -m unittest discover -s tests
 
+      - name: Save previously published data (for the change report)
+        run: git show origin/data:events-data.json > old-events-data.json || echo "No previous data branch yet"
+
       - name: Run scraper
         env:
           EVENT_URL: ${{ vars.EVENT_URL }}
+          OLD_EVENTS: old-events-data.json
         run: python3 scrape-events.py
 
       - name: Push data to orphan branch
@@ -45,6 +50,19 @@ jobs:
           git push origin data-tmp:data --force
           git checkout -f main
           git branch -D data-tmp
+
+      - name: Change report in run summary
+        if: always() && hashFiles('scrape-report.md') != ''
+        run: cat scrape-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      # GitHub emails you about new issues (if your notification settings allow). Only fires when an
+      # event we publish is added or removed, never for reworded page text.
+      - name: Open issue when events are added or removed
+        if: hashFiles('scrape-notable.flag') != ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Events data changed ($(date -u +%F))" --body-file scrape-report.md
 
       # Optional: needs repo secrets PUSHOVER_APP_TOKEN and PUSHOVER_USER_KEY; silently skipped if unset.
       - name: Notify on failure (Pushover)

@@ -332,6 +332,89 @@ def parse_price_line(line, year=None):
     return {"priceAdult": price_adult, "priceChild": price_child, "dates": dates} if dates else None
 
 
+# Page sections we've decided NOT to scrape (substring match, apostrophes ignored). Anything else on
+# the page that no list above recognises is reported as "new on the page" after each scrape.
+IGNORED_HEADINGS = [
+    "walt disney world special events",  # page title
+    "overview", "dining package", "valentines day", "chinese new year",
+    "christmas at magic kingdom", "christmas at animal kingdom", "christmas at hollywood studios",
+    "holidays at disney springs", "holiday sleigh rides", "gay days",
+]
+
+
+def _norm(text):
+    return re.sub(r"[\u2019']", "", text.lower())
+
+
+def unrecognized_headings(headings):
+    """Headings that no scraper list handles and that aren't deliberately ignored."""
+    known = [_norm(h) for h in (
+        [m["heading"] for m in PER_DATE_EVENTS.values()]
+        + [e["heading"] for e in DATE_RANGE_EVENTS + SINGLE_DATE_EVENTS + FIXED_EVENTS + LINEUP_EVENTS]
+        + IGNORED_HEADINGS
+    )]
+    return [h for h in headings if not any(k in _norm(h) for k in known)]
+
+
+def diff_events(old, new, today=None):
+    """Compare two events-data dicts. Returns (markdown, notable); notable = new/removed events
+    (worth an issue). Dates older than the prune cutoff are ignored so ageing out isn't a 'change'."""
+    import copy
+    old = prune_past(copy.deepcopy(old), today)
+    new = prune_past(copy.deepcopy(new), today)
+
+    def index(d):
+        return {(date, e["name"]): e for date, evs in d["byDate"].items() for e in evs}
+
+    o, n = index(old), index(new)
+    old_names = {k[1] for k in o}
+    new_names = {k[1] for k in n}
+    lines = []
+
+    added = sorted(new_names - old_names)
+    removed = sorted(old_names - new_names)
+    for name in added:
+        ds = sorted(k[0] for k in n if k[1] == name)
+        lines.append(f"- **New:** {name} ({len(ds)} dates, {ds[0]} to {ds[-1]})")
+    for name in removed:
+        ds = sorted(k[0] for k in o if k[1] == name)
+        lines.append(f"- **No longer listed:** {name} (was {len(ds)} dates, {ds[0]} to {ds[-1]})")
+
+    for name in sorted(old_names & new_names):
+        plus  = sorted(k[0] for k in n if k[1] == name and k not in o)
+        minus = sorted(k[0] for k in o if k[1] == name and k not in n)
+        changed = sorted(k[0] for k in n if k[1] == name and k in o and n[k] != o[k])
+        parts = []
+        if plus:    parts.append(f"{len(plus)} dates added ({plus[0]} to {plus[-1]})")
+        if minus:   parts.append(f"{len(minus)} dates removed ({minus[0]} to {minus[-1]})")
+        if changed: parts.append(f"{len(changed)} dates changed price/details ({changed[0]} to {changed[-1]})")
+        if parts:
+            lines.append(f"- {name}: " + "; ".join(parts))
+
+    return "\n".join(lines), bool(added or removed)
+
+
+def build_report(old, new, unknown, today=None):
+    """Markdown change report + whether it's worth an alert.
+
+    Alert-worthy ("notable") only when an event we actually publish is added or removed — the diff is
+    on the parsed data, so reworded page text can't trigger it. Unrecognised page sections are listed
+    for information but never trigger an alert on their own."""
+    stamp = (today or datetime.today()).strftime("%Y-%m-%d")
+    out = [f"## Events data changes ({stamp})", ""]
+    notable = False
+    if old is None:
+        out.append("No previous published data to compare against.")
+    else:
+        body, notable = diff_events(old, new, today)
+        out.append(body or "No changes since the last scrape.")
+    if unknown:
+        out += ["", "### FYI: sections on the page the scraper doesn't handle (no alert)", ""]
+        out += [f"- {h}" for h in unknown]
+        out += ["", "Add them to the scraper, or to `IGNORED_HEADINGS` if they don't belong on the calendar."]
+    return "\n".join(out) + "\n", notable
+
+
 def get_sections(html):
     """Return dict of heading_text -> body_text for all h2/h3 sections."""
     sections = {}
@@ -554,21 +637,44 @@ def scrape():
         })
         print(f"  {ev['series']}: {len(event_dates)} nights ({event_dates[0]['date']} – {event_dates[-1]['date']})", file=sys.stderr)
 
+    unknown = unrecognized_headings(list(sections))
+    for h in unknown:
+        warn(f"unrecognised section on page: '{h}'")
+
     output = {
         "scrapedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "source": URL,
         "byDate": events_by_date,
         "events": raw_events,
     }
+    output["_unrecognized"] = unknown  # popped by main(); not published
     return output
 
 
 if __name__ == "__main__":
     data = scrape()
+    unknown = data.pop("_unrecognized", [])
     if len(data["events"]) < MIN_EVENTS:
         # Fail before writing so the workflow stops and the last good data branch stays published
         sys.exit(f"ERROR: only {len(data['events'])} events scraped (< {MIN_EVENTS}); page layout likely changed")
     data = prune_past(data)
+
+    # Compare with the previously published file (OLD_EVENTS=path) and write a report for the workflow
+    old = None
+    old_path = os.environ.get("OLD_EVENTS")
+    if old_path and os.path.exists(old_path):
+        try:
+            with open(old_path) as f:
+                old = json.load(f)
+        except (OSError, ValueError) as e:
+            warn(f"could not read previous data at {old_path}: {e}")
+    report, notable = build_report(old, data, unknown)
+    with open("scrape-report.md", "w") as f:
+        f.write(report)
+    if notable:
+        open("scrape-notable.flag", "w").close()
+    print(report, file=sys.stderr)
+
     with open("events-data.json", "w") as f:
         json.dump(data, f, indent=2)
     total_dates = sum(len(e["dates"]) for e in data["events"])
